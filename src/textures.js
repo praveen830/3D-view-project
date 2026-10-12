@@ -401,10 +401,14 @@ export function createPlutoTexture() {
 // -------------------------------------------------------------
 
 export function createMoonTexture(moonId) {
-  if (moonId === 'luna' || moonId === 'moon') {
-    return loadPlanetTexture('moon.jpg', () => createProceduralMoonCanvas('luna'));
-  }
-  return createProceduralMoonCanvas(moonId);
+  const cleanId = String(moonId || 'luna').toLowerCase();
+  const fileKey = cleanId === 'moon' ? 'luna' : cleanId;
+  return loadPlanetTexture(`moon_${fileKey}.png`, () => {
+    if (cleanId === 'luna' || cleanId === 'moon') {
+      return loadPlanetTexture('moon.jpg', () => createProceduralMoonCanvas('luna'));
+    }
+    return createProceduralMoonCanvas(cleanId);
+  });
 }
 
 function createProceduralMoonCanvas(moonId) {
@@ -416,42 +420,114 @@ function createProceduralMoonCanvas(moonId) {
   const imgData = ctx.createImageData(512, 256);
   const d = imgData.data;
 
+  const id = String(moonId || 'luna').toLowerCase();
+
   for (let y = 0; y < 256; y++) {
+    const lat = 1.0 - (y / 255) * 2.0; // 1 to -1
     for (let x = 0; x < 512; x++) {
+      const lon = (x / 511) * 2.0 - 1.0; // -1 to 1
       const idx = (y * 512 + x) * 4;
       const n = fractalNoise(x * 0.03, y * 0.03, 5, 42);
 
       let r = 180, g = 180, b = 180;
 
-      if (moonId === 'luna' || moonId === 'moon') {
+      if (id === 'luna' || id === 'moon') {
         const maria = fractalNoise(x * 0.015, y * 0.015, 3, 19);
-        const val = maria > 0.54 ? Math.floor(80 + n * 35) : Math.floor(175 + n * 65);
-        r = val; g = Math.floor(val * 0.98); b = Math.floor(val * 0.96);
-      } else if (moonId === 'io') {
+        const val = maria > 0.52 ? Math.floor(75 + n * 35) : Math.floor(180 + n * 65);
+        r = Math.floor(val * 0.94); g = Math.floor(val * 0.97); b = val;
+      } else if (id === 'phobos') {
+        const val = Math.floor(100 + n * 45);
+        r = Math.min(255, val + 15); g = Math.floor(val * 0.86); b = Math.floor(val * 0.72);
+      } else if (id === 'deimos') {
+        const val = Math.floor(105 + n * 38);
+        r = Math.min(255, val + 18); g = Math.floor(val * 0.84); b = Math.floor(val * 0.70);
+      } else if (id === 'io') {
         const calderas = smoothNoise(x * 0.08, y * 0.08, 93);
-        r = Math.floor(235 + n * 20);
-        g = Math.floor(175 + n * 30);
-        b = Math.floor(25 + n * 20);
-        if (calderas > 0.8) {
-          r = 180; g = 30; b = 15;
+        if (calderas > 0.78) {
+          r = 28; g = 26; b = 28; // black silicate hotspot
+        } else if (calderas > 0.65) {
+          r = 225; g = 45; b = 20; // molten crimson caldera ring
+        } else {
+          r = Math.floor(240 + n * 15);
+          g = Math.floor(190 + n * 35);
+          b = Math.floor(35 + n * 20); // vivid sulfur yellow
         }
-      } else if (moonId === 'europa') {
+      } else if (id === 'europa') {
         const fracture = Math.sin(x * 0.06 + y * 0.04) * fractalNoise(x * 0.04, y * 0.04, 3, 7);
-        if (Math.abs(fracture) > 0.45) {
-          r = 190; g = 120; b = 90;
+        if (Math.abs(fracture) > 0.40) {
+          r = 175; g = 60; b = 40; // reddish-brown cycloidal lineae
         } else {
-          r = 235; g = 240; b = 248;
+          r = 236 + Math.floor(n * 16);
+          g = 244 + Math.floor(n * 10);
+          b = 255; // dazzling icy white/cyan
         }
-      } else if (moonId === 'titan') {
-        r = Math.floor(225 + n * 25);
-        g = Math.floor(155 + n * 25);
-        b = Math.floor(40 + n * 20);
-      } else if (moonId === 'enceladus') {
-        const stripe = Math.sin(x * 0.08) * fractalNoise(x * 0.03, y * 0.03, 3, 6);
-        if (Math.abs(stripe) > 0.42 && y > 180) {
-          r = 140; g = 190; b = 255;
+      } else if (id === 'ganymede') {
+        const darkPlateau = fractalNoise(x * 0.018, y * 0.018, 3, 19) > 0.48;
+        if (darkPlateau) {
+          const v = Math.floor(82 + n * 35);
+          r = v + 12; g = v + 4; b = v - 6; // ancient chocolate cratered terrain
         } else {
-          r = 250; g = 252; b = 255;
+          const v = Math.floor(180 + n * 45);
+          r = Math.floor(v * 0.95); g = Math.floor(v * 0.98); b = Math.min(255, v + 8); // bright icy grooved terrain
+        }
+      } else if (id === 'callisto') {
+        const frostPeak = fractalNoise(x * 0.06, y * 0.06, 3, 81) > 0.74;
+        if (frostPeak) {
+          r = 238; g = 242; b = 250; // white impact crater rim
+        } else {
+          const v = Math.floor(68 + n * 38);
+          r = v + 8; g = v + 2; b = v - 5; // dark charcoal-amber bedrock
+        }
+      } else if (id === 'titan') {
+        const isNorthPole = lat > 0.72;
+        const lakeNoise = fractalNoise(x * 0.05, y * 0.05, 3, 99);
+        if (isNorthPole && lakeNoise > 0.68) {
+          r = 38; g = 52; b = 70; // methane hydrocarbon lake
+        } else {
+          r = Math.floor(235 + n * 20);
+          g = Math.floor(155 + n * 25);
+          b = Math.floor(38 + n * 18); // golden-amber atmospheric haze
+        }
+      } else if (id === 'enceladus') {
+        const isSouthPole = lat < -0.65;
+        const tigerStripe = Math.sin(x * 0.1) * fractalNoise(x * 0.04, y * 0.04, 3, 6);
+        if (isSouthPole && Math.abs(tigerStripe) > 0.38) {
+          r = 45; g = 185; b = 255; // electric-cyan tiger stripes
+        } else {
+          r = 252; g = 254; b = 255; // gleaming 99% albedo ice
+        }
+      } else if (id === 'titania') {
+        const chasma = Math.abs(Math.sin(x * 0.04 + y * 0.05 + n * 2));
+        if (chasma < 0.12) {
+          r = 190; g = 198; b = 212; // pale icy rift scarp
+        } else {
+          const v = Math.floor(120 + n * 40);
+          r = Math.floor(v * 0.95); g = Math.floor(v * 0.98); b = Math.floor(v * 1.08); // slate violet-gray
+        }
+      } else if (id === 'miranda') {
+        const chevron = Math.abs(Math.sin(Math.abs(lon * 8) - Math.abs(lat * 8)));
+        if (chevron < 0.14) {
+          r = 230; g = 238; b = 250; // exposed ice cliff
+        } else {
+          const v = Math.floor(90 + n * 48);
+          r = v; g = v + 4; b = v + 8; // dark graphite regolith
+        }
+      } else if (id === 'triton') {
+        const isSouthPole = lat < -0.3;
+        if (isSouthPole) {
+          const v = Math.floor(235 + n * 20);
+          r = v; g = Math.floor(v * 0.78); b = Math.floor(v * 0.86); // pastel pink nitrogen ice
+        } else {
+          const v = Math.floor(190 + n * 35);
+          r = Math.floor(v * 0.82); g = Math.floor(v * 0.96); b = v; // turquoise-blue frost
+        }
+      } else if (id === 'charon') {
+        const isNorthPole = lat > 0.65;
+        if (isNorthPole) {
+          r = Math.floor(180 + n * 35); g = Math.floor(r * 0.42); b = Math.floor(r * 0.32); // Mordor Macula red tholin
+        } else {
+          const v = Math.floor(145 + n * 40);
+          r = v; g = Math.floor(v * 1.02); b = Math.floor(v * 1.08); // silvery gray water ice
         }
       } else {
         const val = Math.floor(140 + n * 60);

@@ -957,13 +957,14 @@ class MilkyWayExplorer {
           const mRadius = Math.max(0.35, Math.min(1.2, planetRadius * 0.22));
           const moonGeo = new THREE.SphereGeometry(mRadius, 32, 32);
           const moonTex = textures.createMoonTexture(moon.id);
-          const isLuna = moon.id === 'luna' || moon.id === 'moon';
+          const isIceMoon = ['europa', 'enceladus'].includes(moon.id);
+          const isTitan = moon.id === 'titan';
           const moonMat = new THREE.MeshStandardMaterial({
             map: moonTex,
-            bumpMap: isLuna ? moonTex : null,
+            bumpMap: isTitan ? null : moonTex,
             bumpScale: 0.05,
-            roughness: 0.82,
-            metalness: 0.04
+            roughness: isIceMoon ? 0.32 : (isTitan ? 0.92 : 0.82),
+            metalness: isIceMoon ? 0.08 : 0.04
           });
           const moonMesh = new THREE.Mesh(moonGeo, moonMat);
 
@@ -1127,8 +1128,8 @@ class MilkyWayExplorer {
 
     this.activeCamTween = gsap.to(trans, {
       progress: 1.0,
-      duration: 1.8,
-      ease: 'power2.inOut',
+      duration: 0.75,
+      ease: 'power2.out',
       onUpdate: () => {
         const livePos = new THREE.Vector3();
         craftMesh.getWorldPosition(livePos);
@@ -1252,8 +1253,8 @@ class MilkyWayExplorer {
 
     this.activeCamTween = gsap.to(trans, {
       progress: 1.0,
-      duration: 1.8,
-      ease: 'power2.inOut',
+      duration: 0.75,
+      ease: 'power2.out',
       onUpdate: () => {
         const livePos = new THREE.Vector3();
         planetMesh.getWorldPosition(livePos);
@@ -1297,6 +1298,7 @@ class MilkyWayExplorer {
 
     this.controls.minDistance = Math.max(0.6, mR * 1.35);
     this.controls.maxDistance = Math.max(40, mR * 30);
+    this.controls.autoRotate = false;
     this.controls.enableDamping = true;
     this.controls.dampingFactor = 0.055;
 
@@ -1312,8 +1314,8 @@ class MilkyWayExplorer {
 
     this.activeCamTween = gsap.to(trans, {
       progress: 1.0,
-      duration: 1.6,
-      ease: 'power2.inOut',
+      duration: 0.70,
+      ease: 'power2.out',
       onUpdate: () => {
         const livePos = new THREE.Vector3();
         moonMesh.getWorldPosition(livePos);
@@ -1371,8 +1373,8 @@ class MilkyWayExplorer {
 
     this.activeCamTween = gsap.to(trans, {
       progress: 1.0,
-      duration: 1.8,
-      ease: 'power2.inOut',
+      duration: 0.75,
+      ease: 'power2.out',
       onUpdate: () => {
         const livePos = new THREE.Vector3();
         starMesh.getWorldPosition(livePos);
@@ -1434,8 +1436,8 @@ class MilkyWayExplorer {
       x: 0,
       y: 1600,
       z: 2200,
-      duration: 2.2,
-      ease: 'power2.inOut',
+      duration: 0.90,
+      ease: 'power2.out',
       onComplete: () => {
         this.isTransitioning = false;
         this.controls.enabled = true;
@@ -1448,8 +1450,8 @@ class MilkyWayExplorer {
       x: 0,
       y: 0,
       z: 0,
-      duration: 2.2,
-      ease: 'power2.inOut'
+      duration: 0.90,
+      ease: 'power2.out'
     });
 
     this.updateBreadcrumbs();
@@ -1481,8 +1483,8 @@ class MilkyWayExplorer {
       x: targetCamPos.x,
       y: targetCamPos.y,
       z: targetCamPos.z,
-      duration: 2.2,
-      ease: 'power2.inOut',
+      duration: 0.85,
+      ease: 'power2.out',
       onComplete: () => {
         this.isTransitioning = false;
         this.controls.enabled = true;
@@ -1495,8 +1497,8 @@ class MilkyWayExplorer {
       x: sysPos.x,
       y: sysPos.y,
       z: sysPos.z,
-      duration: 2.2,
-      ease: 'power2.inOut'
+      duration: 0.85,
+      ease: 'power2.out'
     });
 
     if (typeof this.highlightActiveNav === 'function') this.highlightActiveNav('system', systemData.id);
@@ -1848,6 +1850,28 @@ class MilkyWayExplorer {
     this.showDetailsPanel(galaxyData, 'galaxy');
   }
 
+  getMoonImagePath(id) {
+    const cleanId = String(id || '').toLowerCase().trim();
+    const moonIdMap = {
+      moon: 'luna',
+      luna: 'luna',
+      phobos: 'phobos',
+      deimos: 'deimos',
+      io: 'io',
+      europa: 'europa',
+      ganymede: 'ganymede',
+      callisto: 'callisto',
+      titan: 'titan',
+      enceladus: 'enceladus',
+      titania: 'titania',
+      miranda: 'miranda',
+      triton: 'triton',
+      charon: 'charon'
+    };
+    const key = moonIdMap[cleanId] || cleanId;
+    return `/images/moons/${key}.png`;
+  }
+
   showDetailsPanel(data, type) {
     const panel = document.getElementById('details-panel');
     if (!panel) return;
@@ -1868,8 +1892,6 @@ class MilkyWayExplorer {
         mercury: '/images/mercury.jpg',
         venus: '/images/venus.jpg',
         earth: '/images/earth.jpg',
-        moon: '/images/moon.jpg',
-        luna: '/images/moon.jpg',
         mars: '/images/mars.jpg',
         jupiter: '/images/jupiter.jpg',
         saturn: '/images/saturn.jpg',
@@ -1888,10 +1910,29 @@ class MilkyWayExplorer {
       } else if (type === 'planet') {
         heroImgEl.src = (data && realPhotoMap[data.id]) ? realPhotoMap[data.id] : '/dashboard-galaxy.jpg';
       } else if (type === 'moon') {
-        heroImgEl.src = (data && realPhotoMap[data.id]) ? realPhotoMap[data.id] : '/images/moon.jpg';
+        heroImgEl.src = this.getMoonImagePath(data?.id);
       } else {
         heroImgEl.src = '/dashboard-galaxy.jpg';
       }
+
+      heroImgEl.style.cursor = 'pointer';
+      heroImgEl.title = 'Click image to fly into 3D view 🚀';
+      heroImgEl.onclick = () => {
+        if (type === 'galaxy') {
+          this.flyToGalaxyView();
+        } else if (type === 'system') {
+          this.flyToStarSystem(data);
+        } else if (type === 'planet') {
+          const pMesh = this.planetMeshes.find(m => m.userData?.planetData?.id === data.id);
+          if (pMesh) this.focusOnPlanet(pMesh);
+        } else if (type === 'moon') {
+          const mMesh = this.moonMeshes.find(m => m.userData?.moonData?.id === data.id);
+          if (mMesh) this.focusOnMoon(mMesh);
+        } else if (type === 'spacecraft') {
+          const scMesh = this.spacecraftMeshes?.find(m => m.userData?.craftData?.id === data.id);
+          if (scMesh) this.focusOnSpacecraft(scMesh);
+        }
+      };
     }
 
     panel.classList.add('active');
@@ -2039,7 +2080,10 @@ class MilkyWayExplorer {
             card.className = 'moon-card-item';
             card.innerHTML = `
               <div class="moon-card-header">
-                <span class="moon-card-name">🌑 ${mName}</span>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <img src="${this.getMoonImagePath(m.id)}" alt="${mName}" class="moon-card-thumb" onerror="this.src='/images/moon.jpg'">
+                  <span class="moon-card-name">${mName}</span>
+                </div>
                 <span class="moon-card-radius">${m.radiusKm} km</span>
               </div>
               <p class="moon-card-fact">${m.funFacts ? (m.funFacts[lang] ? m.funFacts[lang][0] : m.funFacts.en[0]) : ''}</p>
@@ -2988,15 +3032,16 @@ class MilkyWayExplorer {
       });
     });
 
-    // Section 1: Galaxy Overview button
+    // Section 1: Galaxy Overview button & interactive image
     const btnFlyGalaxy = document.getElementById('btn-lnav-fly-galaxy');
-    if (btnFlyGalaxy) {
-      btnFlyGalaxy.addEventListener('click', () => {
-        this.toggleLeftNav(false);
-        this.flyToGalaxyView();
-        this.highlightActiveNav('galaxy');
-      });
-    }
+    const secGalaxyRow = document.querySelector('#sec-galaxy .lnav-card-thumb-row');
+    const triggerGalaxyNav = () => {
+      this.toggleLeftNav(false);
+      this.flyToGalaxyView();
+      this.highlightActiveNav('galaxy');
+    };
+    if (btnFlyGalaxy) btnFlyGalaxy.addEventListener('click', triggerGalaxyNav);
+    if (secGalaxyRow) secGalaxyRow.addEventListener('click', triggerGalaxyNav);
 
     // Section 2: Star Systems list (101 Cataloged)
     const systemsListContainer = document.getElementById('lnav-systems-list');
@@ -3023,15 +3068,16 @@ class MilkyWayExplorer {
       });
     }
 
-    // Section 3: Solar System button
+    // Section 3: Solar System button & interactive image
     const btnFlySolar = document.getElementById('btn-lnav-fly-solar');
-    if (btnFlySolar) {
-      btnFlySolar.addEventListener('click', () => {
-        this.toggleLeftNav(false);
-        this.flyToStarSystem(solarSystemData.system);
-        this.highlightActiveNav('system', 'solar-system');
-      });
-    }
+    const secSolarRow = document.querySelector('#sec-solar .lnav-card-thumb-row');
+    const triggerSolarNav = () => {
+      this.toggleLeftNav(false);
+      this.flyToStarSystem(solarSystemData.system);
+      this.highlightActiveNav('system', 'solar-system');
+    };
+    if (btnFlySolar) btnFlySolar.addEventListener('click', triggerSolarNav);
+    if (secSolarRow) secSolarRow.addEventListener('click', triggerSolarNav);
 
     // Section 4: Stars list
     const starsListContainer = document.getElementById('lnav-stars-list');
@@ -3071,7 +3117,7 @@ class MilkyWayExplorer {
       });
     }
 
-    // Section 5: Planets Grid (9 Worlds)
+    // Section 5: Planets Grid (9 Worlds) with interactive image click and explicit navigation option
     const planetsGrid = document.getElementById('lnav-planets-grid');
     if (planetsGrid) {
       planetsGrid.innerHTML = '';
@@ -3087,6 +3133,7 @@ class MilkyWayExplorer {
         card.innerHTML = `
           <div class="lnav-planet-thumb-wrap">
             <img src="/images/${p.id}.jpg" alt="${pName}" class="lnav-planet-thumb" loading="lazy">
+            <div class="lnav-card-hover-overlay"><span>🔭 3D View</span></div>
           </div>
           <div class="lnav-planet-name">
             <span>${pName}</span>
@@ -3095,6 +3142,9 @@ class MilkyWayExplorer {
             <span>${distAu}</span>
             <span>${periodDays}</span>
           </div>
+          <button class="lnav-card-nav-btn" type="button">
+            <span>🚀</span> Fly 3D
+          </button>
         `;
         card.addEventListener('click', () => {
           this.toggleLeftNav(false);
@@ -3105,7 +3155,7 @@ class MilkyWayExplorer {
       });
     }
 
-    // Section 6: Moons List (13 Natural Satellites)
+    // Section 6: Moons List (13 Natural Satellites) with interactive image click and explicit navigation option
     const moonsListContainer = document.getElementById('lnav-moons-list');
     if (moonsListContainer) {
       moonsListContainer.innerHTML = '';
@@ -3125,13 +3175,18 @@ class MilkyWayExplorer {
         const mName = typeof m.name === 'object' ? (m.name[i18n.lang] || m.name.en) : m.name;
         item.innerHTML = `
           <div style="display:flex; align-items:center;">
-            <img src="/images/moon.jpg" alt="${mName}" class="lnav-moon-thumb">
+            <div class="lnav-moon-thumb-wrap">
+              <img src="${this.getMoonImagePath(m.id)}" alt="${mName}" class="lnav-moon-thumb" onerror="this.src='/images/moon.jpg'">
+            </div>
             <div>
               <strong>${mName}</strong>
               <div class="lnav-item-sub">Moon of ${m.parentName}</div>
             </div>
           </div>
-          <span class="lnav-item-badge">${m.orbitalPeriodDays}d</span>
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span class="lnav-item-badge">${m.orbitalPeriodDays}d</span>
+            <button class="lnav-moon-nav-btn" type="button" title="Fly to ${mName} in 3D">🚀</button>
+          </div>
         `;
         item.addEventListener('click', () => {
           this.toggleLeftNav(false);
@@ -3324,25 +3379,46 @@ class MilkyWayExplorer {
   }
 
   highlightActiveNav(type, id) {
-    document.querySelectorAll('.lnav-sys-item, .lnav-star-item, .lnav-planet-card, .lnav-moon-item, .lnav-sat-item').forEach(el => {
+    document.querySelectorAll('.lnav-sys-item, .lnav-star-item, .lnav-planet-card, .lnav-moon-item, .lnav-sat-item, #sec-galaxy, #sec-solar').forEach(el => {
       el.classList.remove('active');
     });
 
-    if (type === 'planet' && id) {
+    if (type === 'galaxy') {
+      const gSec = document.getElementById('sec-galaxy');
+      if (gSec) gSec.classList.add('active');
+    } else if (type === 'solar' || (type === 'system' && (id === 'solar-system' || id === 'solarsystem' || id === 'solar'))) {
+      const sSec = document.getElementById('sec-solar');
+      if (sSec) sSec.classList.add('active');
+    } else if (type === 'planet' && id) {
       const card = document.querySelector(`.lnav-planet-card[data-planet-id="${id}"]`);
-      if (card) card.classList.add('active');
+      if (card) {
+        card.classList.add('active');
+        if (typeof card.scrollIntoView === 'function') card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
     } else if (type === 'moon' && id) {
       const item = document.querySelector(`.lnav-moon-item[data-moon-id="${id}"]`);
-      if (item) item.classList.add('active');
+      if (item) {
+        item.classList.add('active');
+        if (typeof item.scrollIntoView === 'function') item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
     } else if (type === 'spacecraft' && id) {
       const item = document.querySelector(`.lnav-sat-item[data-craft-id="${id}"]`);
-      if (item) item.classList.add('active');
+      if (item) {
+        item.classList.add('active');
+        if (typeof item.scrollIntoView === 'function') item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
     } else if (type === 'star' && id) {
       const item = document.querySelector(`.lnav-star-item[data-star-id="${id}"]`);
-      if (item) item.classList.add('active');
+      if (item) {
+        item.classList.add('active');
+        if (typeof item.scrollIntoView === 'function') item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
     } else if (type === 'system' && id) {
       const item = document.querySelector(`.lnav-sys-item[data-sys-id="${id}"]`);
-      if (item) item.classList.add('active');
+      if (item) {
+        item.classList.add('active');
+        if (typeof item.scrollIntoView === 'function') item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
     }
   }
 
@@ -3438,8 +3514,26 @@ class MilkyWayExplorer {
 
     const cleanId = String(id || '').trim().toLowerCase();
 
+    // Direct routing for Solar System and Milky Way Galaxy
+    if (cleanId === 'solar-system' || cleanId === 'solarsystem' || cleanId === 'solar') {
+      this.flyToStarSystem(solarSystemData.system);
+      this.highlightActiveNav('system', 'solar-system');
+      return;
+    }
+    if (cleanId === 'galaxy' || cleanId === 'milkyway' || cleanId === 'milky-way') {
+      this.flyToGalaxyView();
+      this.highlightActiveNav('galaxy');
+      return;
+    }
+
     if (!this.currentSystem || !this.currentSystem.isSolarSystem) {
       this.loadStarSystem(solarSystemData.system);
+      // Place camera in system proximity if coming from distant galaxy view for snappy flight
+      if (this.camera.position.length() > 1200) {
+        const sysPos = this.systemGroup.position;
+        this.camera.position.set(sysPos.x + 120, sysPos.y + 140, sysPos.z + 240);
+        this.controls.target.copy(sysPos);
+      }
     }
     this.scene.updateMatrixWorld(true);
 
@@ -3688,7 +3782,11 @@ class MilkyWayExplorer {
         const rotHours = u.rotationPeriodHours || 24;
         const rotDir = rotHours < 0 ? -1 : 1;
         const rotAngle = rotDir * (2 * Math.PI * (this.simulatedDays * 24 / Math.abs(rotHours)));
-        mesh.rotation.y = rotAngle;
+        u.idleSpin = (u.idleSpin || 0);
+        if (this.clock.isPaused) {
+          u.idleSpin += rotDir * 0.0012;
+        }
+        mesh.rotation.y = rotAngle + u.idleSpin;
       });
 
       if (this.earthCloudsMesh) {
@@ -3726,8 +3824,21 @@ class MilkyWayExplorer {
           );
         }
 
-        // Synchronous tidal locking (lunar hemisphere locked to parent world)
-        mMesh.rotation.y = mAngle;
+        // Active, buttery-smooth axial rotation & synchronous tidal locking
+        // When focused on this moon, provide a majestic continuous inspection spin
+        mU.axialSpin = (mU.axialSpin || 0);
+        const isCurrentFocusedMoon = (this.viewMode === 'moon' && this.currentMoon && this.currentMoon.id === mU.moonData?.id);
+
+        if (isCurrentFocusedMoon) {
+          // Buttery inspection spin so user can clearly see the colorful surface features rotating
+          mU.axialSpin += 0.0035;
+        } else if (this.clock.isPaused) {
+          // Subtle ambient motion even when simulation is paused
+          mU.axialSpin += 0.0008;
+        }
+
+        // Exact physical orbit-locked spin + buttery inspection spin
+        mMesh.rotation.y = mAngle + mU.axialSpin;
       });
     }
 

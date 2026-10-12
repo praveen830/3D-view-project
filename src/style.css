@@ -861,6 +861,13 @@ canvas {
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.55);
   flex-shrink: 0;
   margin-bottom: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.detail-hero-banner:hover {
+  border-color: #38bdf8;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.45);
 }
 
 .detail-hero-img {
@@ -1078,6 +1085,16 @@ canvas {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.moon-card-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  flex-shrink: 0;
 }
 
 .moon-card-name {
@@ -2241,6 +2258,14 @@ canvas {
   display: flex;
   gap: 10px;
   align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 4px;
+  transition: all 0.2s ease;
+}
+
+.lnav-card-thumb-row:hover {
+  background: rgba(56, 189, 248, 0.10);
 }
 
 .lnav-thumb-img {
@@ -2250,6 +2275,15 @@ canvas {
   object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.15);
   flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.lnav-thumb-img:hover,
+.lnav-card-thumb-row:hover .lnav-thumb-img {
+  transform: scale(1.08);
+  border-color: #38bdf8;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.6);
 }
 
 .lnav-card-desc {
@@ -2342,11 +2376,20 @@ canvas {
 .lnav-star-item.active,
 .lnav-moon-item.active,
 .lnav-sat-item.active,
-.lnav-planet-card.active {
+.lnav-planet-card.active,
+#sec-galaxy.active,
+#sec-solar.active {
   background: rgba(56, 189, 248, 0.22);
   border-color: var(--accent-cyan);
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
   color: #ffffff;
+}
+
+#sec-galaxy.active .lnav-thumb-img,
+#sec-solar.active .lnav-thumb-img {
+  border-color: #38bdf8;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.7);
+  transform: scale(1.06);
 }
 
 .lnav-item-sub {
@@ -2389,6 +2432,13 @@ canvas {
   transform: translateY(-2px);
 }
 
+.lnav-planet-card.active {
+  background: rgba(56, 189, 248, 0.22);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+  color: #ffffff;
+}
+
 .lnav-planet-thumb-wrap {
   width: 100%;
   height: 60px;
@@ -2396,6 +2446,18 @@ canvas {
   overflow: hidden;
   position: relative;
   background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.25s ease;
+}
+
+.lnav-planet-card:hover .lnav-planet-thumb-wrap {
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+}
+
+.lnav-planet-card.active .lnav-planet-thumb-wrap {
+  border: 2px solid #38bdf8;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.7);
 }
 
 .lnav-planet-thumb {
@@ -2407,6 +2469,67 @@ canvas {
 
 .lnav-planet-card:hover .lnav-planet-thumb {
   transform: scale(1.08);
+}
+
+.lnav-card-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(14, 165, 233, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+.lnav-card-hover-overlay span {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(15, 23, 42, 0.92);
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid rgba(56, 189, 248, 0.6);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.lnav-planet-card:hover .lnav-card-hover-overlay {
+  opacity: 1;
+}
+
+.lnav-card-nav-btn {
+  width: 100%;
+  margin-top: 4px;
+  padding: 4px 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  color: #e0f2fe;
+  background: rgba(56, 189, 248, 0.16);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.lnav-card-nav-btn:hover {
+  background: rgba(56, 189, 248, 0.35);
+  border-color: #38bdf8;
+  color: #ffffff;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+}
+
+.lnav-planet-card.active .lnav-card-nav-btn {
+  background: #38bdf8;
+  color: #020617;
+  border-color: #7dd3fc;
+  font-weight: 700;
 }
 
 .lnav-planet-name {
@@ -2437,12 +2560,64 @@ canvas {
   padding-right: 4px;
 }
 
+.lnav-moon-thumb-wrap {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: 8px;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.2s ease;
+  background: #020617;
+}
+
 .lnav-moon-thumb {
-  width: 24px;
-  height: 24px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 8px;
+  transition: transform 0.25s ease;
+}
+
+.lnav-moon-item:hover .lnav-moon-thumb-wrap {
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+}
+
+.lnav-moon-item:hover .lnav-moon-thumb {
+  transform: scale(1.15);
+}
+
+.lnav-moon-item.active .lnav-moon-thumb-wrap {
+  border-color: #38bdf8;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.9);
+  border-width: 2px;
+}
+
+.lnav-moon-nav-btn {
+  padding: 2px 7px;
+  font-size: 0.68rem;
+  color: #e0f2fe;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lnav-moon-nav-btn:hover {
+  background: rgba(56, 189, 248, 0.35);
+  border-color: #38bdf8;
+  color: #ffffff;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+}
+
+.lnav-moon-item.active .lnav-moon-nav-btn {
+  background: #38bdf8;
+  color: #020617;
+  font-weight: 700;
 }
 
 .lnav-sat-thumb {
