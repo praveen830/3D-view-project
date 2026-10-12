@@ -1,0 +1,72 @@
+{
+  "project": "Milky Way Explorer",
+  "version": "1.0.0",
+  "credits": {
+    "dataSources": [
+      {
+        "name": "NASA Exoplanet Archive (IPAC / Caltech)",
+        "url": "https://exoplanetarchive.ipac.caltech.edu/",
+        "description": "Confirmed exoplanet parameters, stellar properties, RA/DEC coordinates, distances and discovery missions."
+      },
+      {
+        "name": "NASA Planetary Fact Sheets (NASA Goddard)",
+        "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/",
+        "description": "Precise orbital and physical metrics for the Sun, 8 planets, and Pluto."
+      },
+      {
+        "name": "Gaia Mission (ESA)",
+        "url": "https://www.cosmos.esa.int/web/gaia",
+        "description": "Milky Way stellar astrometry and 3D stellar density distribution."
+      }
+    ],
+    "textureSources": [
+      {
+        "source": "Solar System Scope (Free Textures under CC BY 4.0)",
+        "url": "https://www.solarsystemscope.com/textures/",
+        "license": "Creative Commons Attribution 4.0 International",
+        "downloadFiles": [
+          "2k_sun.jpg",
+          "2k_mercury.jpg",
+          "2k_venus_atmosphere.jpg",
+          "2k_venus_surface.jpg",
+          "2k_earth_daymap.jpg",
+          "2k_earth_clouds.jpg",
+          "2k_earth_nightmap.jpg",
+          "2k_mars.jpg",
+          "2k_jupiter.jpg",
+          "2k_saturn.jpg",
+          "2k_saturn_ring_alpha.png",
+          "2k_uranus.jpg",
+          "2k_neptune.jpg",
+          "2k_stars_milky_way.jpg"
+        ]
+      },
+      {
+        "source": "NASA Visible Earth & Scientific Visualization Studio (Public Domain)",
+        "url": "https://visibleearth.nasa.gov/collection/1484/blue-marble",
+        "license": "Public Domain / NASA Guidelines",
+        "downloadFiles": [
+          "land_ocean_ice_2048.jpg (Blue Marble)",
+          "cloud_combined_2048.jpg",
+          "mars_topo_2048.jpg (MOLA elevation)",
+          "pluto_true_color_new_horizons.png"
+        ]
+      },
+      {
+        "source": "USGS Astrogeology Science Center",
+        "url": "https://astrogeology.usgs.gov/search",
+        "license": "Public Domain",
+        "downloadFiles": [
+          "mercury_messenger_global_mosaic.jpg",
+          "venus_magellan_radar_color.jpg",
+          "jupiter_voyager_cassini_mosaic.jpg"
+        ]
+      }
+    ],
+    "libraries": [
+      { "name": "Three.js", "license": "MIT", "url": "https://threejs.org" },
+      { "name": "GSAP (GreenSock)", "license": "Standard", "url": "https://greensock.com/gsap/" },
+      { "name": "Vite", "license": "MIT", "url": "https://vitejs.dev" }
+    ]
+  }
+}

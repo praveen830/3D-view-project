@@ -1,0 +1,84 @@
+{
+  "systems": {
+    "Proxima Centauri": {
+      "en": "The closest known star to the Sun (4.24 light-years), a red dwarf hosting at least two exoplanets including Proxima b in the habitable zone.",
+      "fr": "L'étoile la plus proche du Soleil (4,24 années-lumière), une naine rouge abritant Proxima b dans sa zone habitable."
+    },
+    "Alpha Centauri": {
+      "en": "The closest star system to Earth (4.37 light-years), a visual binary composed of Sun-like stars Alpha Centauri A and B.",
+      "fr": "Le système stellaire le plus proche de la Terre (4,37 années-lumière), un couple d'étoiles semblables au Soleil."
+    },
+    "TRAPPIST-1": {
+      "en": "An ultra-cool red dwarf 40 light-years away hosting 7 Earth-sized rocky planets, with three located in the habitable zone where liquid water could exist.",
+      "fr": "Une naine rouge ultrafroide à 40 années-lumière avec 7 planètes rocheuses de taille terrestre, dont 3 en zone habitable."
+    },
+    "Kepler-452": {
+      "en": "A G-type star almost identical to our Sun, hosting Kepler-452 b, often dubbed 'Earth's Older Cousin' in the habitable zone.",
+      "fr": "Une étoile de type solaire hébergeant Kepler-452 b, souvent surnommée la 'cousine aînée de la Terre' en zone habitable."
+    },
+    "Kepler-186": {
+      "en": "An M-dwarf star famous for Kepler-186 f, the very first validated Earth-sized planet found inside a star's circumstellar habitable zone.",
+      "fr": "Une naine rouge célèbre pour Kepler-186 f, la toute première planète de taille terrestre validée en zone habitable."
+    },
+    "Kepler-90": {
+      "en": "A Sun-like star 2,840 light-years away hosting 8 confirmed planets, tying our Solar System for the highest number of known planets.",
+      "fr": "Une étoile semblable au Soleil abritant 8 planètes confirmées, égalant notre système solaire en nombre de planètes."
+    },
+    "55 Cancri": {
+      "en": "A binary system hosting five known planets, including 55 Cancri e, an exotic ultra-dense super-Earth with active lava oceans and diamond interior.",
+      "fr": "Un système abritant 5 planètes, dont 55 Cancri e, une super-Terre de lave ultra-dense riche en carbone et diamants."
+    },
+    "Barnard's Star": {
+      "en": "The second closest star system to the Sun (5.96 light-years) and the star with the fastest proper motion across Earth's night sky.",
+      "fr": "Le deuxième système le plus proche du Soleil (5,96 al), détenant le mouvement propre le plus rapide du ciel nocturne."
+    },
+    "Sirius": {
+      "en": "The brightest star in Earth's night sky, a luminous A-type main sequence star orbited by a faint white dwarf companion (Sirius B).",
+      "fr": "L'étoile la plus brillante de notre ciel nocturne, une étoile blanche lumineuse accompagnée d'une naine blanche."
+    },
+    "Vega": {
+      "en": "A brilliant blue-white star 25 light-years away, once the Northern Pole Star and famous for its dusty debris disk hinting at planet formation.",
+      "fr": "Une brillante étoile blanc-bleu à 25 années-lumière entourée d'un vaste disque de débris protoplanétaire."
+    },
+    "Betelgeuse": {
+      "en": "A colossal red supergiant in Orion over 700 times the size of our Sun, doomed to explode in a brilliant supernova in the near cosmic future.",
+      "fr": "Une supergéante rouge colossale d'Orion, plus de 700 fois plus grande que le Soleil, vouée à exploser en supernova."
+    },
+    "Rigel": {
+      "en": "A dazzling blue-white supergiant star in Orion, radiating more than 100,000 times the visual luminosity of our Sun.",
+      "fr": "Une supergéante bleue éclatante dans la constellation d'Orion, brillant plus de 100 000 fois plus que notre Soleil."
+    },
+    "Polaris": {
+      "en": "The celebrated North Star, a multiple star system dominated by a pulsating yellow supergiant Cepheid variable.",
+      "fr": "La célèbre étoile polaire du Nord, un système multiple dominé par une supergéante jaune céphéide pulsante."
+    },
+    "HD 189733": {
+      "en": "A bright star hosting a deep blue hot Jupiter where winds blow over 7,000 km/h and molten silicate glass rains sideways.",
+      "fr": "Un système abritant un Jupiter chaud bleu cobalt où des vents à 7 000 km/h font pleuvoir du verre de silice en fusion."
+    },
+    "HD 209458": {
+      "en": "Host star to 'Osiris', the historic first transiting exoplanet discovered, known for its comet-like tail of escaping hydrogen gas.",
+      "fr": "Étoile hôte d'Osiris, la première exoplanète à transit découverte, fuyant dans l'espace avec une queue cométaire d'hydrogène."
+    },
+    "WASP-12": {
+      "en": "A system where a doomed, pitch-black gas giant is being tidally stretched into an egg shape and consumed by its host star.",
+      "fr": "Un système où une planète géante de carbone est déformée en œuf et littéralement dévorée par son étoile hôte."
+    },
+    "WASP-76": {
+      "en": "An ultra-hot exoplanet system where daytime temperatures vaporize iron, which blows to the night side and condenses into liquid iron rain.",
+      "fr": "Un enfer exoplanétaire où le fer vaporisé le jour dérive vers la nuit pour former des averses de pluie de fer liquide."
+    },
+    "Kepler-16": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "LHS 1140": {
+      "en": "A quiet red dwarf 48 light-years away hosting LHS 1140 b, a prime candidate for a temperate ocean world with a nitrogen-rich atmosphere.",
+      "fr": "Une naine rouge calme abritant LHS 1140 b, candidate idéale pour un monde océanique tempéré doté d'une atmosphère."
+    },
+    "TOI-700": {
+      "en": "An M-dwarf star discovered by NASA TESS hosting four planets, including TOI-700 d and e, both Earth-sized and within the habitable zone.",
+      "fr": "Une étoile naine découverte par TESS avec 4 planètes, dont deux de taille terrestre situées en zone habitable."
+    }
+  }
+}

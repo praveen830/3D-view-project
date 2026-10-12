@@ -1,0 +1,6300 @@
+[
+  {
+    "id": "solar-system",
+    "name": {
+      "en": "Solar System",
+      "fr": "Système Solaire"
+    },
+    "hostname": "The Sun",
+    "isSolarSystem": true,
+    "dist_ly": 0.0,
+    "ra": 0.0,
+    "dec": 0.0,
+    "coords_ly": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "star": {
+      "name": {
+        "en": "The Sun",
+        "fr": "Le Soleil"
+      },
+      "spectralType": "G2V",
+      "temperatureK": 5778,
+      "radiusSolar": 1.0,
+      "colorHex": "#FFA500",
+      "class": "G"
+    },
+    "planetCount": 8,
+    "description": {
+      "en": "Our home star system in the Orion Arm of the Milky Way, hosting 8 major planets, Pluto, and humanity.",
+      "fr": "Notre système stellaire natal dans le bras d'Orion de la Voie Lactée, abritant 8 planètes majeures, Pluton et l'humanité."
+    },
+    "hasHabitablePlanet": true,
+    "planetsSummary": [
+      "Mercury",
+      "Venus",
+      "Earth",
+      "Mars",
+      "Jupiter",
+      "Saturn",
+      "Uranus",
+      "Neptune",
+      "Pluto"
+    ]
+  },
+  {
+    "id": "kepler-90-koi-351",
+    "name": {
+      "en": "Kepler-90 (KOI-351)",
+      "fr": "Kepler-90 (KOI-351)"
+    },
+    "hostname": "Kepler-90 (KOI-351)",
+    "isSolarSystem": false,
+    "dist_ly": 2840.0,
+    "ra": 284.4335,
+    "dec": 49.3051,
+    "coords_ly": {
+      "x": 461.565,
+      "y": -1793.322,
+      "z": 2153.266
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-90 (KOI-351)",
+        "fr": "Kepler-90 (KOI-351)"
+      },
+      "spectralType": "G0V",
+      "temperatureK": 6080,
+      "radiusSolar": 1.2,
+      "colorHex": "#F8F9FA",
+      "class": "F"
+    },
+    "planetCount": 8,
+    "description": {
+      "en": "A Sun-like star 2,840 light-years away hosting 8 confirmed planets, tying our Solar System for the highest number of known planets.",
+      "fr": "Une étoile semblable au Soleil abritant 8 planètes confirmées, égalant notre système solaire en nombre de planètes."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "KOI-351 b",
+        "radiusEarth": 1.31,
+        "semiMajorAxisAU": 0.074,
+        "orbitalPeriodDays": 7.008,
+        "discoveryYear": 2013,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "KOI-351 c",
+        "radiusEarth": 1.19,
+        "semiMajorAxisAU": 0.089,
+        "orbitalPeriodDays": 8.719,
+        "discoveryYear": 2013,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "KOI-351 d",
+        "radiusEarth": 2.87,
+        "semiMajorAxisAU": 0.32,
+        "orbitalPeriodDays": 59.737,
+        "discoveryYear": 2013,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "KOI-351 e",
+        "radiusEarth": 2.66,
+        "semiMajorAxisAU": 0.42,
+        "orbitalPeriodDays": 91.939,
+        "discoveryYear": 2013,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "KOI-351 f",
+        "radiusEarth": 2.88,
+        "semiMajorAxisAU": 0.48,
+        "orbitalPeriodDays": 124.914,
+        "discoveryYear": 2013,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-90 i",
+        "radiusEarth": 1.32,
+        "semiMajorAxisAU": 0.1234,
+        "orbitalPeriodDays": 14.449,
+        "discoveryYear": 2017,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "KOI-351 g",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.7365,
+        "orbitalPeriodDays": 210.735,
+        "discoveryYear": 2013,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "KOI-351 h",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.9964,
+        "orbitalPeriodDays": 331.603,
+        "discoveryYear": 2013,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      }
+    ]
+  },
+  {
+    "id": "trappist-1",
+    "name": {
+      "en": "TRAPPIST-1",
+      "fr": "TRAPPIST-1"
+    },
+    "hostname": "TRAPPIST-1",
+    "isSolarSystem": false,
+    "dist_ly": 40.66,
+    "ra": 346.622,
+    "dec": -5.041,
+    "coords_ly": {
+      "x": 39.404,
+      "y": -9.371,
+      "z": -3.573
+    },
+    "star": {
+      "name": {
+        "en": "TRAPPIST-1",
+        "fr": "TRAPPIST-1"
+      },
+      "spectralType": "M8V",
+      "temperatureK": 2566,
+      "radiusSolar": 0.12,
+      "colorHex": "#FF5533",
+      "class": "M"
+    },
+    "planetCount": 7,
+    "description": {
+      "en": "An ultra-cool red dwarf 40 light-years away hosting 7 Earth-sized rocky planets, with three located in the habitable zone where liquid water could exist.",
+      "fr": "Une naine rouge ultrafroide à 40 années-lumière avec 7 planètes rocheuses de taille terrestre, dont 3 en zone habitable."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "TRAPPIST-1 b",
+        "radiusEarth": 1.12,
+        "semiMajorAxisAU": 0.0115,
+        "orbitalPeriodDays": 1.511,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#E74C3C"
+      },
+      {
+        "name": "TRAPPIST-1 c",
+        "radiusEarth": 1.1,
+        "semiMajorAxisAU": 0.0158,
+        "orbitalPeriodDays": 2.422,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#E74C3C"
+      },
+      {
+        "name": "TRAPPIST-1 d",
+        "radiusEarth": 0.79,
+        "semiMajorAxisAU": 0.0223,
+        "orbitalPeriodDays": 4.049,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#E74C3C"
+      },
+      {
+        "name": "TRAPPIST-1 e",
+        "radiusEarth": 0.92,
+        "semiMajorAxisAU": 0.0293,
+        "orbitalPeriodDays": 6.101,
+        "discoveryYear": 2017,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#E74C3C"
+      },
+      {
+        "name": "TRAPPIST-1 f",
+        "radiusEarth": 1.04,
+        "semiMajorAxisAU": 0.0385,
+        "orbitalPeriodDays": 9.208,
+        "discoveryYear": 2017,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#E74C3C"
+      },
+      {
+        "name": "TRAPPIST-1 g",
+        "radiusEarth": 1.13,
+        "semiMajorAxisAU": 0.0468,
+        "orbitalPeriodDays": 12.352,
+        "discoveryYear": 2017,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#E74C3C"
+      },
+      {
+        "name": "TRAPPIST-1 h",
+        "radiusEarth": 0.76,
+        "semiMajorAxisAU": 0.0619,
+        "orbitalPeriodDays": 18.773,
+        "discoveryYear": 2017,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      }
+    ]
+  },
+  {
+    "id": "proxima-centauri",
+    "name": {
+      "en": "Proxima Centauri",
+      "fr": "Proxima Centauri"
+    },
+    "hostname": "Proxima Centauri",
+    "isSolarSystem": false,
+    "dist_ly": 4.25,
+    "ra": 217.4289,
+    "dec": -62.6795,
+    "coords_ly": {
+      "x": -1.548,
+      "y": -1.184,
+      "z": -3.772
+    },
+    "star": {
+      "name": {
+        "en": "Proxima Centauri",
+        "fr": "Proxima Centauri"
+      },
+      "spectralType": "M5.5V",
+      "temperatureK": 3042,
+      "radiusSolar": 0.15,
+      "colorHex": "#FF5533",
+      "class": "M"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "The closest known star to the Sun (4.24 light-years), a red dwarf hosting at least two exoplanets including Proxima b in the habitable zone.",
+      "fr": "L'étoile la plus proche du Soleil (4,24 années-lumière), une naine rouge abritant Proxima b dans sa zone habitable."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Proxima Cen d",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.0288,
+        "orbitalPeriodDays": 5.123,
+        "discoveryYear": 2025,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "Proxima Cen b",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.0485,
+        "orbitalPeriodDays": 11.185,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      }
+    ]
+  },
+  {
+    "id": "kepler-452",
+    "name": {
+      "en": "Kepler-452",
+      "fr": "Kepler-452"
+    },
+    "hostname": "Kepler-452",
+    "isSolarSystem": false,
+    "dist_ly": 1799.5,
+    "ra": 296.0097,
+    "dec": 44.2774,
+    "coords_ly": {
+      "x": 564.987,
+      "y": -1157.897,
+      "z": 1256.29
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-452",
+        "fr": "Kepler-452"
+      },
+      "spectralType": "G2V",
+      "temperatureK": 5757,
+      "radiusSolar": 1.11,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 1,
+    "description": {
+      "en": "A G-type star almost identical to our Sun, hosting Kepler-452 b, often dubbed 'Earth's Older Cousin' in the habitable zone.",
+      "fr": "Une étoile de type solaire hébergeant Kepler-452 b, souvent surnommée la 'cousine aînée de la Terre' en zone habitable."
+    },
+    "hasHabitablePlanet": true,
+    "planets": [
+      {
+        "name": "Kepler-452 b",
+        "radiusEarth": 1.63,
+        "semiMajorAxisAU": 1.046,
+        "orbitalPeriodDays": 384.843,
+        "discoveryYear": 2015,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": true,
+        "colorHex": "#3D9BE9"
+      }
+    ]
+  },
+  {
+    "id": "alpha-centauri",
+    "name": {
+      "en": "Alpha Centauri",
+      "fr": "Alpha Centauri"
+    },
+    "hostname": "Alpha Centauri",
+    "isSolarSystem": false,
+    "dist_ly": 4.37,
+    "ra": 219.902,
+    "dec": -60.834,
+    "coords_ly": {
+      "x": -1.634,
+      "y": -1.366,
+      "z": -3.816
+    },
+    "star": {
+      "name": {
+        "en": "Alpha Centauri",
+        "fr": "Alpha Centauri"
+      },
+      "spectralType": "G2V + K1V",
+      "temperatureK": 5790,
+      "radiusSolar": 1.22,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 0,
+    "description": {
+      "en": "The closest star system to Earth (4.37 light-years), a visual binary composed of Sun-like stars Alpha Centauri A and B.",
+      "fr": "Le système stellaire le plus proche de la Terre (4,37 années-lumière), un couple d'étoiles semblables au Soleil."
+    },
+    "hasHabitablePlanet": false,
+    "planets": []
+  },
+  {
+    "id": "barnard's-star",
+    "name": {
+      "en": "Barnard's Star",
+      "fr": "Barnard's Star"
+    },
+    "hostname": "Barnard's Star",
+    "isSolarSystem": false,
+    "dist_ly": 5.96,
+    "ra": 269.452,
+    "dec": 4.693,
+    "coords_ly": {
+      "x": -0.057,
+      "y": -5.94,
+      "z": 0.488
+    },
+    "star": {
+      "name": {
+        "en": "Barnard's Star",
+        "fr": "Barnard's Star"
+      },
+      "spectralType": "M4.0V",
+      "temperatureK": 3134,
+      "radiusSolar": 0.2,
+      "colorHex": "#FF5533",
+      "class": "M"
+    },
+    "planetCount": 0,
+    "description": {
+      "en": "The second closest star system to the Sun (5.96 light-years) and the star with the fastest proper motion across Earth's night sky.",
+      "fr": "Le deuxième système le plus proche du Soleil (5,96 al), détenant le mouvement propre le plus rapide du ciel nocturne."
+    },
+    "hasHabitablePlanet": false,
+    "planets": []
+  },
+  {
+    "id": "sirius",
+    "name": {
+      "en": "Sirius",
+      "fr": "Sirius"
+    },
+    "hostname": "Sirius",
+    "isSolarSystem": false,
+    "dist_ly": 8.6,
+    "ra": 101.287,
+    "dec": -16.716,
+    "coords_ly": {
+      "x": -1.612,
+      "y": 8.077,
+      "z": -2.474
+    },
+    "star": {
+      "name": {
+        "en": "Sirius",
+        "fr": "Sirius"
+      },
+      "spectralType": "A1V",
+      "temperatureK": 9940,
+      "radiusSolar": 1.71,
+      "colorHex": "#D5E0FF",
+      "class": "A"
+    },
+    "planetCount": 0,
+    "description": {
+      "en": "The brightest star in Earth's night sky, a luminous A-type main sequence star orbited by a faint white dwarf companion (Sirius B).",
+      "fr": "L'étoile la plus brillante de notre ciel nocturne, une étoile blanche lumineuse accompagnée d'une naine blanche."
+    },
+    "hasHabitablePlanet": false,
+    "planets": []
+  },
+  {
+    "id": "vega",
+    "name": {
+      "en": "Vega",
+      "fr": "Vega"
+    },
+    "hostname": "Vega",
+    "isSolarSystem": false,
+    "dist_ly": 25.04,
+    "ra": 279.234,
+    "dec": 38.783,
+    "coords_ly": {
+      "x": 3.132,
+      "y": -19.266,
+      "z": 15.684
+    },
+    "star": {
+      "name": {
+        "en": "Vega",
+        "fr": "Vega"
+      },
+      "spectralType": "A0V",
+      "temperatureK": 9602,
+      "radiusSolar": 2.36,
+      "colorHex": "#D5E0FF",
+      "class": "A"
+    },
+    "planetCount": 0,
+    "description": {
+      "en": "A brilliant blue-white star 25 light-years away, once the Northern Pole Star and famous for its dusty debris disk hinting at planet formation.",
+      "fr": "Une brillante étoile blanc-bleu à 25 années-lumière entourée d'un vaste disque de débris protoplanétaire."
+    },
+    "hasHabitablePlanet": false,
+    "planets": []
+  },
+  {
+    "id": "betelgeuse",
+    "name": {
+      "en": "Betelgeuse",
+      "fr": "Betelgeuse"
+    },
+    "hostname": "Betelgeuse",
+    "isSolarSystem": false,
+    "dist_ly": 642.5,
+    "ra": 88.793,
+    "dec": 7.407,
+    "coords_ly": {
+      "x": 13.421,
+      "y": 636.997,
+      "z": 82.829
+    },
+    "star": {
+      "name": {
+        "en": "Betelgeuse",
+        "fr": "Betelgeuse"
+      },
+      "spectralType": "M1-M2Ia",
+      "temperatureK": 3500,
+      "radiusSolar": 764.0,
+      "colorHex": "#FF5533",
+      "class": "M"
+    },
+    "planetCount": 0,
+    "description": {
+      "en": "A colossal red supergiant in Orion over 700 times the size of our Sun, doomed to explode in a brilliant supernova in the near cosmic future.",
+      "fr": "Une supergéante rouge colossale d'Orion, plus de 700 fois plus grande que le Soleil, vouée à exploser en supernova."
+    },
+    "hasHabitablePlanet": false,
+    "planets": []
+  },
+  {
+    "id": "rigel",
+    "name": {
+      "en": "Rigel",
+      "fr": "Rigel"
+    },
+    "hostname": "Rigel",
+    "isSolarSystem": false,
+    "dist_ly": 863.0,
+    "ra": 78.634,
+    "dec": -8.201,
+    "coords_ly": {
+      "x": 168.337,
+      "y": 837.423,
+      "z": -123.104
+    },
+    "star": {
+      "name": {
+        "en": "Rigel",
+        "fr": "Rigel"
+      },
+      "spectralType": "B8Ia",
+      "temperatureK": 12100,
+      "radiusSolar": 78.9,
+      "colorHex": "#9DB4FF",
+      "class": "B"
+    },
+    "planetCount": 0,
+    "description": {
+      "en": "A dazzling blue-white supergiant star in Orion, radiating more than 100,000 times the visual luminosity of our Sun.",
+      "fr": "Une supergéante bleue éclatante dans la constellation d'Orion, brillant plus de 100 000 fois plus que notre Soleil."
+    },
+    "hasHabitablePlanet": false,
+    "planets": []
+  },
+  {
+    "id": "polaris",
+    "name": {
+      "en": "Polaris",
+      "fr": "Polaris"
+    },
+    "hostname": "Polaris",
+    "isSolarSystem": false,
+    "dist_ly": 433.0,
+    "ra": 37.954,
+    "dec": 89.264,
+    "coords_ly": {
+      "x": 4.386,
+      "y": 3.421,
+      "z": 432.964
+    },
+    "star": {
+      "name": {
+        "en": "Polaris",
+        "fr": "Polaris"
+      },
+      "spectralType": "F7Ib",
+      "temperatureK": 6015,
+      "radiusSolar": 37.5,
+      "colorHex": "#F8F9FA",
+      "class": "F"
+    },
+    "planetCount": 0,
+    "description": {
+      "en": "The celebrated North Star, a multiple star system dominated by a pulsating yellow supergiant Cepheid variable.",
+      "fr": "La célèbre étoile polaire du Nord, un système multiple dominé par une supergéante jaune céphéide pulsante."
+    },
+    "hasHabitablePlanet": false,
+    "planets": []
+  },
+  {
+    "id": "hd-219134",
+    "name": {
+      "en": "HD 219134",
+      "fr": "HD 219134"
+    },
+    "hostname": "HD 219134",
+    "isSolarSystem": false,
+    "dist_ly": 21.3,
+    "ra": 348.3372,
+    "dec": 57.1696,
+    "coords_ly": {
+      "x": 11.311,
+      "y": -2.335,
+      "z": 17.9
+    },
+    "star": {
+      "name": {
+        "en": "HD 219134",
+        "fr": "HD 219134"
+      },
+      "spectralType": "K V",
+      "temperatureK": 4699,
+      "radiusSolar": 0.78,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 6,
+    "description": {
+      "en": "A K-type star system located 21.3 light-years away with 6 confirmed planet(s).",
+      "fr": "Un système stellaire de classe K situé à 21.3 années-lumière avec 6 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "HD 219134 b",
+        "radiusEarth": 1.6,
+        "semiMajorAxisAU": 0.0388,
+        "orbitalPeriodDays": 3.093,
+        "discoveryYear": 2015,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "HD 219134 c",
+        "radiusEarth": 1.51,
+        "semiMajorAxisAU": 0.0653,
+        "orbitalPeriodDays": 6.765,
+        "discoveryYear": 2015,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "HD 219134 f",
+        "radiusEarth": 1.31,
+        "semiMajorAxisAU": 0.1463,
+        "orbitalPeriodDays": 22.717,
+        "discoveryYear": 2015,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "HD 219134 d",
+        "radiusEarth": 1.61,
+        "semiMajorAxisAU": 0.237,
+        "orbitalPeriodDays": 46.859,
+        "discoveryYear": 2015,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "HD 219134 g",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.3753,
+        "orbitalPeriodDays": 94.2,
+        "discoveryYear": 2015,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "HD 219134 h",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 3.11,
+        "orbitalPeriodDays": 2247.0,
+        "discoveryYear": 2015,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      }
+    ]
+  },
+  {
+    "id": "kepler-11",
+    "name": {
+      "en": "Kepler-11",
+      "fr": "Kepler-11"
+    },
+    "hostname": "Kepler-11",
+    "isSolarSystem": false,
+    "dist_ly": 2108.1,
+    "ra": 297.1151,
+    "dec": 41.9091,
+    "coords_ly": {
+      "x": 715.053,
+      "y": -1396.429,
+      "z": 1408.106
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-11",
+        "fr": "Kepler-11"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5663,
+      "radiusSolar": 1.06,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 6,
+    "description": {
+      "en": "A G-type star system located 2108.1 light-years away with 6 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 2108.1 années-lumière avec 6 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-11 b",
+        "radiusEarth": 1.8,
+        "semiMajorAxisAU": 0.091,
+        "orbitalPeriodDays": 10.304,
+        "discoveryYear": 2010,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-11 c",
+        "radiusEarth": 2.87,
+        "semiMajorAxisAU": 0.107,
+        "orbitalPeriodDays": 13.024,
+        "discoveryYear": 2010,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-11 d",
+        "radiusEarth": 3.12,
+        "semiMajorAxisAU": 0.155,
+        "orbitalPeriodDays": 22.684,
+        "discoveryYear": 2010,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-11 e",
+        "radiusEarth": 4.19,
+        "semiMajorAxisAU": 0.195,
+        "orbitalPeriodDays": 32.0,
+        "discoveryYear": 2010,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-11 f",
+        "radiusEarth": 2.49,
+        "semiMajorAxisAU": 0.25,
+        "orbitalPeriodDays": 46.689,
+        "discoveryYear": 2010,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-11 g",
+        "radiusEarth": 3.33,
+        "semiMajorAxisAU": 0.466,
+        "orbitalPeriodDays": 118.381,
+        "discoveryYear": 2010,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-20",
+    "name": {
+      "en": "Kepler-20",
+      "fr": "Kepler-20"
+    },
+    "hostname": "Kepler-20",
+    "isSolarSystem": false,
+    "dist_ly": 921.6,
+    "ra": 287.698,
+    "dec": 42.3386,
+    "coords_ly": {
+      "x": 207.092,
+      "y": -648.983,
+      "z": 620.705
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-20",
+        "fr": "Kepler-20"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5495,
+      "radiusSolar": 0.96,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 6,
+    "description": {
+      "en": "A G-type star system located 921.6 light-years away with 6 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 921.6 années-lumière avec 6 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-20 b",
+        "radiusEarth": 1.77,
+        "semiMajorAxisAU": 0.0457,
+        "orbitalPeriodDays": 3.696,
+        "discoveryYear": 2011,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-20 e",
+        "radiusEarth": 0.82,
+        "semiMajorAxisAU": 0.0637,
+        "orbitalPeriodDays": 6.098,
+        "discoveryYear": 2011,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "Kepler-20 c",
+        "radiusEarth": 2.89,
+        "semiMajorAxisAU": 0.0936,
+        "orbitalPeriodDays": 10.854,
+        "discoveryYear": 2011,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-20 f",
+        "radiusEarth": 0.95,
+        "semiMajorAxisAU": 0.1387,
+        "orbitalPeriodDays": 19.578,
+        "discoveryYear": 2011,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "Kepler-20 g",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.2055,
+        "orbitalPeriodDays": 34.94,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "Kepler-20 d",
+        "radiusEarth": 2.61,
+        "semiMajorAxisAU": 0.3474,
+        "orbitalPeriodDays": 77.611,
+        "discoveryYear": 2011,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-80",
+    "name": {
+      "en": "Kepler-80",
+      "fr": "Kepler-80"
+    },
+    "hostname": "Kepler-80",
+    "isSolarSystem": false,
+    "dist_ly": 1204.99,
+    "ra": 296.1126,
+    "dec": 39.9787,
+    "coords_ly": {
+      "x": 406.405,
+      "y": -829.115,
+      "z": 774.209
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-80",
+        "fr": "Kepler-80"
+      },
+      "spectralType": "K5",
+      "temperatureK": 4540,
+      "radiusSolar": 0.68,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 6,
+    "description": {
+      "en": "A K-type star system located 1205.0 light-years away with 6 confirmed planet(s).",
+      "fr": "Un système stellaire de classe K situé à 1205.0 années-lumière avec 6 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-80 f",
+        "radiusEarth": 1.21,
+        "semiMajorAxisAU": 0.0175,
+        "orbitalPeriodDays": 0.987,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#E74C3C"
+      },
+      {
+        "name": "Kepler-80 d",
+        "radiusEarth": 1.53,
+        "semiMajorAxisAU": 0.0372,
+        "orbitalPeriodDays": 3.072,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-80 e",
+        "radiusEarth": 1.6,
+        "semiMajorAxisAU": 0.0491,
+        "orbitalPeriodDays": 4.645,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-80 b",
+        "radiusEarth": 2.67,
+        "semiMajorAxisAU": 0.0648,
+        "orbitalPeriodDays": 7.052,
+        "discoveryYear": 2012,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-80 c",
+        "radiusEarth": 2.74,
+        "semiMajorAxisAU": 0.0792,
+        "orbitalPeriodDays": 9.524,
+        "discoveryYear": 2012,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-80 g",
+        "radiusEarth": 1.13,
+        "semiMajorAxisAU": 0.1029,
+        "orbitalPeriodDays": 14.646,
+        "discoveryYear": 2017,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      }
+    ]
+  },
+  {
+    "id": "hd-10180",
+    "name": {
+      "en": "HD 10180",
+      "fr": "HD 10180"
+    },
+    "hostname": "HD 10180",
+    "isSolarSystem": false,
+    "dist_ly": 127.07,
+    "ra": 24.4731,
+    "dec": -60.5115,
+    "coords_ly": {
+      "x": 56.932,
+      "y": 25.913,
+      "z": -110.611
+    },
+    "star": {
+      "name": {
+        "en": "HD 10180",
+        "fr": "HD 10180"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5911,
+      "radiusSolar": 1.11,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 6,
+    "description": {
+      "en": "A G-type star system located 127.1 light-years away with 6 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 127.1 années-lumière avec 6 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "HD 10180 c",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.0641,
+        "orbitalPeriodDays": 5.76,
+        "discoveryYear": 2010,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "HD 10180 d",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.1286,
+        "orbitalPeriodDays": 16.357,
+        "discoveryYear": 2010,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "HD 10180 e",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.2699,
+        "orbitalPeriodDays": 49.748,
+        "discoveryYear": 2010,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "HD 10180 f",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.4929,
+        "orbitalPeriodDays": 122.744,
+        "discoveryYear": 2010,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "HD 10180 g",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 1.427,
+        "orbitalPeriodDays": 604.67,
+        "discoveryYear": 2010,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "HD 10180 h",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 3.381,
+        "orbitalPeriodDays": 2205.0,
+        "discoveryYear": 2010,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      }
+    ]
+  },
+  {
+    "id": "kepler-186",
+    "name": {
+      "en": "Kepler-186",
+      "fr": "Kepler-186"
+    },
+    "hostname": "Kepler-186",
+    "isSolarSystem": false,
+    "dist_ly": 579.23,
+    "ra": 298.6527,
+    "dec": 43.955,
+    "coords_ly": {
+      "x": 199.943,
+      "y": -365.919,
+      "z": 402.042
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-186",
+        "fr": "Kepler-186"
+      },
+      "spectralType": "M1",
+      "temperatureK": 3788,
+      "radiusSolar": 0.47,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 5,
+    "description": {
+      "en": "An M-dwarf star famous for Kepler-186 f, the very first validated Earth-sized planet found inside a star's circumstellar habitable zone.",
+      "fr": "Une naine rouge célèbre pour Kepler-186 f, la toute première planète de taille terrestre validée en zone habitable."
+    },
+    "hasHabitablePlanet": true,
+    "planets": [
+      {
+        "name": "Kepler-186 b",
+        "radiusEarth": 1.07,
+        "semiMajorAxisAU": 0.0343,
+        "orbitalPeriodDays": 3.887,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#E74C3C"
+      },
+      {
+        "name": "Kepler-186 c",
+        "radiusEarth": 1.25,
+        "semiMajorAxisAU": 0.0451,
+        "orbitalPeriodDays": 7.267,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#E74C3C"
+      },
+      {
+        "name": "Kepler-186 d",
+        "radiusEarth": 1.4,
+        "semiMajorAxisAU": 0.0781,
+        "orbitalPeriodDays": 13.343,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-186 e",
+        "radiusEarth": 1.27,
+        "semiMajorAxisAU": 0.11,
+        "orbitalPeriodDays": 22.408,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-186 f",
+        "radiusEarth": 1.17,
+        "semiMajorAxisAU": 0.432,
+        "orbitalPeriodDays": 129.944,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": true,
+        "colorHex": "#3D9BE9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-62",
+    "name": {
+      "en": "Kepler-62",
+      "fr": "Kepler-62"
+    },
+    "hostname": "Kepler-62",
+    "isSolarSystem": false,
+    "dist_ly": 981.32,
+    "ra": 283.2126,
+    "dec": 45.3497,
+    "coords_ly": {
+      "x": 157.629,
+      "y": -671.394,
+      "z": 698.12
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-62",
+        "fr": "Kepler-62"
+      },
+      "spectralType": "K2 V",
+      "temperatureK": 4925,
+      "radiusSolar": 0.64,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 5,
+    "description": {
+      "en": "A K-type star system located 981.3 light-years away with 5 confirmed planet(s).",
+      "fr": "Un système stellaire de classe K situé à 981.3 années-lumière avec 5 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": true,
+    "planets": [
+      {
+        "name": "Kepler-62 b",
+        "radiusEarth": 1.31,
+        "semiMajorAxisAU": 0.0553,
+        "orbitalPeriodDays": 5.715,
+        "discoveryYear": 2013,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-62 c",
+        "radiusEarth": 0.54,
+        "semiMajorAxisAU": 0.0929,
+        "orbitalPeriodDays": 12.442,
+        "discoveryYear": 2013,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "Kepler-62 d",
+        "radiusEarth": 1.95,
+        "semiMajorAxisAU": 0.12,
+        "orbitalPeriodDays": 18.164,
+        "discoveryYear": 2013,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-62 e",
+        "radiusEarth": 1.61,
+        "semiMajorAxisAU": 0.427,
+        "orbitalPeriodDays": 122.387,
+        "discoveryYear": 2013,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-62 f",
+        "radiusEarth": 1.41,
+        "semiMajorAxisAU": 0.718,
+        "orbitalPeriodDays": 267.291,
+        "discoveryYear": 2013,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": true,
+        "colorHex": "#3D9BE9"
+      }
+    ]
+  },
+  {
+    "id": "55-cnc",
+    "name": {
+      "en": "55 Cnc",
+      "fr": "55 Cnc"
+    },
+    "hostname": "55 Cnc",
+    "isSolarSystem": false,
+    "dist_ly": 41.05,
+    "ra": 133.1468,
+    "dec": 28.3298,
+    "coords_ly": {
+      "x": -24.71,
+      "y": 26.362,
+      "z": 19.479
+    },
+    "star": {
+      "name": {
+        "en": "55 Cnc",
+        "fr": "55 Cnc"
+      },
+      "spectralType": "G8 V",
+      "temperatureK": 5198,
+      "radiusSolar": 0.98,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 5,
+    "description": {
+      "en": "A K-type star system located 41.0 light-years away with 5 confirmed planet(s).",
+      "fr": "Un système stellaire de classe K situé à 41.0 années-lumière avec 5 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "55 Cnc e",
+        "radiusEarth": 1.88,
+        "semiMajorAxisAU": 0.0154,
+        "orbitalPeriodDays": 0.737,
+        "discoveryYear": 2004,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "55 Cnc b",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.118,
+        "orbitalPeriodDays": 14.652,
+        "discoveryYear": 1996,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "55 Cnc c",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.247,
+        "orbitalPeriodDays": 44.394,
+        "discoveryYear": 2004,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "55 Cnc f",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.802,
+        "orbitalPeriodDays": 260.58,
+        "discoveryYear": 2007,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "55 Cnc d",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 5.6,
+        "orbitalPeriodDays": 4799.0,
+        "discoveryYear": 2002,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      }
+    ]
+  },
+  {
+    "id": "kepler-169",
+    "name": {
+      "en": "Kepler-169",
+      "fr": "Kepler-169"
+    },
+    "hostname": "Kepler-169",
+    "isSolarSystem": false,
+    "dist_ly": 1325.92,
+    "ra": 285.9999,
+    "dec": 40.9194,
+    "coords_ly": {
+      "x": 276.162,
+      "y": -963.096,
+      "z": 868.473
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-169",
+        "fr": "Kepler-169"
+      },
+      "spectralType": "K V",
+      "temperatureK": 4997,
+      "radiusSolar": 0.76,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 5,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-169 b",
+        "radiusEarth": 1.13,
+        "semiMajorAxisAU": 0.04,
+        "orbitalPeriodDays": 3.251,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#E74C3C"
+      },
+      {
+        "name": "Kepler-169 c",
+        "radiusEarth": 1.21,
+        "semiMajorAxisAU": 0.062,
+        "orbitalPeriodDays": 6.195,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "Kepler-169 d",
+        "radiusEarth": 1.25,
+        "semiMajorAxisAU": 0.075,
+        "orbitalPeriodDays": 8.348,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "Kepler-169 e",
+        "radiusEarth": 2.2,
+        "semiMajorAxisAU": 0.105,
+        "orbitalPeriodDays": 13.767,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-169 f",
+        "radiusEarth": 2.58,
+        "semiMajorAxisAU": 0.359,
+        "orbitalPeriodDays": 87.09,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "barnard's-star",
+    "name": {
+      "en": "Barnard's star",
+      "fr": "Barnard's star"
+    },
+    "hostname": "Barnard's star",
+    "isSolarSystem": false,
+    "dist_ly": 5.96,
+    "ra": 269.4486,
+    "dec": 4.738,
+    "coords_ly": {
+      "x": -0.057,
+      "y": -5.937,
+      "z": 0.492
+    },
+    "star": {
+      "name": {
+        "en": "Barnard's star",
+        "fr": "Barnard's star"
+      },
+      "spectralType": "M3.5-4 V",
+      "temperatureK": 3195,
+      "radiusSolar": 0.18,
+      "colorHex": "#FF5533",
+      "class": "M"
+    },
+    "planetCount": 4,
+    "description": {
+      "en": "The second closest star system to the Sun (5.96 light-years) and the star with the fastest proper motion across Earth's night sky.",
+      "fr": "Le deuxième système le plus proche du Soleil (5,96 al), détenant le mouvement propre le plus rapide du ciel nocturne."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Barnard d",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.0188,
+        "orbitalPeriodDays": 2.34,
+        "discoveryYear": 2025,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "Barnard b",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.0229,
+        "orbitalPeriodDays": 3.154,
+        "discoveryYear": 2024,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "Barnard c",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.0274,
+        "orbitalPeriodDays": 4.124,
+        "discoveryYear": 2025,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "Barnard e",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.0381,
+        "orbitalPeriodDays": 6.739,
+        "discoveryYear": 2025,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      }
+    ]
+  },
+  {
+    "id": "k2-187",
+    "name": {
+      "en": "K2-187",
+      "fr": "K2-187"
+    },
+    "hostname": "K2-187",
+    "isSolarSystem": false,
+    "dist_ly": 1079.3,
+    "ra": 132.5236,
+    "dec": 23.1925,
+    "coords_ly": {
+      "x": -670.542,
+      "y": 731.164,
+      "z": 425.053
+    },
+    "star": {
+      "name": {
+        "en": "K2-187",
+        "fr": "K2-187"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5438,
+      "radiusSolar": 0.83,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 4,
+    "description": {
+      "en": "A G-type star system located 1079.3 light-years away with 4 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 1079.3 années-lumière avec 4 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "K2-187 b",
+        "radiusEarth": 1.2,
+        "semiMajorAxisAU": 0.0155,
+        "orbitalPeriodDays": 0.774,
+        "discoveryYear": 2018,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "K2-187 c",
+        "radiusEarth": 1.4,
+        "semiMajorAxisAU": 0.0372,
+        "orbitalPeriodDays": 2.872,
+        "discoveryYear": 2018,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "K2-187 d",
+        "radiusEarth": 2.4,
+        "semiMajorAxisAU": 0.0683,
+        "orbitalPeriodDays": 7.15,
+        "discoveryYear": 2018,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "K2-187 e",
+        "radiusEarth": 1.9,
+        "semiMajorAxisAU": 0.1048,
+        "orbitalPeriodDays": 13.607,
+        "discoveryYear": 2018,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-164",
+    "name": {
+      "en": "Kepler-164",
+      "fr": "Kepler-164"
+    },
+    "hostname": "Kepler-164",
+    "isSolarSystem": false,
+    "dist_ly": 2905.26,
+    "ra": 287.7808,
+    "dec": 47.6298,
+    "coords_ly": {
+      "x": 597.899,
+      "y": -1864.383,
+      "z": 2146.428
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-164",
+        "fr": "Kepler-164"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5888,
+      "radiusSolar": 1.15,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 4,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-164 b",
+        "radiusEarth": 1.41,
+        "semiMajorAxisAU": 0.058,
+        "orbitalPeriodDays": 5.035,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-164 c",
+        "radiusEarth": 2.73,
+        "semiMajorAxisAU": 0.097,
+        "orbitalPeriodDays": 10.946,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-164 d",
+        "radiusEarth": 2.45,
+        "semiMajorAxisAU": 0.187,
+        "orbitalPeriodDays": 28.987,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-164 e",
+        "radiusEarth": 4.24,
+        "semiMajorAxisAU": 0.4025,
+        "orbitalPeriodDays": 94.887,
+        "discoveryYear": 2023,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-167",
+    "name": {
+      "en": "Kepler-167",
+      "fr": "Kepler-167"
+    },
+    "hostname": "Kepler-167",
+    "isSolarSystem": false,
+    "dist_ly": 1115.15,
+    "ra": 292.6585,
+    "dec": 38.3456,
+    "coords_ly": {
+      "x": 336.928,
+      "y": -807.093,
+      "z": 691.845
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-167",
+        "fr": "Kepler-167"
+      },
+      "spectralType": "K V",
+      "temperatureK": 4884,
+      "radiusSolar": 0.75,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 4,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-167 b",
+        "radiusEarth": 1.72,
+        "semiMajorAxisAU": 0.0483,
+        "orbitalPeriodDays": 4.393,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-167 c",
+        "radiusEarth": 1.67,
+        "semiMajorAxisAU": 0.0684,
+        "orbitalPeriodDays": 7.406,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-167 d",
+        "radiusEarth": 1.24,
+        "semiMajorAxisAU": 0.1404,
+        "orbitalPeriodDays": 21.804,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "Kepler-167 e",
+        "radiusEarth": 10.16,
+        "semiMajorAxisAU": 1.883,
+        "orbitalPeriodDays": 1071.232,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#F39C12"
+      }
+    ]
+  },
+  {
+    "id": "kepler-208",
+    "name": {
+      "en": "Kepler-208",
+      "fr": "Kepler-208"
+    },
+    "hostname": "Kepler-208",
+    "isSolarSystem": false,
+    "dist_ly": 2528.78,
+    "ra": 293.8902,
+    "dec": 42.5279,
+    "coords_ly": {
+      "x": 754.722,
+      "y": -1703.915,
+      "z": 1709.329
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-208",
+        "fr": "Kepler-208"
+      },
+      "spectralType": "F V",
+      "temperatureK": 6092,
+      "radiusSolar": 1.31,
+      "colorHex": "#F8F9FA",
+      "class": "F"
+    },
+    "planetCount": 4,
+    "description": {
+      "en": "A F-type star system located 2528.8 light-years away with 4 confirmed planet(s).",
+      "fr": "Un système stellaire de classe F situé à 2528.8 années-lumière avec 4 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-208 b",
+        "radiusEarth": 1.63,
+        "semiMajorAxisAU": 0.054,
+        "orbitalPeriodDays": 4.229,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-208 c",
+        "radiusEarth": 1.39,
+        "semiMajorAxisAU": 0.079,
+        "orbitalPeriodDays": 7.467,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-208 d",
+        "radiusEarth": 1.2,
+        "semiMajorAxisAU": 0.103,
+        "orbitalPeriodDays": 11.132,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "Kepler-208 e",
+        "radiusEarth": 1.48,
+        "semiMajorAxisAU": 0.132,
+        "orbitalPeriodDays": 16.259,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-220",
+    "name": {
+      "en": "Kepler-220",
+      "fr": "Kepler-220"
+    },
+    "hostname": "Kepler-220",
+    "isSolarSystem": false,
+    "dist_ly": 558.08,
+    "ra": 291.506,
+    "dec": 46.8956,
+    "coords_ly": {
+      "x": 139.804,
+      "y": -354.804,
+      "z": 407.462
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-220",
+        "fr": "Kepler-220"
+      },
+      "spectralType": "K V",
+      "temperatureK": 4632,
+      "radiusSolar": 0.67,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 4,
+    "description": {
+      "en": "A K-type star system located 558.1 light-years away with 4 confirmed planet(s).",
+      "fr": "Un système stellaire de classe K situé à 558.1 années-lumière avec 4 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-220 b",
+        "radiusEarth": 0.81,
+        "semiMajorAxisAU": 0.046,
+        "orbitalPeriodDays": 4.16,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#E74C3C"
+      },
+      {
+        "name": "Kepler-220 c",
+        "radiusEarth": 1.57,
+        "semiMajorAxisAU": 0.076,
+        "orbitalPeriodDays": 9.034,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-220 d",
+        "radiusEarth": 0.98,
+        "semiMajorAxisAU": 0.163,
+        "orbitalPeriodDays": 28.122,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "Kepler-220 e",
+        "radiusEarth": 1.33,
+        "semiMajorAxisAU": 0.226,
+        "orbitalPeriodDays": 45.903,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-221",
+    "name": {
+      "en": "Kepler-221",
+      "fr": "Kepler-221"
+    },
+    "hostname": "Kepler-221",
+    "isSolarSystem": false,
+    "dist_ly": 1256.46,
+    "ra": 296.6547,
+    "dec": 46.8352,
+    "coords_ly": {
+      "x": 385.601,
+      "y": -768.193,
+      "z": 916.445
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-221",
+        "fr": "Kepler-221"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5243,
+      "radiusSolar": 0.82,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 4,
+    "description": {
+      "en": "A G-type star system located 1256.5 light-years away with 4 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 1256.5 années-lumière avec 4 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-221 b",
+        "radiusEarth": 1.71,
+        "semiMajorAxisAU": 0.037,
+        "orbitalPeriodDays": 2.796,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-221 c",
+        "radiusEarth": 2.93,
+        "semiMajorAxisAU": 0.059,
+        "orbitalPeriodDays": 5.691,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-221 d",
+        "radiusEarth": 2.73,
+        "semiMajorAxisAU": 0.087,
+        "orbitalPeriodDays": 10.042,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-221 e",
+        "radiusEarth": 2.63,
+        "semiMajorAxisAU": 0.13,
+        "orbitalPeriodDays": 18.37,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-223",
+    "name": {
+      "en": "Kepler-223",
+      "fr": "Kepler-223"
+    },
+    "hostname": "Kepler-223",
+    "isSolarSystem": false,
+    "dist_ly": 6065.56,
+    "ra": 298.3184,
+    "dec": 47.2795,
+    "coords_ly": {
+      "x": 1952.043,
+      "y": -3622.552,
+      "z": 4456.197
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-223",
+        "fr": "Kepler-223"
+      },
+      "spectralType": "G V",
+      "temperatureK": null,
+      "radiusSolar": 1.72,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 4,
+    "description": {
+      "en": "A G-type star system located 6065.6 light-years away with 4 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 6065.6 années-lumière avec 4 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-223 b",
+        "radiusEarth": 2.99,
+        "semiMajorAxisAU": 0.0889,
+        "orbitalPeriodDays": 7.384,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-223 c",
+        "radiusEarth": 3.44,
+        "semiMajorAxisAU": 0.1077,
+        "orbitalPeriodDays": 9.846,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-223 d",
+        "radiusEarth": 5.24,
+        "semiMajorAxisAU": 0.1413,
+        "orbitalPeriodDays": 14.789,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-223 e",
+        "radiusEarth": 4.6,
+        "semiMajorAxisAU": 0.1712,
+        "orbitalPeriodDays": 19.726,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-224",
+    "name": {
+      "en": "Kepler-224",
+      "fr": "Kepler-224"
+    },
+    "hostname": "Kepler-224",
+    "isSolarSystem": false,
+    "dist_ly": 2550.83,
+    "ra": 290.9343,
+    "dec": 47.3575,
+    "coords_ly": {
+      "x": 617.404,
+      "y": -1613.924,
+      "z": 1876.378
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-224",
+        "fr": "Kepler-224"
+      },
+      "spectralType": "K V",
+      "temperatureK": 5018,
+      "radiusSolar": 0.68,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 4,
+    "description": {
+      "en": "A K-type star system located 2550.8 light-years away with 4 confirmed planet(s).",
+      "fr": "Un système stellaire de classe K situé à 2550.8 années-lumière avec 4 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-224 b",
+        "radiusEarth": 1.39,
+        "semiMajorAxisAU": 0.038,
+        "orbitalPeriodDays": 3.133,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-224 c",
+        "radiusEarth": 3.12,
+        "semiMajorAxisAU": 0.058,
+        "orbitalPeriodDays": 5.925,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-224 d",
+        "radiusEarth": 2.3,
+        "semiMajorAxisAU": 0.089,
+        "orbitalPeriodDays": 11.349,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-224 e",
+        "radiusEarth": 1.97,
+        "semiMajorAxisAU": 0.124,
+        "orbitalPeriodDays": 18.644,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "toi-700",
+    "name": {
+      "en": "TOI-700",
+      "fr": "TOI-700"
+    },
+    "hostname": "TOI-700",
+    "isSolarSystem": false,
+    "dist_ly": 101.52,
+    "ra": 97.0957,
+    "dec": -65.5786,
+    "coords_ly": {
+      "x": -5.185,
+      "y": 41.652,
+      "z": -92.438
+    },
+    "star": {
+      "name": {
+        "en": "TOI-700",
+        "fr": "TOI-700"
+      },
+      "spectralType": "G V",
+      "temperatureK": null,
+      "radiusSolar": 0.41,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 4,
+    "description": {
+      "en": "An M-dwarf star discovered by NASA TESS hosting four planets, including TOI-700 d and e, both Earth-sized and within the habitable zone.",
+      "fr": "Une étoile naine découverte par TESS avec 4 planètes, dont deux de taille terrestre situées en zone habitable."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "TOI-700 b",
+        "radiusEarth": 0.96,
+        "semiMajorAxisAU": 0.0678,
+        "orbitalPeriodDays": 9.977,
+        "discoveryYear": 2020,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "TOI-700 c",
+        "radiusEarth": 2.54,
+        "semiMajorAxisAU": 0.0931,
+        "orbitalPeriodDays": 16.051,
+        "discoveryYear": 2020,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "TOI-700 e",
+        "radiusEarth": 0.92,
+        "semiMajorAxisAU": 0.1336,
+        "orbitalPeriodDays": 27.81,
+        "discoveryYear": 2023,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "TOI-700 d",
+        "radiusEarth": 1.15,
+        "semiMajorAxisAU": 0.1642,
+        "orbitalPeriodDays": 37.423,
+        "discoveryYear": 2020,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      }
+    ]
+  },
+  {
+    "id": "hr-8799",
+    "name": {
+      "en": "HR 8799",
+      "fr": "HR 8799"
+    },
+    "hostname": "HR 8799",
+    "isSolarSystem": false,
+    "dist_ly": 134.52,
+    "ra": 346.8701,
+    "dec": 21.134,
+    "coords_ly": {
+      "x": 122.192,
+      "y": -28.502,
+      "z": 48.501
+    },
+    "star": {
+      "name": {
+        "en": "HR 8799",
+        "fr": "HR 8799"
+      },
+      "spectralType": "A5 V",
+      "temperatureK": null,
+      "radiusSolar": 1.0,
+      "colorHex": "#BBCCFF",
+      "class": "A"
+    },
+    "planetCount": 4,
+    "description": {
+      "en": "A A-type star system located 134.5 light-years away with 4 confirmed planet(s).",
+      "fr": "Un système stellaire de classe A situé à 134.5 années-lumière avec 4 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "HR 8799 e",
+        "radiusEarth": 13.11,
+        "semiMajorAxisAU": 16.4,
+        "orbitalPeriodDays": null,
+        "discoveryYear": 2010,
+        "discoveryMethod": "Imaging",
+        "isHabitableZone": false,
+        "colorHex": "#F39C12"
+      },
+      {
+        "name": "HR 8799 d",
+        "radiusEarth": 13.0,
+        "semiMajorAxisAU": 24.0,
+        "orbitalPeriodDays": 37000.0,
+        "discoveryYear": 2008,
+        "discoveryMethod": "Imaging",
+        "isHabitableZone": false,
+        "colorHex": "#F39C12"
+      },
+      {
+        "name": "HR 8799 c",
+        "radiusEarth": 13.0,
+        "semiMajorAxisAU": 38.0,
+        "orbitalPeriodDays": 69000.0,
+        "discoveryYear": 2008,
+        "discoveryMethod": "Imaging",
+        "isHabitableZone": false,
+        "colorHex": "#F39C12"
+      },
+      {
+        "name": "HR 8799 b",
+        "radiusEarth": 13.0,
+        "semiMajorAxisAU": 68.0,
+        "orbitalPeriodDays": 170000.0,
+        "discoveryYear": 2008,
+        "discoveryMethod": "Imaging",
+        "isHabitableZone": false,
+        "colorHex": "#F39C12"
+      }
+    ]
+  },
+  {
+    "id": "tau-cet",
+    "name": {
+      "en": "tau Cet",
+      "fr": "tau Cet"
+    },
+    "hostname": "tau Cet",
+    "isSolarSystem": false,
+    "dist_ly": 11.75,
+    "ra": 26.0093,
+    "dec": -15.9338,
+    "coords_ly": {
+      "x": 10.156,
+      "y": 4.955,
+      "z": -3.226
+    },
+    "star": {
+      "name": {
+        "en": "tau Cet",
+        "fr": "tau Cet"
+      },
+      "spectralType": "G V",
+      "temperatureK": null,
+      "radiusSolar": 1.0,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "A G-type star system located 11.8 light-years away with 3 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 11.8 années-lumière avec 3 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "tau Cet g",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.133,
+        "orbitalPeriodDays": 20.0,
+        "discoveryYear": 2017,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "tau Cet h",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.243,
+        "orbitalPeriodDays": 49.41,
+        "discoveryYear": 2017,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "tau Cet f",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 1.334,
+        "orbitalPeriodDays": 636.13,
+        "discoveryYear": 2017,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      }
+    ]
+  },
+  {
+    "id": "teegarden's-star",
+    "name": {
+      "en": "Teegarden's Star",
+      "fr": "Teegarden's Star"
+    },
+    "hostname": "Teegarden's Star",
+    "isSolarSystem": false,
+    "dist_ly": 12.49,
+    "ra": 43.2691,
+    "dec": 16.8649,
+    "coords_ly": {
+      "x": 8.706,
+      "y": 8.196,
+      "z": 3.625
+    },
+    "star": {
+      "name": {
+        "en": "Teegarden's Star",
+        "fr": "Teegarden's Star"
+      },
+      "spectralType": "M V",
+      "temperatureK": 3034,
+      "radiusSolar": 0.12,
+      "colorHex": "#FF5533",
+      "class": "M"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "A M-type star system located 12.5 light-years away with 3 confirmed planet(s).",
+      "fr": "Un système stellaire de classe M situé à 12.5 années-lumière avec 3 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Teegarden's Star b",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.0259,
+        "orbitalPeriodDays": 4.906,
+        "discoveryYear": 2019,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "Teegarden's Star c",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.0455,
+        "orbitalPeriodDays": 11.416,
+        "discoveryYear": 2019,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "Teegarden's Star d",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.0791,
+        "orbitalPeriodDays": 26.13,
+        "discoveryYear": 2024,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      }
+    ]
+  },
+  {
+    "id": "wolf-1061",
+    "name": {
+      "en": "Wolf 1061",
+      "fr": "Wolf 1061"
+    },
+    "hostname": "Wolf 1061",
+    "isSolarSystem": false,
+    "dist_ly": 14.04,
+    "ra": 247.5748,
+    "dec": -12.6677,
+    "coords_ly": {
+      "x": -5.227,
+      "y": -12.666,
+      "z": -3.08
+    },
+    "star": {
+      "name": {
+        "en": "Wolf 1061",
+        "fr": "Wolf 1061"
+      },
+      "spectralType": "M3.5",
+      "temperatureK": 3342,
+      "radiusSolar": 0.31,
+      "colorHex": "#FF5533",
+      "class": "M"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "A M-type star system located 14.0 light-years away with 3 confirmed planet(s).",
+      "fr": "Un système stellaire de classe M situé à 14.0 années-lumière avec 3 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Wolf 1061 b",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.0375,
+        "orbitalPeriodDays": 4.887,
+        "discoveryYear": 2015,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "Wolf 1061 c",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.089,
+        "orbitalPeriodDays": 17.872,
+        "discoveryYear": 2015,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "Wolf 1061 d",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.47,
+        "orbitalPeriodDays": 217.21,
+        "discoveryYear": 2015,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      }
+    ]
+  },
+  {
+    "id": "k2-183",
+    "name": {
+      "en": "K2-183",
+      "fr": "K2-183"
+    },
+    "hostname": "K2-183",
+    "isSolarSystem": false,
+    "dist_ly": 1073.19,
+    "ra": 125.0072,
+    "dec": 14.0195,
+    "coords_ly": {
+      "x": -597.327,
+      "y": 852.844,
+      "z": 259.981
+    },
+    "star": {
+      "name": {
+        "en": "K2-183",
+        "fr": "K2-183"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5482,
+      "radiusSolar": 0.87,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "A G-type star system located 1073.2 light-years away with 3 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 1073.2 années-lumière avec 3 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "K2-183 b",
+        "radiusEarth": 1.1,
+        "semiMajorAxisAU": 0.0113,
+        "orbitalPeriodDays": 0.469,
+        "discoveryYear": 2018,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "K2-183 c",
+        "radiusEarth": 2.3,
+        "semiMajorAxisAU": 0.0912,
+        "orbitalPeriodDays": 10.788,
+        "discoveryYear": 2018,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "K2-183 d",
+        "radiusEarth": 2.3,
+        "semiMajorAxisAU": 0.1494,
+        "orbitalPeriodDays": 22.62,
+        "discoveryYear": 2018,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1130",
+    "name": {
+      "en": "Kepler-1130",
+      "fr": "Kepler-1130"
+    },
+    "hostname": "Kepler-1130",
+    "isSolarSystem": false,
+    "dist_ly": 813.25,
+    "ra": 285.2074,
+    "dec": 45.3843,
+    "coords_ly": {
+      "x": 149.829,
+      "y": -551.182,
+      "z": 578.898
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1130",
+        "fr": "Kepler-1130"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5450,
+      "radiusSolar": 0.84,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "A G-type star system located 813.2 light-years away with 3 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 813.2 années-lumière avec 3 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1130 c",
+        "radiusEarth": 0.79,
+        "semiMajorAxisAU": 0.0407,
+        "orbitalPeriodDays": 3.267,
+        "discoveryYear": 2021,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "Kepler-1130 d",
+        "radiusEarth": 0.64,
+        "semiMajorAxisAU": 0.0487,
+        "orbitalPeriodDays": 4.272,
+        "discoveryYear": 2021,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "Kepler-1130 b",
+        "radiusEarth": 0.8,
+        "semiMajorAxisAU": 0.0573,
+        "orbitalPeriodDays": 5.453,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-114",
+    "name": {
+      "en": "Kepler-114",
+      "fr": "Kepler-114"
+    },
+    "hostname": "Kepler-114",
+    "isSolarSystem": false,
+    "dist_ly": 846.48,
+    "ra": 294.1215,
+    "dec": 48.3498,
+    "coords_ly": {
+      "x": 229.902,
+      "y": -513.435,
+      "z": 632.506
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-114",
+        "fr": "Kepler-114"
+      },
+      "spectralType": "G V",
+      "temperatureK": null,
+      "radiusSolar": 0.54,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "A G-type star system located 846.5 light-years away with 3 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 846.5 années-lumière avec 3 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-114 b",
+        "radiusEarth": 1.26,
+        "semiMajorAxisAU": 0.053,
+        "orbitalPeriodDays": 5.189,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-114 c",
+        "radiusEarth": 1.6,
+        "semiMajorAxisAU": 0.064,
+        "orbitalPeriodDays": 8.041,
+        "discoveryYear": 2013,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-114 d",
+        "radiusEarth": 2.53,
+        "semiMajorAxisAU": 0.0825,
+        "orbitalPeriodDays": 11.776,
+        "discoveryYear": 2013,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-160",
+    "name": {
+      "en": "Kepler-160",
+      "fr": "Kepler-160"
+    },
+    "hostname": "Kepler-160",
+    "isSolarSystem": false,
+    "dist_ly": 3056.13,
+    "ra": 287.7736,
+    "dec": 42.8693,
+    "coords_ly": {
+      "x": 683.731,
+      "y": -2132.952,
+      "z": 2079.169
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-160",
+        "fr": "Kepler-160"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5471,
+      "radiusSolar": 1.12,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-160 b",
+        "radiusEarth": 1.72,
+        "semiMajorAxisAU": 0.0551,
+        "orbitalPeriodDays": 4.309,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-160 c",
+        "radiusEarth": 3.76,
+        "semiMajorAxisAU": 0.1192,
+        "orbitalPeriodDays": 13.699,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-160 d",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.17,
+        "orbitalPeriodDays": 30.0,
+        "discoveryYear": 2020,
+        "discoveryMethod": "Transit Timing Variations",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      }
+    ]
+  },
+  {
+    "id": "kepler-166",
+    "name": {
+      "en": "Kepler-166",
+      "fr": "Kepler-166"
+    },
+    "hostname": "Kepler-166",
+    "isSolarSystem": false,
+    "dist_ly": 1968.45,
+    "ra": 293.1601,
+    "dec": 48.8812,
+    "coords_ly": {
+      "x": 509.128,
+      "y": -1190.174,
+      "z": 1482.929
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-166",
+        "fr": "Kepler-166"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5350,
+      "radiusSolar": 0.83,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-166 b",
+        "radiusEarth": 2.27,
+        "semiMajorAxisAU": 0.072,
+        "orbitalPeriodDays": 7.65,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-166 c",
+        "radiusEarth": 2.38,
+        "semiMajorAxisAU": 0.195,
+        "orbitalPeriodDays": 34.26,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-166 d",
+        "radiusEarth": 1.73,
+        "semiMajorAxisAU": 0.0247,
+        "orbitalPeriodDays": 1.554,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1669",
+    "name": {
+      "en": "Kepler-1669",
+      "fr": "Kepler-1669"
+    },
+    "hostname": "Kepler-1669",
+    "isSolarSystem": false,
+    "dist_ly": 1772.48,
+    "ra": 297.4304,
+    "dec": 39.8479,
+    "coords_ly": {
+      "x": 626.888,
+      "y": -1207.822,
+      "z": 1135.717
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1669",
+        "fr": "Kepler-1669"
+      },
+      "spectralType": "K V",
+      "temperatureK": 4303,
+      "radiusSolar": 0.71,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1669 d",
+        "radiusEarth": 1.22,
+        "semiMajorAxisAU": 0.0468,
+        "orbitalPeriodDays": 4.729,
+        "discoveryYear": 2023,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#E74C3C"
+      },
+      {
+        "name": "Kepler-1669 c",
+        "radiusEarth": 1.9,
+        "semiMajorAxisAU": 0.024,
+        "orbitalPeriodDays": 1.609,
+        "discoveryYear": 2021,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-1669 b",
+        "radiusEarth": 2.78,
+        "semiMajorAxisAU": 0.0785,
+        "orbitalPeriodDays": 9.512,
+        "discoveryYear": 2020,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-18",
+    "name": {
+      "en": "Kepler-18",
+      "fr": "Kepler-18"
+    },
+    "hostname": "Kepler-18",
+    "isSolarSystem": false,
+    "dist_ly": 1412.41,
+    "ra": 298.0794,
+    "dec": 44.7462,
+    "coords_ly": {
+      "x": 472.173,
+      "y": -885.065,
+      "z": 994.292
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-18",
+        "fr": "Kepler-18"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5345,
+      "radiusSolar": 1.11,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "An M-dwarf star famous for Kepler-186 f, the very first validated Earth-sized planet found inside a star's circumstellar habitable zone.",
+      "fr": "Une naine rouge célèbre pour Kepler-186 f, la toute première planète de taille terrestre validée en zone habitable."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-18 b",
+        "radiusEarth": 2.0,
+        "semiMajorAxisAU": 0.0447,
+        "orbitalPeriodDays": 3.505,
+        "discoveryYear": 2011,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-18 c",
+        "radiusEarth": 5.49,
+        "semiMajorAxisAU": 0.0752,
+        "orbitalPeriodDays": 7.642,
+        "discoveryYear": 2011,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-18 d",
+        "radiusEarth": 6.98,
+        "semiMajorAxisAU": 0.1172,
+        "orbitalPeriodDays": 14.859,
+        "discoveryYear": 2011,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#F39C12"
+      }
+    ]
+  },
+  {
+    "id": "kepler-203",
+    "name": {
+      "en": "Kepler-203",
+      "fr": "Kepler-203"
+    },
+    "hostname": "Kepler-203",
+    "isSolarSystem": false,
+    "dist_ly": 2293.86,
+    "ra": 297.09,
+    "dec": 41.3881,
+    "coords_ly": {
+      "x": 783.71,
+      "y": -1532.166,
+      "z": 1516.601
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-203",
+        "fr": "Kepler-203"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5821,
+      "radiusSolar": 1.11,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "A G-type star system located 2293.9 light-years away with 3 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 2293.9 années-lumière avec 3 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-203 b",
+        "radiusEarth": 2.57,
+        "semiMajorAxisAU": 0.043,
+        "orbitalPeriodDays": 3.163,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-203 c",
+        "radiusEarth": 2.47,
+        "semiMajorAxisAU": 0.061,
+        "orbitalPeriodDays": 5.371,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-203 d",
+        "radiusEarth": 1.44,
+        "semiMajorAxisAU": 0.1,
+        "orbitalPeriodDays": 11.33,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-206",
+    "name": {
+      "en": "Kepler-206",
+      "fr": "Kepler-206"
+    },
+    "hostname": "Kepler-206",
+    "isSolarSystem": false,
+    "dist_ly": 1938.83,
+    "ra": 291.6347,
+    "dec": 41.8338,
+    "coords_ly": {
+      "x": 532.6,
+      "y": -1342.82,
+      "z": 1293.144
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-206",
+        "fr": "Kepler-206"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5764,
+      "radiusSolar": 1.19,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "A G-type star system located 1938.8 light-years away with 3 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 1938.8 années-lumière avec 3 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-206 b",
+        "radiusEarth": 1.2,
+        "semiMajorAxisAU": 0.078,
+        "orbitalPeriodDays": 7.782,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "Kepler-206 c",
+        "radiusEarth": 1.77,
+        "semiMajorAxisAU": 0.111,
+        "orbitalPeriodDays": 13.137,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-206 d",
+        "radiusEarth": 1.19,
+        "semiMajorAxisAU": 0.163,
+        "orbitalPeriodDays": 23.443,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-207",
+    "name": {
+      "en": "Kepler-207",
+      "fr": "Kepler-207"
+    },
+    "hostname": "Kepler-207",
+    "isSolarSystem": false,
+    "dist_ly": 2855.56,
+    "ra": 290.0305,
+    "dec": 42.1661,
+    "coords_ly": {
+      "x": 724.962,
+      "y": -1988.519,
+      "z": 1916.886
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-207",
+        "fr": "Kepler-207"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5920,
+      "radiusSolar": 1.59,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "A G-type star system located 2855.6 light-years away with 3 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 2855.6 années-lumière avec 3 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-207 b",
+        "radiusEarth": 1.57,
+        "semiMajorAxisAU": 0.029,
+        "orbitalPeriodDays": 1.612,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-207 c",
+        "radiusEarth": 1.5,
+        "semiMajorAxisAU": 0.044,
+        "orbitalPeriodDays": 3.072,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-207 d",
+        "radiusEarth": 3.31,
+        "semiMajorAxisAU": 0.068,
+        "orbitalPeriodDays": 5.868,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-222",
+    "name": {
+      "en": "Kepler-222",
+      "fr": "Kepler-222"
+    },
+    "hostname": "Kepler-222",
+    "isSolarSystem": false,
+    "dist_ly": 2475.05,
+    "ra": 287.9061,
+    "dec": 46.9377,
+    "coords_ly": {
+      "x": 519.587,
+      "y": -1608.088,
+      "z": 1808.302
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-222",
+        "fr": "Kepler-222"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5433,
+      "radiusSolar": 0.87,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "A G-type star system located 2475.1 light-years away with 3 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 2475.1 années-lumière avec 3 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-222 b",
+        "radiusEarth": 3.16,
+        "semiMajorAxisAU": 0.048,
+        "orbitalPeriodDays": 3.937,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-222 c",
+        "radiusEarth": 4.64,
+        "semiMajorAxisAU": 0.091,
+        "orbitalPeriodDays": 10.089,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-222 d",
+        "radiusEarth": 3.69,
+        "semiMajorAxisAU": 0.18,
+        "orbitalPeriodDays": 28.082,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-226",
+    "name": {
+      "en": "Kepler-226",
+      "fr": "Kepler-226"
+    },
+    "hostname": "Kepler-226",
+    "isSolarSystem": false,
+    "dist_ly": 3196.78,
+    "ra": 292.3761,
+    "dec": 47.881,
+    "coords_ly": {
+      "x": 816.186,
+      "y": -1982.564,
+      "z": 2371.223
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-226",
+        "fr": "Kepler-226"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5571,
+      "radiusSolar": 0.8,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "A G-type star system located 3196.8 light-years away with 3 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 3196.8 années-lumière avec 3 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-226 b",
+        "radiusEarth": 1.55,
+        "semiMajorAxisAU": 0.047,
+        "orbitalPeriodDays": 3.941,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-226 c",
+        "radiusEarth": 2.27,
+        "semiMajorAxisAU": 0.058,
+        "orbitalPeriodDays": 5.35,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-226 d",
+        "radiusEarth": 1.22,
+        "semiMajorAxisAU": 0.076,
+        "orbitalPeriodDays": 8.109,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-228",
+    "name": {
+      "en": "Kepler-228",
+      "fr": "Kepler-228"
+    },
+    "hostname": "Kepler-228",
+    "isSolarSystem": false,
+    "dist_ly": 5364.0,
+    "ra": 296.2861,
+    "dec": 48.2246,
+    "coords_ly": {
+      "x": 1582.564,
+      "y": -3204.033,
+      "z": 4000.27
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-228",
+        "fr": "Kepler-228"
+      },
+      "spectralType": "F V",
+      "temperatureK": 6043,
+      "radiusSolar": 1.01,
+      "colorHex": "#F8F9FA",
+      "class": "F"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "A F-type star system located 5364.0 light-years away with 3 confirmed planet(s).",
+      "fr": "Un système stellaire de classe F situé à 5364.0 années-lumière avec 3 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-228 b",
+        "radiusEarth": 1.53,
+        "semiMajorAxisAU": 0.038,
+        "orbitalPeriodDays": 2.567,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-228 c",
+        "radiusEarth": 2.7,
+        "semiMajorAxisAU": 0.052,
+        "orbitalPeriodDays": 4.134,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-228 d",
+        "radiusEarth": 4.04,
+        "semiMajorAxisAU": 0.101,
+        "orbitalPeriodDays": 11.094,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-229",
+    "name": {
+      "en": "Kepler-229",
+      "fr": "Kepler-229"
+    },
+    "hostname": "Kepler-229",
+    "isSolarSystem": false,
+    "dist_ly": 2694.92,
+    "ra": 286.9995,
+    "dec": 48.3758,
+    "coords_ly": {
+      "x": 523.352,
+      "y": -1711.864,
+      "z": 2014.497
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-229",
+        "fr": "Kepler-229"
+      },
+      "spectralType": "K V",
+      "temperatureK": 5120,
+      "radiusSolar": 0.73,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "A K-type star system located 2694.9 light-years away with 3 confirmed planet(s).",
+      "fr": "Un système stellaire de classe K situé à 2694.9 années-lumière avec 3 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-229 b",
+        "radiusEarth": 2.2,
+        "semiMajorAxisAU": 0.062,
+        "orbitalPeriodDays": 6.253,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-229 c",
+        "radiusEarth": 4.92,
+        "semiMajorAxisAU": 0.117,
+        "orbitalPeriodDays": 16.069,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-229 d",
+        "radiusEarth": 3.85,
+        "semiMajorAxisAU": 0.22,
+        "orbitalPeriodDays": 41.195,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-9",
+    "name": {
+      "en": "Kepler-9",
+      "fr": "Kepler-9"
+    },
+    "hostname": "Kepler-9",
+    "isSolarSystem": false,
+    "dist_ly": 2049.1,
+    "ra": 285.574,
+    "dec": 38.4008,
+    "coords_ly": {
+      "x": 431.142,
+      "y": -1546.889,
+      "z": 1272.817
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-9",
+        "fr": "Kepler-9"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5777,
+      "radiusSolar": 1.02,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 3,
+    "description": {
+      "en": "A Sun-like star 2,840 light-years away hosting 8 confirmed planets, tying our Solar System for the highest number of known planets.",
+      "fr": "Une étoile semblable au Soleil abritant 8 planètes confirmées, égalant notre système solaire en nombre de planètes."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-9 d",
+        "radiusEarth": 1.64,
+        "semiMajorAxisAU": 0.0273,
+        "orbitalPeriodDays": 1.593,
+        "discoveryYear": 2010,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-9 b",
+        "radiusEarth": 8.29,
+        "semiMajorAxisAU": 0.143,
+        "orbitalPeriodDays": 19.239,
+        "discoveryYear": 2010,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#F39C12"
+      },
+      {
+        "name": "Kepler-9 c",
+        "radiusEarth": 8.08,
+        "semiMajorAxisAU": 0.227,
+        "orbitalPeriodDays": 38.985,
+        "discoveryYear": 2010,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#F39C12"
+      }
+    ]
+  },
+  {
+    "id": "55-cnc-b",
+    "name": {
+      "en": "55 Cnc B",
+      "fr": "55 Cnc B"
+    },
+    "hostname": "55 Cnc B",
+    "isSolarSystem": false,
+    "dist_ly": 40.7,
+    "ra": 133.1679,
+    "dec": 28.3153,
+    "coords_ly": {
+      "x": -24.51,
+      "y": 26.13,
+      "z": 19.303
+    },
+    "star": {
+      "name": {
+        "en": "55 Cnc B",
+        "fr": "55 Cnc B"
+      },
+      "spectralType": "M4.5 V",
+      "temperatureK": 3286,
+      "radiusSolar": 0.27,
+      "colorHex": "#FF5533",
+      "class": "M"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A M-type star system located 40.7 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe M situé à 40.7 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "55 Cnc B b",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.044,
+        "orbitalPeriodDays": 6.799,
+        "discoveryYear": 2025,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "55 Cnc B c",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.13,
+        "orbitalPeriodDays": 33.747,
+        "discoveryYear": 2025,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      }
+    ]
+  },
+  {
+    "id": "lhs-1140",
+    "name": {
+      "en": "LHS 1140",
+      "fr": "LHS 1140"
+    },
+    "hostname": "LHS 1140",
+    "isSolarSystem": false,
+    "dist_ly": 48.88,
+    "ra": 11.2486,
+    "dec": -15.2741,
+    "coords_ly": {
+      "x": 46.246,
+      "y": 9.198,
+      "z": -12.876
+    },
+    "star": {
+      "name": {
+        "en": "LHS 1140",
+        "fr": "LHS 1140"
+      },
+      "spectralType": "M4.5 V",
+      "temperatureK": 3096,
+      "radiusSolar": 0.22,
+      "colorHex": "#FF5533",
+      "class": "M"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A quiet red dwarf 48 light-years away hosting LHS 1140 b, a prime candidate for a temperate ocean world with a nitrogen-rich atmosphere.",
+      "fr": "Une naine rouge calme abritant LHS 1140 b, candidate idéale pour un monde océanique tempéré doté d'une atmosphère."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "LHS 1140 c",
+        "radiusEarth": 1.27,
+        "semiMajorAxisAU": 0.027,
+        "orbitalPeriodDays": 3.778,
+        "discoveryYear": 2018,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "LHS 1140 b",
+        "radiusEarth": 1.73,
+        "semiMajorAxisAU": 0.0946,
+        "orbitalPeriodDays": 24.737,
+        "discoveryYear": 2017,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "k2-185",
+    "name": {
+      "en": "K2-185",
+      "fr": "K2-185"
+    },
+    "hostname": "K2-185",
+    "isSolarSystem": false,
+    "dist_ly": 875.26,
+    "ra": 130.2597,
+    "dec": 14.6902,
+    "coords_ly": {
+      "x": -547.151,
+      "y": 646.1,
+      "z": 221.961
+    },
+    "star": {
+      "name": {
+        "en": "K2-185",
+        "fr": "K2-185"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5788,
+      "radiusSolar": 0.94,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 875.3 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 875.3 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "K2-185 b",
+        "radiusEarth": 1.15,
+        "semiMajorAxisAU": 0.0926,
+        "orbitalPeriodDays": 10.616,
+        "discoveryYear": 2018,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "K2-185 c",
+        "radiusEarth": 2.39,
+        "semiMajorAxisAU": 0.2695,
+        "orbitalPeriodDays": 52.713,
+        "discoveryYear": 2018,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "k2-188",
+    "name": {
+      "en": "K2-188",
+      "fr": "K2-188"
+    },
+    "hostname": "K2-188",
+    "isSolarSystem": false,
+    "dist_ly": 1457.34,
+    "ra": 129.8137,
+    "dec": 23.3574,
+    "coords_ly": {
+      "x": -856.652,
+      "y": 1027.686,
+      "z": 577.784
+    },
+    "star": {
+      "name": {
+        "en": "K2-188",
+        "fr": "K2-188"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5977,
+      "radiusSolar": 1.19,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 1457.3 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 1457.3 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "K2-188 b",
+        "radiusEarth": 1.35,
+        "semiMajorAxisAU": 0.0289,
+        "orbitalPeriodDays": 1.742,
+        "discoveryYear": 2018,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "K2-188 c",
+        "radiusEarth": 2.83,
+        "semiMajorAxisAU": 0.0785,
+        "orbitalPeriodDays": 7.81,
+        "discoveryYear": 2018,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "k2-189",
+    "name": {
+      "en": "K2-189",
+      "fr": "K2-189"
+    },
+    "hostname": "K2-189",
+    "isSolarSystem": false,
+    "dist_ly": 789.67,
+    "ra": 203.6214,
+    "dec": -15.0365,
+    "coords_ly": {
+      "x": -698.731,
+      "y": -305.579,
+      "z": -204.867
+    },
+    "star": {
+      "name": {
+        "en": "K2-189",
+        "fr": "K2-189"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5442,
+      "radiusSolar": 0.88,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 789.7 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 789.7 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "K2-189 b",
+        "radiusEarth": 1.4,
+        "semiMajorAxisAU": 0.0353,
+        "orbitalPeriodDays": 2.588,
+        "discoveryYear": 2018,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "K2-189 c",
+        "radiusEarth": 2.31,
+        "semiMajorAxisAU": 0.0665,
+        "orbitalPeriodDays": 6.679,
+        "discoveryYear": 2018,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-110",
+    "name": {
+      "en": "Kepler-110",
+      "fr": "Kepler-110"
+    },
+    "hostname": "Kepler-110",
+    "isSolarSystem": false,
+    "dist_ly": 1913.01,
+    "ra": 292.9292,
+    "dec": 48.6028,
+    "coords_ly": {
+      "x": 492.844,
+      "y": -1165.071,
+      "z": 1435.031
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-110",
+        "fr": "Kepler-110"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5960,
+      "radiusSolar": 1.15,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 1913.0 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 1913.0 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-110 b",
+        "radiusEarth": 1.83,
+        "semiMajorAxisAU": 0.107,
+        "orbitalPeriodDays": 12.691,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-110 c",
+        "radiusEarth": 2.21,
+        "semiMajorAxisAU": 0.198,
+        "orbitalPeriodDays": 31.72,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-111",
+    "name": {
+      "en": "Kepler-111",
+      "fr": "Kepler-111"
+    },
+    "hostname": "Kepler-111",
+    "isSolarSystem": false,
+    "dist_ly": 2143.57,
+    "ra": 291.6532,
+    "dec": 44.6883,
+    "coords_ly": {
+      "x": 562.322,
+      "y": -1416.422,
+      "z": 1507.467
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-111",
+        "fr": "Kepler-111"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5914,
+      "radiusSolar": 1.15,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 2143.6 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 2143.6 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-111 b",
+        "radiusEarth": 1.58,
+        "semiMajorAxisAU": 0.046,
+        "orbitalPeriodDays": 3.342,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-111 c",
+        "radiusEarth": 7.08,
+        "semiMajorAxisAU": 0.751,
+        "orbitalPeriodDays": 224.778,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#F39C12"
+      }
+    ]
+  },
+  {
+    "id": "kepler-112",
+    "name": {
+      "en": "Kepler-112",
+      "fr": "Kepler-112"
+    },
+    "hostname": "Kepler-112",
+    "isSolarSystem": false,
+    "dist_ly": 1673.85,
+    "ra": 296.9811,
+    "dec": 43.2097,
+    "coords_ly": {
+      "x": 553.507,
+      "y": -1087.204,
+      "z": 1146.039
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-112",
+        "fr": "Kepler-112"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5544,
+      "radiusSolar": 0.84,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 1673.9 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 1673.9 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-112 b",
+        "radiusEarth": 2.36,
+        "semiMajorAxisAU": 0.076,
+        "orbitalPeriodDays": 8.409,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-112 c",
+        "radiusEarth": 2.4,
+        "semiMajorAxisAU": 0.172,
+        "orbitalPeriodDays": 28.574,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1126",
+    "name": {
+      "en": "Kepler-1126",
+      "fr": "Kepler-1126"
+    },
+    "hostname": "Kepler-1126",
+    "isSolarSystem": false,
+    "dist_ly": 2073.49,
+    "ra": 285.692,
+    "dec": 45.6894,
+    "coords_ly": {
+      "x": 391.751,
+      "y": -1394.451,
+      "z": 1483.716
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1126",
+        "fr": "Kepler-1126"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5678,
+      "radiusSolar": 0.92,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 2073.5 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 2073.5 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1126 c",
+        "radiusEarth": 1.45,
+        "semiMajorAxisAU": 0.6193,
+        "orbitalPeriodDays": 199.669,
+        "discoveryYear": 2023,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-1126 b",
+        "radiusEarth": 1.73,
+        "semiMajorAxisAU": 0.4334,
+        "orbitalPeriodDays": 108.593,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1129",
+    "name": {
+      "en": "Kepler-1129",
+      "fr": "Kepler-1129"
+    },
+    "hostname": "Kepler-1129",
+    "isSolarSystem": false,
+    "dist_ly": 3861.3,
+    "ra": 291.6045,
+    "dec": 41.3093,
+    "coords_ly": {
+      "x": 1067.935,
+      "y": -2696.678,
+      "z": 2548.937
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1129",
+        "fr": "Kepler-1129"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5831,
+      "radiusSolar": 1.0,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 3861.3 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 3861.3 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1129 b",
+        "radiusEarth": 2.96,
+        "semiMajorAxisAU": 0.1644,
+        "orbitalPeriodDays": 24.34,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-1129 c",
+        "radiusEarth": 2.73,
+        "semiMajorAxisAU": 0.3528,
+        "orbitalPeriodDays": 76.537,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-113",
+    "name": {
+      "en": "Kepler-113",
+      "fr": "Kepler-113"
+    },
+    "hostname": "Kepler-113",
+    "isSolarSystem": false,
+    "dist_ly": 855.67,
+    "ra": 287.9979,
+    "dec": 50.9442,
+    "coords_ly": {
+      "x": 166.585,
+      "y": -512.76,
+      "z": 664.459
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-113",
+        "fr": "Kepler-113"
+      },
+      "spectralType": "K V",
+      "temperatureK": 4725,
+      "radiusSolar": 0.69,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A K-type star system located 855.7 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe K situé à 855.7 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-113 b",
+        "radiusEarth": 1.82,
+        "semiMajorAxisAU": 0.0489,
+        "orbitalPeriodDays": 4.754,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-113 c",
+        "radiusEarth": 2.18,
+        "semiMajorAxisAU": 0.0744,
+        "orbitalPeriodDays": 8.925,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1143",
+    "name": {
+      "en": "Kepler-1143",
+      "fr": "Kepler-1143"
+    },
+    "hostname": "Kepler-1143",
+    "isSolarSystem": false,
+    "dist_ly": 1810.78,
+    "ra": 287.3028,
+    "dec": 39.2896,
+    "coords_ly": {
+      "x": 416.825,
+      "y": -1338.044,
+      "z": 1146.663
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1143",
+        "fr": "Kepler-1143"
+      },
+      "spectralType": "K V",
+      "temperatureK": 5053,
+      "radiusSolar": 0.77,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A K-type star system located 1810.8 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe K situé à 1810.8 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1143 b",
+        "radiusEarth": 1.67,
+        "semiMajorAxisAU": 0.0364,
+        "orbitalPeriodDays": 2.889,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-1143 c",
+        "radiusEarth": 3.6,
+        "semiMajorAxisAU": 0.635,
+        "orbitalPeriodDays": 210.631,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-115",
+    "name": {
+      "en": "Kepler-115",
+      "fr": "Kepler-115"
+    },
+    "hostname": "Kepler-115",
+    "isSolarSystem": false,
+    "dist_ly": 2033.94,
+    "ra": 297.7119,
+    "dec": 45.262,
+    "coords_ly": {
+      "x": 665.742,
+      "y": -1267.41,
+      "z": 1444.774
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-115",
+        "fr": "Kepler-115"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5979,
+      "radiusSolar": 1.21,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 2033.9 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 2033.9 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-115 b",
+        "radiusEarth": 1.09,
+        "semiMajorAxisAU": 0.036,
+        "orbitalPeriodDays": 2.404,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#E74C3C"
+      },
+      {
+        "name": "Kepler-115 c",
+        "radiusEarth": 2.6,
+        "semiMajorAxisAU": 0.087,
+        "orbitalPeriodDays": 8.991,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1154",
+    "name": {
+      "en": "Kepler-1154",
+      "fr": "Kepler-1154"
+    },
+    "hostname": "Kepler-1154",
+    "isSolarSystem": false,
+    "dist_ly": 4762.21,
+    "ra": 297.4771,
+    "dec": 39.8772,
+    "coords_ly": {
+      "x": 1686.218,
+      "y": -3242.356,
+      "z": 3053.266
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1154",
+        "fr": "Kepler-1154"
+      },
+      "spectralType": "F V",
+      "temperatureK": 6327,
+      "radiusSolar": 1.43,
+      "colorHex": "#F8F9FA",
+      "class": "F"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A F-type star system located 4762.2 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe F situé à 4762.2 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1154 b",
+        "radiusEarth": 2.34,
+        "semiMajorAxisAU": 0.0661,
+        "orbitalPeriodDays": 5.186,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-1154 c",
+        "radiusEarth": 2.36,
+        "semiMajorAxisAU": 0.0915,
+        "orbitalPeriodDays": 8.458,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-116",
+    "name": {
+      "en": "Kepler-116",
+      "fr": "Kepler-116"
+    },
+    "hostname": "Kepler-116",
+    "isSolarSystem": false,
+    "dist_ly": 3115.34,
+    "ra": 294.7421,
+    "dec": 43.5368,
+    "coords_ly": {
+      "x": 945.222,
+      "y": -2051.092,
+      "z": 2145.91
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-116",
+        "fr": "Kepler-116"
+      },
+      "spectralType": "F V",
+      "temperatureK": 6142,
+      "radiusSolar": 1.45,
+      "colorHex": "#F8F9FA",
+      "class": "F"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A F-type star system located 3115.3 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe F situé à 3115.3 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-116 b",
+        "radiusEarth": 3.42,
+        "semiMajorAxisAU": 0.069,
+        "orbitalPeriodDays": 5.969,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-116 c",
+        "radiusEarth": 2.3,
+        "semiMajorAxisAU": 0.116,
+        "orbitalPeriodDays": 13.072,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1162",
+    "name": {
+      "en": "Kepler-1162",
+      "fr": "Kepler-1162"
+    },
+    "hostname": "Kepler-1162",
+    "isSolarSystem": false,
+    "dist_ly": 3066.56,
+    "ra": 283.292,
+    "dec": 45.434,
+    "coords_ly": {
+      "x": 494.752,
+      "y": -2094.25,
+      "z": 2184.746
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1162",
+        "fr": "Kepler-1162"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5225,
+      "radiusSolar": 0.86,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 3066.6 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 3066.6 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1162 c",
+        "radiusEarth": 1.81,
+        "semiMajorAxisAU": 0.2832,
+        "orbitalPeriodDays": 59.284,
+        "discoveryYear": 2023,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-1162 b",
+        "radiusEarth": 2.21,
+        "semiMajorAxisAU": 0.1897,
+        "orbitalPeriodDays": 32.564,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1165",
+    "name": {
+      "en": "Kepler-1165",
+      "fr": "Kepler-1165"
+    },
+    "hostname": "Kepler-1165",
+    "isSolarSystem": false,
+    "dist_ly": 5137.62,
+    "ra": 286.9712,
+    "dec": 44.7083,
+    "coords_ly": {
+      "x": 1065.781,
+      "y": -3492.284,
+      "z": 3614.298
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1165",
+        "fr": "Kepler-1165"
+      },
+      "spectralType": "F V",
+      "temperatureK": 6249,
+      "radiusSolar": 1.08,
+      "colorHex": "#F8F9FA",
+      "class": "F"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A F-type star system located 5137.6 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe F situé à 5137.6 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1165 b",
+        "radiusEarth": 1.55,
+        "semiMajorAxisAU": 0.0898,
+        "orbitalPeriodDays": 9.479,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-1165 c",
+        "radiusEarth": 3.36,
+        "semiMajorAxisAU": 0.1935,
+        "orbitalPeriodDays": 29.969,
+        "discoveryYear": 2021,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-117",
+    "name": {
+      "en": "Kepler-117",
+      "fr": "Kepler-117"
+    },
+    "hostname": "Kepler-117",
+    "isSolarSystem": false,
+    "dist_ly": 4747.43,
+    "ra": 288.7931,
+    "dec": 48.0402,
+    "coords_ly": {
+      "x": 1022.565,
+      "y": -3004.958,
+      "z": 3530.258
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-117",
+        "fr": "Kepler-117"
+      },
+      "spectralType": "F8 V",
+      "temperatureK": 6150,
+      "radiusSolar": 1.61,
+      "colorHex": "#F8F9FA",
+      "class": "F"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A F-type star system located 4747.4 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe F situé à 4747.4 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-117 b",
+        "radiusEarth": 8.06,
+        "semiMajorAxisAU": 0.1445,
+        "orbitalPeriodDays": 18.796,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#F39C12"
+      },
+      {
+        "name": "Kepler-117 c",
+        "radiusEarth": 12.34,
+        "semiMajorAxisAU": 0.2804,
+        "orbitalPeriodDays": 50.79,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#F39C12"
+      }
+    ]
+  },
+  {
+    "id": "kepler-118",
+    "name": {
+      "en": "Kepler-118",
+      "fr": "Kepler-118"
+    },
+    "hostname": "Kepler-118",
+    "isSolarSystem": false,
+    "dist_ly": 1872.88,
+    "ra": 299.2132,
+    "dec": 41.4248,
+    "coords_ly": {
+      "x": 685.399,
+      "y": -1225.715,
+      "z": 1239.167
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-118",
+        "fr": "Kepler-118"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5274,
+      "radiusSolar": 1.09,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 1872.9 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 1872.9 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-118 b",
+        "radiusEarth": 1.96,
+        "semiMajorAxisAU": 0.073,
+        "orbitalPeriodDays": 7.518,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-118 c",
+        "radiusEarth": 7.68,
+        "semiMajorAxisAU": 0.141,
+        "orbitalPeriodDays": 20.172,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#F39C12"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1181",
+    "name": {
+      "en": "Kepler-1181",
+      "fr": "Kepler-1181"
+    },
+    "hostname": "Kepler-1181",
+    "isSolarSystem": false,
+    "dist_ly": 3060.71,
+    "ra": 289.7473,
+    "dec": 39.5234,
+    "coords_ly": {
+      "x": 797.691,
+      "y": -2222.08,
+      "z": 1947.814
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1181",
+        "fr": "Kepler-1181"
+      },
+      "spectralType": "F V",
+      "temperatureK": 6688,
+      "radiusSolar": 1.35,
+      "colorHex": "#F8F9FA",
+      "class": "F"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A F-type star system located 3060.7 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe F situé à 3060.7 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1181 c",
+        "radiusEarth": 1.83,
+        "semiMajorAxisAU": 0.0928,
+        "orbitalPeriodDays": 8.935,
+        "discoveryYear": 2023,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-1181 b",
+        "radiusEarth": 1.57,
+        "semiMajorAxisAU": 0.0623,
+        "orbitalPeriodDays": 4.893,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-119",
+    "name": {
+      "en": "Kepler-119",
+      "fr": "Kepler-119"
+    },
+    "hostname": "Kepler-119",
+    "isSolarSystem": false,
+    "dist_ly": 2289.6,
+    "ra": 295.9464,
+    "dec": 42.6588,
+    "coords_ly": {
+      "x": 736.704,
+      "y": -1514.061,
+      "z": 1551.508
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-119",
+        "fr": "Kepler-119"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5595,
+      "radiusSolar": 0.84,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 2289.6 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 2289.6 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-119 b",
+        "radiusEarth": 3.6,
+        "semiMajorAxisAU": 0.035,
+        "orbitalPeriodDays": 2.422,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-119 c",
+        "radiusEarth": 0.92,
+        "semiMajorAxisAU": 0.049,
+        "orbitalPeriodDays": 4.125,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#E74C3C"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1600",
+    "name": {
+      "en": "Kepler-1600",
+      "fr": "Kepler-1600"
+    },
+    "hostname": "Kepler-1600",
+    "isSolarSystem": false,
+    "dist_ly": 3362.05,
+    "ra": 291.3994,
+    "dec": 38.7878,
+    "coords_ly": {
+      "x": 956.179,
+      "y": -2439.959,
+      "z": 2106.115
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1600",
+        "fr": "Kepler-1600"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5214,
+      "radiusSolar": 0.82,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1600 c",
+        "radiusEarth": 1.94,
+        "semiMajorAxisAU": 0.0689,
+        "orbitalPeriodDays": 7.298,
+        "discoveryYear": 2021,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-1600 b",
+        "radiusEarth": 3.13,
+        "semiMajorAxisAU": 0.9717,
+        "orbitalPeriodDays": 386.371,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-161",
+    "name": {
+      "en": "Kepler-161",
+      "fr": "Kepler-161"
+    },
+    "hostname": "Kepler-161",
+    "isSolarSystem": false,
+    "dist_ly": 1417.58,
+    "ra": 290.5165,
+    "dec": 43.0839,
+    "coords_ly": {
+      "x": 362.861,
+      "y": -969.666,
+      "z": 968.304
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-161",
+        "fr": "Kepler-161"
+      },
+      "spectralType": "K V",
+      "temperatureK": 5078,
+      "radiusSolar": 0.81,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-161 b",
+        "radiusEarth": 2.12,
+        "semiMajorAxisAU": 0.054,
+        "orbitalPeriodDays": 4.921,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-161 c",
+        "radiusEarth": 2.05,
+        "semiMajorAxisAU": 0.068,
+        "orbitalPeriodDays": 7.064,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1610",
+    "name": {
+      "en": "Kepler-1610",
+      "fr": "Kepler-1610"
+    },
+    "hostname": "Kepler-1610",
+    "isSolarSystem": false,
+    "dist_ly": 2819.07,
+    "ra": 295.905,
+    "dec": 45.4054,
+    "coords_ly": {
+      "x": 864.685,
+      "y": -1780.356,
+      "z": 2007.439
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1610",
+        "fr": "Kepler-1610"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5295,
+      "radiusSolar": 0.8,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1610 c",
+        "radiusEarth": 2.09,
+        "semiMajorAxisAU": 0.2323,
+        "orbitalPeriodDays": 44.985,
+        "discoveryYear": 2023,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-1610 b",
+        "radiusEarth": 1.61,
+        "semiMajorAxisAU": 0.0769,
+        "orbitalPeriodDays": 8.702,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-162",
+    "name": {
+      "en": "Kepler-162",
+      "fr": "Kepler-162"
+    },
+    "hostname": "Kepler-162",
+    "isSolarSystem": false,
+    "dist_ly": 2790.73,
+    "ra": 297.2789,
+    "dec": 43.724,
+    "coords_ly": {
+      "x": 924.344,
+      "y": -1792.502,
+      "z": 1928.909
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-162",
+        "fr": "Kepler-162"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5816,
+      "radiusSolar": 0.96,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-162 b",
+        "radiusEarth": 1.26,
+        "semiMajorAxisAU": 0.069,
+        "orbitalPeriodDays": 6.92,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-162 c",
+        "radiusEarth": 3.03,
+        "semiMajorAxisAU": 0.137,
+        "orbitalPeriodDays": 19.446,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-163",
+    "name": {
+      "en": "Kepler-163",
+      "fr": "Kepler-163"
+    },
+    "hostname": "Kepler-163",
+    "isSolarSystem": false,
+    "dist_ly": 2249.87,
+    "ra": 295.0027,
+    "dec": 46.9873,
+    "coords_ly": {
+      "x": 648.69,
+      "y": -1390.945,
+      "z": 1645.113
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-163",
+        "fr": "Kepler-163"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5776,
+      "radiusSolar": 0.92,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-163 b",
+        "radiusEarth": 1.05,
+        "semiMajorAxisAU": 0.078,
+        "orbitalPeriodDays": 7.811,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "Kepler-163 c",
+        "radiusEarth": 2.26,
+        "semiMajorAxisAU": 0.152,
+        "orbitalPeriodDays": 21.347,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1641",
+    "name": {
+      "en": "Kepler-1641",
+      "fr": "Kepler-1641"
+    },
+    "hostname": "Kepler-1641",
+    "isSolarSystem": false,
+    "dist_ly": 2806.15,
+    "ra": 296.3595,
+    "dec": 41.5745,
+    "coords_ly": {
+      "x": 932.075,
+      "y": -1880.994,
+      "z": 1862.145
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1641",
+        "fr": "Kepler-1641"
+      },
+      "spectralType": "F V",
+      "temperatureK": 6152,
+      "radiusSolar": 1.19,
+      "colorHex": "#F8F9FA",
+      "class": "F"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1641 b",
+        "radiusEarth": 3.11,
+        "semiMajorAxisAU": 0.1511,
+        "orbitalPeriodDays": 19.672,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-1641 c",
+        "radiusEarth": 2.95,
+        "semiMajorAxisAU": 0.2119,
+        "orbitalPeriodDays": 32.657,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1642",
+    "name": {
+      "en": "Kepler-1642",
+      "fr": "Kepler-1642"
+    },
+    "hostname": "Kepler-1642",
+    "isSolarSystem": false,
+    "dist_ly": 1349.87,
+    "ra": 297.2121,
+    "dec": 43.6438,
+    "coords_ly": {
+      "x": 446.69,
+      "y": -868.713,
+      "z": 931.646
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1642",
+        "fr": "Kepler-1642"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5355,
+      "radiusSolar": 0.84,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1642 c",
+        "radiusEarth": 2.66,
+        "semiMajorAxisAU": 0.0653,
+        "orbitalPeriodDays": 6.651,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-1642 b",
+        "radiusEarth": 3.2,
+        "semiMajorAxisAU": 0.0979,
+        "orbitalPeriodDays": 12.206,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-165",
+    "name": {
+      "en": "Kepler-165",
+      "fr": "Kepler-165"
+    },
+    "hostname": "Kepler-165",
+    "isSolarSystem": false,
+    "dist_ly": 1829.36,
+    "ra": 280.6909,
+    "dec": 47.8097,
+    "coords_ly": {
+      "x": 227.917,
+      "y": -1207.266,
+      "z": 1355.407
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-165",
+        "fr": "Kepler-165"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5211,
+      "radiusSolar": 0.77,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-165 b",
+        "radiusEarth": 2.32,
+        "semiMajorAxisAU": 0.072,
+        "orbitalPeriodDays": 8.181,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-165 c",
+        "radiusEarth": 2.23,
+        "semiMajorAxisAU": 0.11,
+        "orbitalPeriodDays": 15.313,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1656",
+    "name": {
+      "en": "Kepler-1656",
+      "fr": "Kepler-1656"
+    },
+    "hostname": "Kepler-1656",
+    "isSolarSystem": false,
+    "dist_ly": 606.24,
+    "ra": 284.4722,
+    "dec": 39.9119,
+    "coords_ly": {
+      "x": 116.211,
+      "y": -450.253,
+      "z": 388.971
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1656",
+        "fr": "Kepler-1656"
+      },
+      "spectralType": "G V",
+      "temperatureK": null,
+      "radiusSolar": 1.1,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1656 b",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.1974,
+        "orbitalPeriodDays": 31.562,
+        "discoveryYear": 2018,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "Kepler-1656 c",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 3.053,
+        "orbitalPeriodDays": 1919.0,
+        "discoveryYear": 2022,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1666",
+    "name": {
+      "en": "Kepler-1666",
+      "fr": "Kepler-1666"
+    },
+    "hostname": "Kepler-1666",
+    "isSolarSystem": false,
+    "dist_ly": 4498.9,
+    "ra": 297.9516,
+    "dec": 46.2647,
+    "coords_ly": {
+      "x": 1457.838,
+      "y": -2747.39,
+      "z": 3250.644
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1666",
+        "fr": "Kepler-1666"
+      },
+      "spectralType": "F V",
+      "temperatureK": 6293,
+      "radiusSolar": 1.15,
+      "colorHex": "#F8F9FA",
+      "class": "F"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1666 b",
+        "radiusEarth": 2.88,
+        "semiMajorAxisAU": 0.179,
+        "orbitalPeriodDays": 25.848,
+        "discoveryYear": 2020,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-1666 c",
+        "radiusEarth": 3.24,
+        "semiMajorAxisAU": 0.2424,
+        "orbitalPeriodDays": 40.716,
+        "discoveryYear": 2020,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-168",
+    "name": {
+      "en": "Kepler-168",
+      "fr": "Kepler-168"
+    },
+    "hostname": "Kepler-168",
+    "isSolarSystem": false,
+    "dist_ly": 4382.24,
+    "ra": 294.7102,
+    "dec": 39.825,
+    "coords_ly": {
+      "x": 1406.906,
+      "y": -3057.402,
+      "z": 2806.584
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-168",
+        "fr": "Kepler-168"
+      },
+      "spectralType": "F V",
+      "temperatureK": 6282,
+      "radiusSolar": 1.11,
+      "colorHex": "#F8F9FA",
+      "class": "F"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-168 b",
+        "radiusEarth": 1.46,
+        "semiMajorAxisAU": 0.056,
+        "orbitalPeriodDays": 4.425,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-168 c",
+        "radiusEarth": 2.69,
+        "semiMajorAxisAU": 0.116,
+        "orbitalPeriodDays": 13.193,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1693",
+    "name": {
+      "en": "Kepler-1693",
+      "fr": "Kepler-1693"
+    },
+    "hostname": "Kepler-1693",
+    "isSolarSystem": false,
+    "dist_ly": 2479.0,
+    "ra": 290.2016,
+    "dec": 48.1858,
+    "coords_ly": {
+      "x": 570.749,
+      "y": -1551.119,
+      "z": 1847.625
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1693",
+        "fr": "Kepler-1693"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5432,
+      "radiusSolar": 0.88,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1693 c",
+        "radiusEarth": 0.98,
+        "semiMajorAxisAU": 0.0574,
+        "orbitalPeriodDays": 5.364,
+        "discoveryYear": 2021,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "Kepler-1693 b",
+        "radiusEarth": 1.29,
+        "semiMajorAxisAU": 0.0988,
+        "orbitalPeriodDays": 12.1,
+        "discoveryYear": 2020,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-200",
+    "name": {
+      "en": "Kepler-200",
+      "fr": "Kepler-200"
+    },
+    "hostname": "Kepler-200",
+    "isSolarSystem": false,
+    "dist_ly": 2171.91,
+    "ra": 284.41,
+    "dec": 41.2375,
+    "coords_ly": {
+      "x": 406.446,
+      "y": -1581.862,
+      "z": 1431.686
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-200",
+        "fr": "Kepler-200"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5678,
+      "radiusSolar": 0.94,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 2171.9 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 2171.9 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-200 b",
+        "radiusEarth": 2.13,
+        "semiMajorAxisAU": 0.08,
+        "orbitalPeriodDays": 8.595,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-200 c",
+        "radiusEarth": 1.59,
+        "semiMajorAxisAU": 0.09,
+        "orbitalPeriodDays": 10.222,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-2000",
+    "name": {
+      "en": "Kepler-2000",
+      "fr": "Kepler-2000"
+    },
+    "hostname": "Kepler-2000",
+    "isSolarSystem": false,
+    "dist_ly": 1045.62,
+    "ra": 285.5743,
+    "dec": 49.9621,
+    "coords_ly": {
+      "x": 180.596,
+      "y": -647.943,
+      "z": 800.546
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-2000",
+        "fr": "Kepler-2000"
+      },
+      "spectralType": "K V",
+      "temperatureK": 3757,
+      "radiusSolar": 0.58,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A K-type star system located 1045.6 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe K situé à 1045.6 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-2000 b",
+        "radiusEarth": 2.73,
+        "semiMajorAxisAU": 0.0562,
+        "orbitalPeriodDays": 6.383,
+        "discoveryYear": 2023,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-2000 c",
+        "radiusEarth": 1.57,
+        "semiMajorAxisAU": 0.1228,
+        "orbitalPeriodDays": 20.618,
+        "discoveryYear": 2023,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-2001",
+    "name": {
+      "en": "Kepler-2001",
+      "fr": "Kepler-2001"
+    },
+    "hostname": "Kepler-2001",
+    "isSolarSystem": false,
+    "dist_ly": 2532.77,
+    "ra": 291.6595,
+    "dec": 50.5839,
+    "coords_ly": {
+      "x": 593.56,
+      "y": -1494.629,
+      "z": 1956.701
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-2001",
+        "fr": "Kepler-2001"
+      },
+      "spectralType": "K V",
+      "temperatureK": 5081,
+      "radiusSolar": 0.77,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A K-type star system located 2532.8 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe K situé à 2532.8 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-2001 b",
+        "radiusEarth": 1.04,
+        "semiMajorAxisAU": 0.0197,
+        "orbitalPeriodDays": 1.09,
+        "discoveryYear": 2023,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#E74C3C"
+      },
+      {
+        "name": "Kepler-2001 c",
+        "radiusEarth": 1.82,
+        "semiMajorAxisAU": 0.1084,
+        "orbitalPeriodDays": 14.093,
+        "discoveryYear": 2023,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-201",
+    "name": {
+      "en": "Kepler-201",
+      "fr": "Kepler-201"
+    },
+    "hostname": "Kepler-201",
+    "isSolarSystem": false,
+    "dist_ly": 2075.81,
+    "ra": 293.6261,
+    "dec": 41.2728,
+    "coords_ly": {
+      "x": 625.246,
+      "y": -1429.36,
+      "z": 1369.295
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-201",
+        "fr": "Kepler-201"
+      },
+      "spectralType": "F V",
+      "temperatureK": 6065,
+      "radiusSolar": 1.23,
+      "colorHex": "#F8F9FA",
+      "class": "F"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A F-type star system located 2075.8 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe F situé à 2075.8 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-201 b",
+        "radiusEarth": 2.46,
+        "semiMajorAxisAU": 0.175,
+        "orbitalPeriodDays": 25.672,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-201 c",
+        "radiusEarth": 2.85,
+        "semiMajorAxisAU": 0.573,
+        "orbitalPeriodDays": 151.884,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-202",
+    "name": {
+      "en": "Kepler-202",
+      "fr": "Kepler-202"
+    },
+    "hostname": "Kepler-202",
+    "isSolarSystem": false,
+    "dist_ly": 929.91,
+    "ra": 282.9735,
+    "dec": 41.3218,
+    "coords_ly": {
+      "x": 156.785,
+      "y": -680.546,
+      "z": 614.006
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-202",
+        "fr": "Kepler-202"
+      },
+      "spectralType": "K V",
+      "temperatureK": 4668,
+      "radiusSolar": 0.67,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A K-type star system located 929.9 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe K situé à 929.9 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-202 b",
+        "radiusEarth": 1.63,
+        "semiMajorAxisAU": 0.045,
+        "orbitalPeriodDays": 4.069,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-202 c",
+        "radiusEarth": 1.85,
+        "semiMajorAxisAU": 0.113,
+        "orbitalPeriodDays": 16.282,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-204",
+    "name": {
+      "en": "Kepler-204",
+      "fr": "Kepler-204"
+    },
+    "hostname": "Kepler-204",
+    "isSolarSystem": false,
+    "dist_ly": 2239.79,
+    "ra": 285.3472,
+    "dec": 41.7618,
+    "coords_ly": {
+      "x": 442.18,
+      "y": -1611.127,
+      "z": 1491.781
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-204",
+        "fr": "Kepler-204"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5812,
+      "radiusSolar": 1.24,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 2239.8 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 2239.8 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-204 b",
+        "radiusEarth": 2.53,
+        "semiMajorAxisAU": 0.117,
+        "orbitalPeriodDays": 14.401,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-204 c",
+        "radiusEarth": 1.79,
+        "semiMajorAxisAU": 0.173,
+        "orbitalPeriodDays": 25.661,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-205",
+    "name": {
+      "en": "Kepler-205",
+      "fr": "Kepler-205"
+    },
+    "hostname": "Kepler-205",
+    "isSolarSystem": false,
+    "dist_ly": 520.94,
+    "ra": 285.2867,
+    "dec": 41.8609,
+    "coords_ly": {
+      "x": 102.29,
+      "y": -374.249,
+      "z": 347.634
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-205",
+        "fr": "Kepler-205"
+      },
+      "spectralType": "K V",
+      "temperatureK": 4321,
+      "radiusSolar": 0.55,
+      "colorHex": "#FF9E40",
+      "class": "K"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A K-type star system located 520.9 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe K situé à 520.9 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-205 b",
+        "radiusEarth": 1.51,
+        "semiMajorAxisAU": 0.032,
+        "orbitalPeriodDays": 2.756,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      },
+      {
+        "name": "Kepler-205 c",
+        "radiusEarth": 1.64,
+        "semiMajorAxisAU": 0.122,
+        "orbitalPeriodDays": 20.307,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-209",
+    "name": {
+      "en": "Kepler-209",
+      "fr": "Kepler-209"
+    },
+    "hostname": "Kepler-209",
+    "isSolarSystem": false,
+    "dist_ly": 1881.75,
+    "ra": 291.1695,
+    "dec": 42.6407,
+    "coords_ly": {
+      "x": 499.888,
+      "y": -1290.829,
+      "z": 1274.693
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-209",
+        "fr": "Kepler-209"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5513,
+      "radiusSolar": 0.94,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 1881.7 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 1881.7 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-209 b",
+        "radiusEarth": 2.26,
+        "semiMajorAxisAU": 0.122,
+        "orbitalPeriodDays": 16.088,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-209 c",
+        "radiusEarth": 3.1,
+        "semiMajorAxisAU": 0.231,
+        "orbitalPeriodDays": 41.75,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-225",
+    "name": {
+      "en": "Kepler-225",
+      "fr": "Kepler-225"
+    },
+    "hostname": "Kepler-225",
+    "isSolarSystem": false,
+    "dist_ly": 1830.07,
+    "ra": 292.194,
+    "dec": 47.4571,
+    "coords_ly": {
+      "x": 467.414,
+      "y": -1145.708,
+      "z": 1348.34
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-225",
+        "fr": "Kepler-225"
+      },
+      "spectralType": "M V",
+      "temperatureK": 3682,
+      "radiusSolar": 0.48,
+      "colorHex": "#FF5533",
+      "class": "M"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A M-type star system located 1830.1 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe M situé à 1830.1 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-225 b",
+        "radiusEarth": 1.2,
+        "semiMajorAxisAU": 0.056,
+        "orbitalPeriodDays": 6.739,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "Kepler-225 c",
+        "radiusEarth": 1.84,
+        "semiMajorAxisAU": 0.111,
+        "orbitalPeriodDays": 18.794,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-227",
+    "name": {
+      "en": "Kepler-227",
+      "fr": "Kepler-227"
+    },
+    "hostname": "Kepler-227",
+    "isSolarSystem": false,
+    "dist_ly": 3532.47,
+    "ra": 291.9343,
+    "dec": 48.1417,
+    "coords_ly": {
+      "x": 880.509,
+      "y": -2186.555,
+      "z": 2630.973
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-227",
+        "fr": "Kepler-227"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5854,
+      "radiusSolar": 1.09,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 3532.5 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 3532.5 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-227 b",
+        "radiusEarth": 3.11,
+        "semiMajorAxisAU": 0.09,
+        "orbitalPeriodDays": 9.488,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-227 c",
+        "radiusEarth": 3.04,
+        "semiMajorAxisAU": 0.29,
+        "orbitalPeriodDays": 54.419,
+        "discoveryYear": 2014,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-625",
+    "name": {
+      "en": "Kepler-625",
+      "fr": "Kepler-625"
+    },
+    "hostname": "Kepler-625",
+    "isSolarSystem": false,
+    "dist_ly": 2481.1,
+    "ra": 292.1505,
+    "dec": 39.6375,
+    "coords_ly": {
+      "x": 720.404,
+      "y": -1769.668,
+      "z": 1582.763
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-625",
+        "fr": "Kepler-625"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5789,
+      "radiusSolar": 0.96,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 2481.1 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 2481.1 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-625 c",
+        "radiusEarth": 1.05,
+        "semiMajorAxisAU": 0.05,
+        "orbitalPeriodDays": 4.165,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "Kepler-625 b",
+        "radiusEarth": 1.99,
+        "semiMajorAxisAU": 0.0756,
+        "orbitalPeriodDays": 7.752,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-804",
+    "name": {
+      "en": "Kepler-804",
+      "fr": "Kepler-804"
+    },
+    "hostname": "Kepler-804",
+    "isSolarSystem": false,
+    "dist_ly": 2118.87,
+    "ra": 293.3722,
+    "dec": 44.7852,
+    "coords_ly": {
+      "x": 596.592,
+      "y": -1380.48,
+      "z": 1492.643
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-804",
+        "fr": "Kepler-804"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5817,
+      "radiusSolar": 1.05,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A G-type star system located 2118.9 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 2118.9 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-804 c",
+        "radiusEarth": 1.14,
+        "semiMajorAxisAU": 0.0902,
+        "orbitalPeriodDays": 9.652,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "Kepler-804 b",
+        "radiusEarth": 1.94,
+        "semiMajorAxisAU": 0.1176,
+        "orbitalPeriodDays": 14.375,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#9B59B6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-903",
+    "name": {
+      "en": "Kepler-903",
+      "fr": "Kepler-903"
+    },
+    "hostname": "Kepler-903",
+    "isSolarSystem": false,
+    "dist_ly": 4465.86,
+    "ra": 288.771,
+    "dec": 40.6642,
+    "coords_ly": {
+      "x": 1090.067,
+      "y": -3207.369,
+      "z": 2910.065
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-903",
+        "fr": "Kepler-903"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5682,
+      "radiusSolar": 0.97,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A Sun-like star 2,840 light-years away hosting 8 confirmed planets, tying our Solar System for the highest number of known planets.",
+      "fr": "Une étoile semblable au Soleil abritant 8 planètes confirmées, égalant notre système solaire en nombre de planètes."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-903 b",
+        "radiusEarth": 2.01,
+        "semiMajorAxisAU": 0.092,
+        "orbitalPeriodDays": 10.351,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      },
+      {
+        "name": "Kepler-903 c",
+        "radiusEarth": 2.53,
+        "semiMajorAxisAU": 0.3065,
+        "orbitalPeriodDays": 62.923,
+        "discoveryYear": 2016,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "k2-18",
+    "name": {
+      "en": "K2-18",
+      "fr": "K2-18"
+    },
+    "hostname": "K2-18",
+    "isSolarSystem": false,
+    "dist_ly": 124.03,
+    "ra": 172.5601,
+    "dec": 7.5878,
+    "coords_ly": {
+      "x": -121.905,
+      "y": 15.919,
+      "z": 16.377
+    },
+    "star": {
+      "name": {
+        "en": "K2-18",
+        "fr": "K2-18"
+      },
+      "spectralType": "M V",
+      "temperatureK": 3457,
+      "radiusSolar": 0.41,
+      "colorHex": "#FF5533",
+      "class": "M"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A M-type star system located 124.0 light-years away with 2 confirmed planet(s).",
+      "fr": "Un système stellaire de classe M situé à 124.0 années-lumière avec 2 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "K2-18 c",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.06,
+        "orbitalPeriodDays": 8.962,
+        "discoveryYear": 2017,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      },
+      {
+        "name": "K2-18 b",
+        "radiusEarth": 2.37,
+        "semiMajorAxisAU": 0.1429,
+        "orbitalPeriodDays": 32.94,
+        "discoveryYear": 2015,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#00CEC9"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1649",
+    "name": {
+      "en": "Kepler-1649",
+      "fr": "Kepler-1649"
+    },
+    "hostname": "Kepler-1649",
+    "isSolarSystem": false,
+    "dist_ly": 300.69,
+    "ra": 292.503,
+    "dec": 41.83,
+    "coords_ly": {
+      "x": 85.751,
+      "y": -206.991,
+      "z": 200.536
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1649",
+        "fr": "Kepler-1649"
+      },
+      "spectralType": "M V",
+      "temperatureK": 3240,
+      "radiusSolar": 0.23,
+      "colorHex": "#FF5533",
+      "class": "M"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "A circumbinary system hosting Kepler-16b, the first confirmed planet orbiting two stars—mirroring Tatooine from Star Wars.",
+      "fr": "Le premier système circumbinaire confirmé : la planète orbite autour de deux soleils, comme Tatooine dans Star Wars."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1649 b",
+        "radiusEarth": 1.02,
+        "semiMajorAxisAU": 0.0508,
+        "orbitalPeriodDays": 8.689,
+        "discoveryYear": 2017,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      },
+      {
+        "name": "Kepler-1649 c",
+        "radiusEarth": 1.06,
+        "semiMajorAxisAU": 0.0872,
+        "orbitalPeriodDays": 19.535,
+        "discoveryYear": 2020,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      }
+    ]
+  },
+  {
+    "id": "kepler-1869",
+    "name": {
+      "en": "Kepler-1869",
+      "fr": "Kepler-1869"
+    },
+    "hostname": "Kepler-1869",
+    "isSolarSystem": false,
+    "dist_ly": 368.64,
+    "ra": 292.615,
+    "dec": 42.7643,
+    "coords_ly": {
+      "x": 104.07,
+      "y": -249.827,
+      "z": 250.3
+    },
+    "star": {
+      "name": {
+        "en": "Kepler-1869",
+        "fr": "Kepler-1869"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5808,
+      "radiusSolar": 0.9,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 2,
+    "description": {
+      "en": "An M-dwarf star famous for Kepler-186 f, the very first validated Earth-sized planet found inside a star's circumstellar habitable zone.",
+      "fr": "Une naine rouge célèbre pour Kepler-186 f, la toute première planète de taille terrestre validée en zone habitable."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Kepler-1869 c",
+        "radiusEarth": 0.74,
+        "semiMajorAxisAU": 0.028,
+        "orbitalPeriodDays": 1.717,
+        "discoveryYear": 2023,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#E74C3C"
+      },
+      {
+        "name": "Kepler-1869 b",
+        "radiusEarth": 1.12,
+        "semiMajorAxisAU": 0.0767,
+        "orbitalPeriodDays": 8.167,
+        "discoveryYear": 2021,
+        "discoveryMethod": "Transit",
+        "isHabitableZone": false,
+        "colorHex": "#95A5A6"
+      }
+    ]
+  },
+  {
+    "id": "ross-128",
+    "name": {
+      "en": "Ross 128",
+      "fr": "Ross 128"
+    },
+    "hostname": "Ross 128",
+    "isSolarSystem": false,
+    "dist_ly": 11.01,
+    "ra": 176.9376,
+    "dec": 0.7993,
+    "coords_ly": {
+      "x": -10.989,
+      "y": 0.588,
+      "z": 0.154
+    },
+    "star": {
+      "name": {
+        "en": "Ross 128",
+        "fr": "Ross 128"
+      },
+      "spectralType": "M4",
+      "temperatureK": 3192,
+      "radiusSolar": 0.2,
+      "colorHex": "#FF5533",
+      "class": "M"
+    },
+    "planetCount": 1,
+    "description": {
+      "en": "A M-type star system located 11.0 light-years away with 1 confirmed planet(s).",
+      "fr": "Un système stellaire de classe M situé à 11.0 années-lumière avec 1 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "Ross 128 b",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.0496,
+        "orbitalPeriodDays": 9.866,
+        "discoveryYear": 2017,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      }
+    ]
+  },
+  {
+    "id": "51-peg",
+    "name": {
+      "en": "51 Peg",
+      "fr": "51 Peg"
+    },
+    "hostname": "51 Peg",
+    "isSolarSystem": false,
+    "dist_ly": 50.43,
+    "ra": 344.3675,
+    "dec": 20.7691,
+    "coords_ly": {
+      "x": 45.407,
+      "y": -12.706,
+      "z": 17.882
+    },
+    "star": {
+      "name": {
+        "en": "51 Peg",
+        "fr": "51 Peg"
+      },
+      "spectralType": "G V",
+      "temperatureK": 5761,
+      "radiusSolar": 1.19,
+      "colorHex": "#FFD700",
+      "class": "G"
+    },
+    "planetCount": 1,
+    "description": {
+      "en": "A G-type star system located 50.4 light-years away with 1 confirmed planet(s).",
+      "fr": "Un système stellaire de classe G situé à 50.4 années-lumière avec 1 planète(s) confirmée(s)."
+    },
+    "hasHabitablePlanet": false,
+    "planets": [
+      {
+        "name": "51 Peg b",
+        "radiusEarth": null,
+        "semiMajorAxisAU": 0.052,
+        "orbitalPeriodDays": 4.231,
+        "discoveryYear": 1995,
+        "discoveryMethod": "Radial Velocity",
+        "isHabitableZone": false,
+        "colorHex": "#BDC3C7"
+      }
+    ]
+  }
+]

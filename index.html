@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Milky Way Explorer - 3D Galaxy, Star Systems & Planetary Evolution</title>
+  <meta name="description" content="Explore the Milky Way galaxy, 100+ NASA confirmed exoplanet systems, and our Solar System with interactive 3D time simulation, moons, and formation histories.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader-bg-overlay"></div>
+    <div class="loader-orbit">
+      <div class="loader-sun"></div>
+      <div class="loader-planet"></div>
+    </div>
+    <div class="loader-text" id="loader-title">Synthesizing 50,000 Galactic Stars & 3D Planetary Physics...</div>
+    <div class="loader-bar-bg">
+      <div class="loader-bar-fill" id="loader-bar"></div>
+    </div>
+  </div>
+
+  <!-- 3D Canvas Container -->
+  <div id="canvas-container"></div>
+
+  <!-- Interactive 3D Tooltip -->
+  <div id="hover-tooltip" class="glass-panel"></div>
+
+  <!-- UI Overlay -->
+  <div id="ui-overlay">
+    <!-- Minimal Left-Side Navigation Menu Drawer (Section 5) -->
+    <aside id="left-nav-drawer" class="interactive left-nav-panel" aria-label="Universe Navigation Menu">
+      <!-- Drawer Header -->
+      <div class="left-nav-header">
+        <div class="left-nav-brand">
+          <span class="left-nav-icon">🌌</span>
+          <div>
+            <h2 class="left-nav-title" id="txt-lnav-title">Universe Explorer</h2>
+            <p class="left-nav-subtitle" id="txt-lnav-sub">Milky Way • Systems • Worlds</p>
+          </div>
+        </div>
+        <button id="btn-left-nav-close" class="left-nav-close-btn" title="Collapse Menu (Shortcut: M)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Quick Search inside Drawer (Section 5 & 8) -->
+      <div class="left-nav-search-wrap">
+        <div class="left-nav-search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="left-nav-search-input" placeholder="Quick find stars, planets, moons..." autocomplete="off">
+          <button id="left-nav-search-clear" class="left-nav-search-clear" style="display:none;">&times;</button>
+        </div>
+      </div>
+
+      <!-- Quick Category Tabs / Pills -->
+      <div class="left-nav-pills-bar custom-scrollbar-h">
+        <button class="lnav-pill active" data-section="all">All</button>
+        <button class="lnav-pill" data-section="sec-galaxy">Galaxy</button>
+        <button class="lnav-pill" data-section="sec-solar">Solar System</button>
+        <button class="lnav-pill" data-section="sec-planets">Planets</button>
+        <button class="lnav-pill" data-section="sec-moons">Moons</button>
+        <button class="lnav-pill" data-section="sec-stars">Stars</button>
+        <button class="lnav-pill" data-section="sec-systems">Systems (101)</button>
+        <button class="lnav-pill" data-section="sec-exoplanets">Exoplanets</button>
+        <button class="lnav-pill" data-section="sec-satellites">🛰️ Missions</button>
+      </div>
+
+      <!-- Scrollable Sections Container (The 10 Required Sections) -->
+      <div class="left-nav-body custom-scrollbar" id="left-nav-body">
+        
+        <!-- SECTION 1: GALAXY OVERVIEW -->
+        <section class="lnav-section" id="sec-galaxy">
+          <div class="lnav-section-header">
+            <span class="lnav-sec-icon">🌌</span>
+            <span class="lnav-sec-title">1. Galaxy Overview</span>
+            <span class="lnav-sec-tag">Milky Way</span>
+          </div>
+          <div class="lnav-card">
+            <div class="lnav-card-content">
+              <p class="lnav-card-desc">Barred spiral galaxy spanning 100,000 light-years with 100–400 billion stars orbiting Sagittarius A*.</p>
+              <div class="lnav-metrics-mini">
+                <span>100k ly diam</span> • <span>Sgr A* core</span> • <span>828k km/h orbit</span>
+              </div>
+            </div>
+            <button class="btn-primary lnav-action-btn" id="btn-lnav-fly-galaxy">
+              <span>🌌</span> Fly to Milky Way (3D View)
+            </button>
+          </div>
+        </section>
+
+        <!-- SECTION 2: STAR SYSTEMS (101 CATALOGED) -->
+        <section class="lnav-section" id="sec-systems">
+          <div class="lnav-section-header">
+            <span class="lnav-sec-icon">🔭</span>
+            <span class="lnav-sec-title">2. Star Systems</span>
+            <span class="lnav-sec-tag" id="lbl-lnav-system-count">101 Cataloged</span>
+          </div>
+          <div class="lnav-card">
+            <p class="lnav-subtext">1 Solar System + 100 NASA Confirmed Exoplanet Systems:</p>
+            <div class="lnav-list-scrollable custom-scrollbar" id="lnav-systems-list">
+              <!-- Populated by main.js with all 101 systems -->
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 3: SOLAR SYSTEM -->
+        <section class="lnav-section" id="sec-solar">
+          <div class="lnav-section-header">
+            <span class="lnav-sec-icon">☀️</span>
+            <span class="lnav-sec-title">3. Solar System</span>
+            <span class="lnav-sec-tag">Age 4.57 Gyr</span>
+          </div>
+          <div class="lnav-card">
+            <div class="lnav-card-thumb-row">
+              <img src="/images/solarsystem.jpg" alt="Solar System" class="lnav-thumb-img">
+              <div>
+                <strong>The Sun (G2V) & 8 Worlds</strong>
+                <p class="lnav-card-desc">Gravitationally bound planetary system formed 4.57 billion years ago.</p>
+              </div>
+            </div>
+            <button class="btn-primary lnav-action-btn highlight-gold" id="btn-lnav-fly-solar">
+              <span>🚀</span> Fly to Solar System (3D View)
+            </button>
+          </div>
+        </section>
+
+        <!-- SECTION 4: STARS -->
+        <section class="lnav-section" id="sec-stars">
+          <div class="lnav-section-header">
+            <span class="lnav-sec-icon">⭐</span>
+            <span class="lnav-sec-title">4. Stars</span>
+            <span class="lnav-sec-tag">Host Stars</span>
+          </div>
+          <div class="lnav-item-list" id="lnav-stars-list">
+            <!-- Populated by main.js: The Sun, Proxima Centauri, TRAPPIST-1, Kepler-90, etc. -->
+          </div>
+        </section>
+
+        <!-- SECTION 5: PLANETS -->
+        <section class="lnav-section" id="sec-planets">
+          <div class="lnav-section-header">
+            <span class="lnav-sec-icon">🪐</span>
+            <span class="lnav-sec-title">5. Planets</span>
+            <span class="lnav-sec-tag">9 Worlds</span>
+          </div>
+          <div class="lnav-planets-grid" id="lnav-planets-grid">
+            <!-- Populated by main.js with authentic pictures for all 9 planets -->
+          </div>
+        </section>
+
+        <!-- SECTION 6: MOONS -->
+        <section class="lnav-section" id="sec-moons">
+          <div class="lnav-section-header">
+            <span class="lnav-sec-icon">🌙</span>
+            <span class="lnav-sec-title">6. Moons</span>
+            <span class="lnav-sec-tag">Natural Satellites</span>
+          </div>
+          <div class="lnav-moons-list" id="lnav-moons-list">
+            <!-- Populated by main.js with Luna, Phobos, Deimos, Galilean moons, Titan, etc. -->
+          </div>
+        </section>
+
+        <!-- SECTION 7: EXOPLANETS -->
+        <section class="lnav-section" id="sec-exoplanets">
+          <div class="lnav-section-header">
+            <span class="lnav-sec-icon">🛰️</span>
+            <span class="lnav-sec-title">7. Exoplanets</span>
+            <span class="lnav-sec-tag">NASA Confirmed</span>
+          </div>
+          <div class="lnav-exoplanets-list" id="lnav-exoplanets-list">
+            <!-- Populated by main.js with famous verified exoplanets -->
+          </div>
+        </section>
+
+        <!-- SECTION 8: SEARCH -->
+        <section class="lnav-section" id="sec-search">
+          <div class="lnav-section-header">
+            <span class="lnav-sec-icon">🔍</span>
+            <span class="lnav-sec-title">8. Universal Search</span>
+          </div>
+          <div class="lnav-card">
+            <p class="lnav-card-desc">Type any celestial name to instantly locate and fly to it in 3D:</p>
+            <div id="lnav-search-matches" class="lnav-search-matches"></div>
+          </div>
+        </section>
+
+        <!-- SECTION 9: GUIDED TOUR -->
+        <section class="lnav-section" id="sec-tour">
+          <div class="lnav-section-header">
+            <span class="lnav-sec-icon">🧭</span>
+            <span class="lnav-sec-title">9. Guided Cosmic Tour</span>
+            <span class="lnav-sec-tag">13 Stops</span>
+          </div>
+          <div class="lnav-card">
+            <p class="lnav-card-desc">Embark on a cinematic voyage from the Milky Way core to Earth, Jupiter, Saturn's rings, and TRAPPIST-1.</p>
+            <button class="btn-primary lnav-action-btn" id="btn-lnav-start-tour">
+              <span>🧭</span> Start Guided Cosmic Tour
+            </button>
+          </div>
+        </section>
+
+        <!-- SECTION 10: SCIENTIFIC DATA & ABOUT -->
+        <section class="lnav-section" id="sec-about">
+          <div class="lnav-section-header">
+            <span class="lnav-sec-icon">📊</span>
+            <span class="lnav-sec-title">10. Scientific Data & About</span>
+            <span class="lnav-sec-tag">Attribution</span>
+          </div>
+          <div class="lnav-card">
+            <div class="lnav-provenance-legend">
+              <div><span class="provenance-badge measured">[MEASURED]</span> NASA GSFC & Exoplanet Archive</div>
+              <div><span class="provenance-badge derived">[DERIVED]</span> Keplerian Newton-Raphson Physics</div>
+              <div><span class="provenance-badge illustrative">[ILLUSTRATIVE]</span> Shader Visual Scale Reference</div>
+            </div>
+            <div class="lnav-about-actions">
+              <button class="btn-secondary lnav-action-btn" id="btn-lnav-open-guide-modal">
+                <span>📖</span> Open Deep Cosmic Guide
+              </button>
+              <button class="btn-secondary lnav-action-btn" id="btn-lnav-open-credits">
+                <span>ℹ️</span> Data Sources & Attributions
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 11: HUMAN MISSIONS & SATELLITES (NASA & SPACEX 2026) -->
+        <section class="lnav-section" id="sec-satellites">
+          <div class="lnav-section-header">
+            <span class="lnav-sec-icon">🛰️</span>
+            <span class="lnav-sec-title">11. Human Missions &amp; Satellites</span>
+            <span class="lnav-sec-tag">NASA &amp; SpaceX 2026</span>
+          </div>
+          <div class="lnav-card">
+            <p class="lnav-subtext">Inspect iconic human exploration spacecraft in close-up 3D orbit:</p>
+            <div class="lnav-item-list" id="lnav-satellites-list"></div>
+          </div>
+        </section>
+
+      </div>
+    </aside>
+
+    <!-- Floating Tab Button on Left Edge (when drawer is collapsed) -->
+    <button id="btn-left-nav-floating-open" class="interactive left-nav-floating-tab" title="Open Universe Menu (Shortcut: M)">
+      <span class="left-nav-tab-icon">☰</span>
+      <span class="left-nav-tab-label">Universe Menu</span>
+      <span class="left-nav-tab-badge">3D</span>
+    </button>
+
+    <!-- Top Controls Deck -->
+    <div class="top-deck">
+      <!-- Top Navigation -->
+      <header class="top-nav">
+        <div class="brand-section interactive" id="btn-brand" title="Milky Way Galaxy Dashboard">
+          <div class="brand-icon">
+            <img src="/dashboard-galaxy.jpg" alt="Milky Way Galaxy" class="brand-img">
+          </div>
+          <div class="brand-text">
+            <h1 id="txt-app-title">Milky Way Explorer</h1>
+            <p id="txt-subtitle">3D Galaxy & Exoplanet Catalog</p>
+          </div>
+        </div>
+
+        <!-- Quick Search Bar -->
+        <div class="search-wrapper interactive">
+          <div class="search-input-box glass-panel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="search-input" placeholder="Search stars, planets, moons (e.g. Earth, Moon, Jupiter, TRAPPIST-1)..." autocomplete="off">
+          </div>
+          <div class="search-dropdown glass-panel" id="search-results"></div>
+        </div>
+
+        <!-- Nav Actions -->
+        <div class="nav-actions interactive">
+          <!-- Universe Menu Button -->
+          <button class="btn-guide interactive" id="btn-cosmic-guide" title="Open Universe Menu: Milky Way & Planets (Shortcut: M)">
+            <span class="guide-btn-icon">☰</span>
+            <span class="guide-btn-text" id="txt-btn-guide">Universe Menu</span>
+            <span class="guide-btn-badge">3D</span>
+          </button>
+
+          <!-- Language Switcher -->
+          <div class="lang-switch">
+            <button class="lang-btn active" id="btn-lang-en">EN</button>
+            <button class="lang-btn" id="btn-lang-fr">FR</button>
+          </div>
+
+          <!-- Ambient Sound Toggle -->
+          <button class="btn-icon" id="btn-audio" title="Toggle Audio (Web Audio API)">
+            <svg id="icon-sound-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+            <svg id="icon-sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="display:none;">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+          </button>
+
+          <!-- Sources / Credits Modal Button -->
+          <button class="btn-icon" id="btn-credits" title="NASA Sources & Credits">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Sub Navigation: Breadcrumbs & Scale Disclaimer -->
+      <div class="sub-nav">
+        <div class="breadcrumbs glass-panel interactive" id="breadcrumbs-bar">
+          <span class="crumb-item" id="crumb-galaxy">Milky Way</span>
+        </div>
+
+        <div class="disclaimer-badge glass-panel" id="txt-disclaimer">
+          Sizes and distances are not to scale
+        </div>
+      </div>
+    </div>
+
+    <!-- Fact-Sheet Slide-Over Details Panel -->
+    <div id="details-panel" class="glass-panel interactive">
+      <!-- Dashboard Hero Image Banner -->
+      <div class="detail-hero-banner" id="detail-hero-banner">
+        <img src="/dashboard-galaxy.jpg" alt="Galaxy Dashboard View" class="detail-hero-img" id="detail-hero-img">
+        <div class="detail-hero-overlay"></div>
+        <div class="detail-hero-badge" id="detail-hero-badge">Milky Way Galaxy</div>
+      </div>
+
+      <div class="details-header">
+        <div class="details-title-group">
+          <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 6px;">
+            <h2 id="detail-name">Earth</h2>
+            <span class="provenance-badge measured" id="detail-provenance-badge">NASA Measured</span>
+          </div>
+          <span class="type-badge" id="detail-type">Terrestrial Planet</span>
+          <div class="provenance-info-row" id="detail-provenance-source">Source: NASA GSFC Planetary Fact Sheet</div>
+        </div>
+        <button class="btn-close" id="btn-close-details" title="Close Panel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="panel-tabs">
+        <button class="tab-btn active" data-tab="overview" id="tab-btn-overview">Overview</button>
+        <button class="tab-btn" data-tab="formation" id="tab-btn-formation">Formation</button>
+        <button class="tab-btn" data-tab="structure" id="tab-btn-structure">Structure</button>
+        <button class="tab-btn" data-tab="moons" id="tab-btn-moons">Moons</button>
+        <button class="tab-btn" data-tab="specs" id="tab-btn-specs">Specs</button>
+        <button class="tab-btn" data-tab="facts" id="tab-btn-facts">Facts</button>
+      </div>
+
+      <!-- Tab 1: Overview -->
+      <div class="tab-content active" id="tab-content-overview">
+        <p id="detail-desc" style="line-height: 1.5; color: #cbd5e1;"></p>
+        <div class="spec-grid" style="margin-top: 8px;">
+          <div class="spec-card">
+            <div class="spec-label" id="lbl-dist">Distance</div>
+            <div class="spec-value" id="val-dist">0 ly</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label" id="lbl-planets">Planets / Moons</div>
+            <div class="spec-value" id="val-planets">8</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label" id="lbl-rotations-completed">Rotations Done</div>
+            <div class="spec-value" id="val-rotations-completed">0.0</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label" id="lbl-orbits-completed">Orbits Done</div>
+            <div class="spec-value" id="val-orbits-completed">0.0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Formation & History -->
+      <div class="tab-content" id="tab-content-formation">
+        <div class="info-card-block">
+          <h4 id="lbl-formation-title" style="color: var(--accent-cyan); font-size: 0.85rem; margin-bottom: 6px;">Cosmic Origin & Accretion</h4>
+          <p id="detail-formation-desc" style="line-height: 1.55; color: #e2e8f0; font-size: 0.85rem;"></p>
+        </div>
+      </div>
+
+      <!-- Tab 3: Structure & Atmosphere -->
+      <div class="tab-content" id="tab-content-structure">
+        <div class="info-card-block">
+          <h4 id="lbl-interior-title" style="color: var(--accent-gold); font-size: 0.85rem; margin-bottom: 4px;">Interior Layers & Core</h4>
+          <p id="detail-interior-desc" style="line-height: 1.5; color: #cbd5e1; font-size: 0.83rem; margin-bottom: 10px;"></p>
+
+          <h4 id="lbl-atmo-title" style="color: var(--accent-cyan); font-size: 0.85rem; margin-bottom: 4px;">Atmosphere & Pressure</h4>
+          <p id="detail-atmo-desc" style="line-height: 1.5; color: #cbd5e1; font-size: 0.83rem;"></p>
+        </div>
+      </div>
+
+      <!-- Tab 4: Moons & Natural Satellites -->
+      <div class="tab-content" id="tab-content-moons">
+        <div id="detail-moons-container" class="moons-card-list"></div>
+      </div>
+
+      <!-- Tab 5: Physical Specs -->
+      <div class="tab-content" id="tab-content-specs">
+        <div class="spec-grid">
+          <div class="spec-card">
+            <div class="spec-label" id="lbl-radius">Radius</div>
+            <div class="spec-value" id="val-radius">6,371 km</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label" id="lbl-temp">Temperature</div>
+            <div class="spec-value" id="val-temp">15 °C</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label" id="lbl-rotation">Rotation Period</div>
+            <div class="spec-value" id="val-rotation">23.9 hrs</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label" id="lbl-tilt">Axial Tilt</div>
+            <div class="spec-value" id="val-tilt">23.4°</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label" id="lbl-period">Orbital Period</div>
+            <div class="spec-value" id="val-period">365.25 days</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label" id="lbl-speed">Orbital Speed</div>
+            <div class="spec-value" id="val-speed">29.8 km/s</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label" id="lbl-eccentricity">Eccentricity (e)</div>
+            <div class="spec-value" id="val-eccentricity">0.0167</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label" id="lbl-inclination">Inclination (i)</div>
+            <div class="spec-value" id="val-inclination">0.00°</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 6: Fun Facts -->
+      <div class="tab-content" id="tab-content-facts">
+        <div class="fun-facts-list" id="detail-facts-list"></div>
+      </div>
+    </div>
+
+    <!-- Guided Tour Card Overlay -->
+    <div id="tour-overlay" class="glass-panel interactive">
+      <div class="tour-header">
+        <span class="tour-step-badge" id="tour-step-counter">Stop 1 of 13</span>
+        <button class="btn-close" id="btn-close-tour" title="Exit Tour">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <h3 class="tour-title" id="tour-title">Milky Way Expedition</h3>
+      <p class="tour-text" id="tour-description">Welcome to the Milky Way galaxy...</p>
+      <div class="tour-controls">
+        <button class="btn-secondary" id="btn-tour-prev">Previous</button>
+        <button class="btn-primary" id="btn-tour-next">Next Destination &rarr;</button>
+      </div>
+    </div>
+
+    <!-- Bottom Controls & Footer Deck (Docked cleanly at the viewport bottom) -->
+    <div class="bottom-deck">
+      <div class="bottom-bar">
+        <!-- Educational Time Leap Insight Toast (Pops up directly above the time controls) -->
+        <div id="time-leap-toast" class="glass-panel interactive">
+          <span class="toast-icon">💡</span>
+          <span id="toast-message">Select any time increment (+1 Hr, +1 Day, +1 Mo, +1 Yr, +Decade, +Century, or Custom) to inspect real astronomical rotations & orbits!</span>
+          <button class="toast-close" id="btn-close-toast">&times;</button>
+        </div>
+
+        <!-- Custom Time Leap Popover (Docked above time HUD) -->
+        <div id="custom-time-popover" class="glass-panel custom-time-panel hidden">
+          <div class="custom-time-header">
+            <div class="custom-time-title-group">
+              <span class="custom-time-icon">⚙️</span>
+              <span class="custom-time-title" id="lbl-custom-title">Custom Time Leap</span>
+            </div>
+            <button class="custom-time-close" id="btn-close-custom-time" title="Close">&times;</button>
+          </div>
+          <div class="custom-time-body">
+            <div class="custom-time-row">
+              <label for="custom-time-input" class="custom-time-label" id="lbl-custom-amount">Amount:</label>
+              <div class="custom-input-group">
+                <input type="number" id="custom-time-input" min="0.01" step="any" value="5" class="custom-input-number" />
+                <select id="custom-time-unit" class="custom-select-unit">
+                  <option value="hours" id="opt-hours">Hours</option>
+                  <option value="days" id="opt-days">Days</option>
+                  <option value="months" id="opt-months">Months (~30.4d)</option>
+                  <option value="years" id="opt-years" selected>Years (365.25d)</option>
+                  <option value="decades" id="opt-decades">Decades (10y)</option>
+                  <option value="centuries" id="opt-centuries">Centuries (100y)</option>
+                </select>
+              </div>
+            </div>
+            <div class="custom-time-presets">
+              <span class="custom-presets-label" id="lbl-quick-pick">Quick:</span>
+              <button type="button" class="preset-chip" data-val="10" data-unit="days">+10 Days</button>
+              <button type="button" class="preset-chip" data-val="6" data-unit="months">+6 Mo</button>
+              <button type="button" class="preset-chip" data-val="2" data-unit="years">+2 Yrs</button>
+              <button type="button" class="preset-chip" data-val="5" data-unit="years">+5 Yrs</button>
+              <button type="button" class="preset-chip" data-val="25" data-unit="years">+25 Yrs</button>
+            </div>
+            <div class="custom-time-actions">
+              <button type="button" class="custom-time-btn-apply" id="btn-apply-custom-leap">
+                <span id="txt-apply-leap">Advance Time</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Time Simulator & Rotation/Orbit HUD (Hour, Day, Month, Year, Decade, Century, Custom) -->
+        <div class="time-simulator glass-panel interactive" id="time-hud">
+          <div class="time-readout">
+            <span class="time-icon">⏳</span>
+            <div class="time-text-block">
+              <span class="time-primary" id="time-elapsed-text">Epoch: +0.00 Years, 0 Months, 0 Days (0h)</span>
+              <span class="time-secondary" id="time-rotations-text">Earth: 0.00 Rotations (0h) • 0.00 Orbits</span>
+            </div>
+          </div>
+
+          <div class="time-buttons">
+            <button class="time-step-btn" id="btn-jump-hour" title="Advance 1 Hour (15° Earth axial spin)">+1 Hr</button>
+            <button class="time-step-btn" id="btn-jump-day" title="Advance 1 Day (24 hrs, 360° rotation)">+1 Day</button>
+            <button class="time-step-btn" id="btn-jump-month" title="Advance 1 Month (30.4 days, 1 Moon revolution)">+1 Mo</button>
+            <button class="time-step-btn" id="btn-jump-year" title="Advance 1 Year (365.25 days, 1 complete Earth orbit)">+1 Yr</button>
+            <button class="time-step-btn" id="btn-jump-decade" title="Advance 1 Decade (10 Years, ~0.84 Jupiter orbit)">+Decade</button>
+            <button class="time-step-btn" id="btn-jump-century" title="Advance 1 Century (100 Years, ~1.19 Uranus orbit)">+Century</button>
+            <button class="time-step-btn" id="btn-jump-custom" title="Custom Time Leap (Choose your own time increment)">⚙️ Custom</button>
+            <button class="time-step-btn" id="btn-reset-time" title="Reset Simulation Clock">Reset</button>
+          </div>
+        </div>
+
+        <div class="toolbar glass-panel interactive">
+          <!-- Universe Menu Quick Button -->
+          <button class="tool-btn highlight-menu" id="btn-menu-bar" title="Open Universe Menu (Milky Way & Planets)">
+            <span style="font-size: 1.05rem; line-height: 1;">🪐</span>
+            <span id="txt-btn-menu-bar">Menu</span>
+          </button>
+
+          <div class="tool-divider"></div>
+
+          <!-- Home / Galaxy View -->
+          <button class="tool-btn" id="btn-home" title="Fly back to Galaxy View">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span id="txt-btn-home">Galaxy</span>
+          </button>
+
+          <div class="tool-divider"></div>
+
+          <!-- Zoom In / Zoom Out -->
+          <button class="tool-btn" id="btn-zoom-in" title="Zoom In">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="11" y1="8" x2="11" y2="14"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
+          </button>
+          <button class="tool-btn" id="btn-zoom-out" title="Zoom Out">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
+          </button>
+
+          <div class="tool-divider"></div>
+
+          <!-- Play / Pause Orbit Animation -->
+          <button class="tool-btn active" id="btn-play-pause" title="Pause / Play Orbits">
+            <svg id="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="6" y="4" width="4" height="16"></rect>
+              <rect x="14" y="4" width="4" height="16"></rect>
+            </svg>
+            <svg id="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </button>
+
+          <!-- Orbit Speed Multiplier -->
+          <select class="speed-select" id="select-speed" title="Time & Orbit Speed">
+            <option value="0.2">0.2x (Slow)</option>
+            <option value="1" selected>1.0x (Normal)</option>
+            <option value="5">5.0x (1 Wk/s)</option>
+            <option value="20">20x (1 Mo/s)</option>
+            <option value="73">73x (1 Yr/5s)</option>
+          </select>
+
+          <div class="tool-divider"></div>
+
+          <!-- Toggle Orbit Paths -->
+          <button class="tool-btn active" id="btn-toggle-orbits" title="Toggle Orbit Lines">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M3.6 9h16.8"></path>
+              <path d="M3.6 15h16.8"></path>
+            </svg>
+            <span id="txt-btn-orbits">Orbits</span>
+          </button>
+
+          <!-- Toggle Star Labels -->
+          <button class="tool-btn active" id="btn-toggle-labels" title="Toggle 3D Labels">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 7V4h16v3"></path>
+              <path d="M9 20h6"></path>
+              <path d="M12 4v16"></path>
+            </svg>
+            <span id="txt-btn-labels">Labels</span>
+          </button>
+
+          <div class="tool-divider"></div>
+
+          <!-- Guided Tour Mode -->
+          <button class="tool-btn" id="btn-guided-tour" title="Launch Guided Cosmic Tour">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <span id="txt-btn-tour">Tour</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- DEDICATED GLASSMORPHISM FOOTER (Requested: "don't insert the website insert footer") -->
+      <footer id="app-footer" class="glass-panel interactive">
+        <div class="footer-left">
+          <span class="footer-logo">🌌</span>
+          <span class="footer-title" id="txt-footer-title">Milky Way Explorer 3D</span>
+          <span class="footer-badge">v1.2.0 • 60 FPS WebGL</span>
+        </div>
+
+        <div class="footer-center">
+          <span class="footer-insight" id="txt-footer-data">Data: NASA Exoplanet Archive (IPAC) & NASA Planetary Fact Sheets</span>
+        </div>
+
+        <div class="footer-right">
+          <span class="footer-link" id="footer-btn-credits">Sources & Credits</span>
+          <span class="footer-dot">•</span>
+          <span class="footer-copy">NASA & Solar System Scope Textures (CC BY 4.0)</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Cosmic Guide & 3D Navigation Menu Modal -->
+  <div id="cosmic-guide-modal">
+    <div class="guide-modal-card glass-panel interactive">
+      <div class="guide-modal-header">
+        <div class="guide-header-title-wrap">
+          <div class="guide-header-icon-badge">🪐</div>
+          <div>
+            <h2 id="txt-guide-modal-title">Cosmic Guide & 3D Explorer</h2>
+            <p id="txt-guide-modal-subtitle">Discover the Milky Way, Solar System, and planetary worlds in realistic 3D space</p>
+          </div>
+        </div>
+        <button class="btn-close" id="btn-close-guide" title="Close Cosmic Guide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="guide-tabs-bar">
+        <button class="guide-tab-btn active" id="tab-btn-milkyway">
+          <span class="tab-btn-icon">🌌</span> <span id="txt-tab-milkyway">The Milky Way</span>
+        </button>
+        <button class="guide-tab-btn" id="tab-btn-solarsystem">
+          <span class="tab-btn-icon">☀️</span> <span id="txt-tab-solarsystem">The Solar System</span>
+        </button>
+        <button class="guide-tab-btn" id="tab-btn-planets">
+          <span class="tab-btn-icon">🪐</span> <span id="txt-tab-planets">Planets & Worlds (3D)</span>
+        </button>
+      </div>
+
+      <!-- Tab Content Area -->
+      <div class="guide-content-area custom-scrollbar">
+        <!-- TAB 1: MILKY WAY -->
+        <div class="guide-tab-pane active" id="pane-guide-milkyway">
+          <div class="guide-hero-card">
+            <div class="guide-hero-img-wrap">
+              <img src="/dashboard-galaxy.jpg" alt="Milky Way Galaxy" class="guide-hero-img">
+              <div class="guide-hero-gradient"></div>
+              <div class="guide-hero-badge" id="txt-mw-badge">Barred Spiral Galaxy • SBbc</div>
+            </div>
+            <div class="guide-hero-body">
+              <h3 id="txt-mw-desc-title">What is the Milky Way?</h3>
+              <p id="txt-mw-desc-1">The Milky Way is our cosmic home—a vast barred spiral galaxy containing 100 to 400 billion stars and over 100 billion planets. Spanning approximately 100,000 light-years in diameter, its luminous spiral arms are woven with nebulae, star clusters, and deep cosmic dust lanes.</p>
+              <p id="txt-mw-desc-2">At the galactic center lies Sagittarius A*, a supermassive black hole with a mass 4.15 million times our Sun. Our Solar System is situated in the Orion Spur ~26,000 light-years from the core, orbiting at 828,000 km/h and taking 230 million years to complete one Galactic Year.</p>
+              
+              <div class="guide-metrics-row">
+                <div class="guide-metric-chip">
+                  <span class="chip-label">Diameter</span>
+                  <span class="chip-value" id="txt-mw-diam">100,000 ly</span>
+                </div>
+                <div class="guide-metric-chip">
+                  <span class="chip-label">Stars</span>
+                  <span class="chip-value" id="txt-mw-stars">100-400 Billion</span>
+                </div>
+                <div class="guide-metric-chip">
+                  <span class="chip-label">Supermassive Core</span>
+                  <span class="chip-value" id="txt-mw-core">Sagittarius A*</span>
+                </div>
+                <div class="guide-metric-chip">
+                  <span class="chip-label">Solar Velocity</span>
+                  <span class="chip-value" id="txt-mw-speed">828,000 km/h</span>
+                </div>
+              </div>
+
+              <div class="guide-cta-row">
+                <button class="btn-primary guide-cta-btn" id="btn-guide-fly-mw">
+                  <span id="txt-btn-fly-mw">🌌 Explore Milky Way in 3D</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: SOLAR SYSTEM -->
+        <div class="guide-tab-pane" id="pane-guide-solarsystem">
+          <div class="guide-hero-card">
+            <div class="guide-hero-img-wrap">
+              <img src="/images/solarsystem.jpg" alt="The Solar System" class="guide-hero-img">
+              <div class="guide-hero-gradient"></div>
+              <div class="guide-hero-badge" id="txt-ss-badge">Gravitationally Bound Star System • Age 4.6 Gyr</div>
+            </div>
+            <div class="guide-hero-body">
+              <h3 id="txt-ss-desc-title">What is the Solar System?</h3>
+              <p id="txt-ss-desc-1">Formed 4.6 billion years ago from the gravitational collapse of a giant interstellar cloud, our Solar System comprises our host star—the Sun—and every celestial body bound by its gravity. The Sun contains 99.86% of the system's total mass, fueling planetary climates and orbital mechanics.</p>
+              <p id="txt-ss-desc-2">The system is divided into four inner rocky terrestrial planets (Mercury, Venus, Earth, Mars), the Asteroid Belt, two gas giants (Jupiter, Saturn), and two ice giants (Uranus, Neptune). All major planets orbit counterclockwise in the flat ecliptic plane, surrounded by hundreds of moons, rings, and comets.</p>
+              
+              <div class="guide-metrics-row">
+                <div class="guide-metric-chip">
+                  <span class="chip-label">System Age</span>
+                  <span class="chip-value" id="txt-ss-age">4.57 Billion Yrs</span>
+                </div>
+                <div class="guide-metric-chip">
+                  <span class="chip-label">Host Star</span>
+                  <span class="chip-value" id="txt-ss-star">The Sun (G2V)</span>
+                </div>
+                <div class="guide-metric-chip">
+                  <span class="chip-label">Major Planets</span>
+                  <span class="chip-value" id="txt-ss-planets">8 Major Worlds</span>
+                </div>
+                <div class="guide-metric-chip">
+                  <span class="chip-label">Galactic Orbit</span>
+                  <span class="chip-value" id="txt-ss-orbit">230 Million Yrs</span>
+                </div>
+              </div>
+
+              <div class="guide-cta-row">
+                <button class="btn-primary guide-cta-btn highlight-gold" id="btn-guide-fly-ss">
+                  <span id="txt-btn-fly-ss">🚀 Navigate to Solar System in 3D</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: PLANETS GALLERY -->
+        <div class="guide-tab-pane" id="pane-guide-planets">
+          <div class="guide-planets-intro">
+            <h3 id="txt-gallery-title">Planetary Worlds & Celestial Bodies</h3>
+            <p id="txt-gallery-subtitle">Select any celestial body to fly in 3D, inspect authentic NASA space photography, and rotate 360°:</p>
+          </div>
+          <div class="guide-planets-grid" id="guide-planets-container">
+            <!-- Dynamic planet cards populated by main.js with NASA photos and 3D fly buttons -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sources & Credits Modal -->
+  <div id="credits-modal">
+    <div class="modal-card glass-panel interactive">
+      <div class="modal-header">
+        <h3 id="txt-credits-title">Data Sources & Attributions</h3>
+        <button class="btn-close" id="btn-close-credits">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="credits-section">
+        <h4>Astronomical Data</h4>
+        <div class="credits-item">
+          <strong>NASA Exoplanet Archive (IPAC / Caltech)</strong><br>
+          Confirmed exoplanets, coordinates, discovery missions, and physical planetary parameters.<br>
+          <a href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank" rel="noopener">exoplanetarchive.ipac.caltech.edu</a>
+        </div>
+        <div class="credits-item">
+          <strong>NASA Planetary Fact Sheets (Goddard Space Flight Center)</strong><br>
+          Official metric dimensions, orbital speeds, axial tilts, and atmospheric data for the Solar System.<br>
+          <a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/" target="_blank" rel="noopener">nssdc.gsfc.nasa.gov/planetary</a>
+        </div>
+      </div>
+
+      <div class="credits-section">
+        <h4>Planet Texture References & Downloads</h4>
+        <div class="credits-item">
+          <strong>Solar System Scope (Free under Creative Commons Attribution 4.0)</strong><br>
+          High-resolution 2K/4K maps for Sun, Earth, Moon, Jupiter, Saturn with rings, and deep space.<br>
+          Direct download names: <code>2k_sun.jpg</code>, <code>2k_earth_daymap.jpg</code>, <code>2k_jupiter.jpg</code>, <code>2k_saturn.jpg</code>.<br>
+          <a href="https://www.solarsystemscope.com/textures/" target="_blank" rel="noopener">solarsystemscope.com/textures</a>
+        </div>
+        <div class="credits-item">
+          <strong>NASA Visible Earth / Blue Marble (Public Domain)</strong><br>
+          Global imagery from MODIS, Clementine, Messenger, and New Horizons.<br>
+          <a href="https://visibleearth.nasa.gov/" target="_blank" rel="noopener">visibleearth.nasa.gov</a>
+        </div>
+      </div>
+
+      <div class="credits-section">
+        <h4>Technology & Architecture</h4>
+        <div class="credits-item">
+          Built with <strong>Three.js</strong> (WebGL 3D Engine), <strong>GSAP</strong> (Smooth Camera Tweens), <strong>Vite</strong>, and native <strong>Web Audio API</strong> for ambient deep space frequencies.
+        </div>
+      </div>
+
+      <button class="btn-primary" id="btn-modal-close" style="align-self: flex-end;">Close</button>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1016 @@
+{
+  "system": {
+    "name": {
+      "en": "Solar System",
+      "fr": "Système Solaire"
+    },
+    "formation": {
+      "age": "4.6 billion years",
+      "en": "The Solar System formed approximately 4.57 billion years ago from the gravitational collapse of a giant interstellar molecular cloud. Most of the collapsing mass collected in the center to form the Sun, while the rest flattened into a protoplanetary disk out of which the planets, moons, asteroids, and other small bodies formed through gravitational accretion.",
+      "fr": "Le système solaire s'est formé il y a environ 4,57 milliards d'années par effondrement gravitationnel d'un nuage moléculaire géant. La quasi-totalité de la masse s'est condensée au centre pour allumer le Soleil, tandis que le reste s'est aplati en un disque protoplanétaire où les planètes et lunes sont nées par accrétion gravitationnelle."
+    },
+    "star": {
+      "name": {
+        "en": "The Sun",
+        "fr": "Le Soleil"
+      },
+      "type": {
+        "en": "Yellow Dwarf Star (G2V)",
+        "fr": "Étoile naine jaune (G2V)"
+      },
+      "spectralType": "G2V",
+      "radiusKm": 696340,
+      "radiusRatioSun": 1.0,
+      "massKg": "1.989 × 10³⁰ kg (99.86% of Solar System mass)",
+      "distanceFromCenter": {
+        "millionKm": 0,
+        "au": 0
+      },
+      "orbitalPeriodDays": 84000000000,
+      "orbitalSpeedKmS": 230,
+      "rotationPeriodHours": 648,
+      "rotationPeriod": {
+        "en": "25.05 days (equator) to 34.4 days (poles)",
+        "fr": "25,05 jours (équateur) à 34,4 jours (pôles)"
+      },
+      "axialTilt": 7.25,
+      "moons": 0,
+      "surfaceTemperature": {
+        "celsius": "5,500 °C",
+        "kelvin": 5778,
+        "coreCelsius": "15,000,000 °C",
+        "description": {
+          "en": "5,500 °C on photosphere, 15,000,000 °C in thermonuclear core",
+          "fr": "5 500 °C sur la photosphère, 15 000 000 °C au cœur thermonucléaire"
+        }
+      },
+      "formation": {
+        "en": "Ignited ~4.6 billion years ago when gravitational compression at the center of the solar nebula reached 15 million Kelvin, initiating nuclear fusion of hydrogen into helium. It will remain on the main sequence for another 5 billion years before swelling into a red giant.",
+        "fr": "Allumé il y a ~4,6 milliards d'années quand la compression gravitationnelle au centre de la nébuleuse a atteint 15 millions de Kelvin, amorçant la fusion de l'hydrogène en hélium. Il brillera encore 5 milliards d'années avant d'enfler en géante rouge."
+      },
+      "interiorStructure": {
+        "en": "Thermonuclear core (0.25 R☉), Radiative zone (0.25-0.7 R☉), Convective zone (0.7-1.0 R☉), Photosphere, Chromosphere, and Corona.",
+        "fr": "Cœur thermonucléaire (0,25 R☉), Zone radiative (0,25-0,7 R☉), Zone convective (0,7-1,0 R☉), Photosphère, Chromosphère et Couronne."
+      },
+      "composition": {
+        "en": "73.4% Hydrogen, 25.0% Helium, 0.9% Oxygen, 0.3% Carbon, 0.2% Neon, 0.2% Iron",
+        "fr": "73,4 % Hydrogène, 25,0 % Hélium, 0,9 % Oxygène, 0,3 % Carbone, 0,2 % Néon, 0,2 % Fer"
+      },
+      "colorHex": "#FFA500",
+      "funFacts": {
+        "en": [
+          "The Sun fuses approximately 600 million tons of hydrogen into helium every single second.",
+          "Light generated in the Sun's core takes over 100,000 years to reach the surface, but only 8 minutes and 20 seconds to reach Earth.",
+          "The Sun's mass is about 333,000 times that of Earth and could swallow 1.3 million Earths."
+        ],
+        "fr": [
+          "Le Soleil fusionne environ 600 millions de tonnes d'hydrogène en hélium chaque seconde.",
+          "Les photons générés au cœur mettent plus de 100 000 ans à émerger à la surface, mais seulement 8 min 20 s pour toucher la Terre.",
+          "La masse solaire équivaut à 333 000 fois celle de la Terre et pourrait contenir 1,3 million de globes terrestres."
+        ]
+      },
+      "provenance": {
+        "source": "NASA Planetary Fact Sheet (Goddard Space Flight Center)",
+        "status": "MEASURED",
+        "retrievalDate": "2026-10",
+        "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+      }
+    },
+    "planets": [
+      {
+        "id": "mercury",
+        "name": {
+          "en": "Mercury",
+          "fr": "Mercure"
+        },
+        "type": {
+          "en": "Terrestrial Planet",
+          "fr": "Planète tellurique"
+        },
+        "radiusKm": 2439.7,
+        "radiusEarth": 0.383,
+        "distanceFromSun": {
+          "millionKm": 57.91,
+          "au": 0.387
+        },
+        "orbitalPeriodDays": 87.969,
+        "orbitalSpeedKmS": 47.36,
+        "rotationPeriodHours": 1407.6,
+        "rotationPeriod": {
+          "en": "58.65 Earth days (3:2 spin-orbit resonance)",
+          "fr": "58,65 jours terrestres (résonance spin-orbite 3:2)"
+        },
+        "axialTilt": 0.034,
+        "moons": 0,
+        "moonsList": [],
+        "surfaceTemperature": {
+          "celsius": "-180 °C to 430 °C",
+          "kelvin": 440,
+          "description": {
+            "en": "-180 °C at night to 430 °C by day",
+            "fr": "-180 °C la nuit jusqu'à 430 °C le jour"
+          }
+        },
+        "formation": {
+          "en": "Formed in the scorching inner nebula where only refractory metals and silicates could condense. A colossal proto-planetary collision early in its history likely blasted away most of its original rocky mantle, leaving behind an exceptionally oversized iron core.",
+          "fr": "Formée dans la zone interne brûlante du disque où seuls les métaux réfractaires ont condensé. Un impact géant a probablement arraché une grande partie de son manteau primitif, laissant un noyau de fer disproportionné."
+        },
+        "interiorStructure": {
+          "en": "Massive metallic iron core (85% of planet radius), thin silicate mantle (~400 km), and solid basaltic crust.",
+          "fr": "Gigantesque noyau de fer liquide/solide (85 % du rayon), mince manteau de silicates (~400 km) et croûte basaltique."
+        },
+        "atmosphereComposition": {
+          "en": "Ultra-thin exosphere: 42% Oxygen, 29% Sodium, 22% Hydrogen, 6% Helium, 0.5% Potassium",
+          "fr": "Exosphère ténue : 42 % Oxygène, 29 % Sodium, 22 % Hydrogène, 6 % Hélium, 0,5 % Potassium"
+        },
+        "colorHex": "#A0A0A0",
+        "texture": "mercury.jpg",
+        "funFacts": {
+          "en": [
+            "Because of its 3:2 resonance, a single solar day (noon to noon) on Mercury lasts 176 Earth days—two entire Mercury years!",
+            "Mercury has permanent water ice trapped inside deep, sunless craters at its north and south poles.",
+            "Mercury is slowly shrinking as its colossal iron core cools, creating towering lobate scarp cliffs hundreds of kilometers long."
+          ],
+          "fr": [
+            "En raison de sa résonance 3:2, un jour solaire complet dure 176 jours terrestres, soit exactement deux années mercuriennes !",
+            "Mercure abrite de la glace d'eau éternelle piégée au fond de cratères polaires plongés dans l'obscurité totale.",
+            "Mercure rétrécit lentement au fil du refroidissement de son noyau, formant de titanesques escarpements de faille."
+          ]
+        },
+        "eccentricity": 0.2056,
+        "inclinationDeg": 7.0,
+        "semiMajorAxisAu": 0.3871,
+        "perihelionAu": 0.3075,
+        "aphelionAu": 0.4667,
+        "provenance": {
+          "source": "NASA Planetary Fact Sheet (Goddard Space Flight Center)",
+          "status": "MEASURED",
+          "retrievalDate": "2026-10",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+        }
+      },
+      {
+        "id": "venus",
+        "name": {
+          "en": "Venus",
+          "fr": "Vénus"
+        },
+        "type": {
+          "en": "Terrestrial Planet",
+          "fr": "Planète tellurique"
+        },
+        "radiusKm": 6051.8,
+        "radiusEarth": 0.949,
+        "distanceFromSun": {
+          "millionKm": 108.2,
+          "au": 0.723
+        },
+        "orbitalPeriodDays": 224.701,
+        "orbitalSpeedKmS": 35.02,
+        "rotationPeriodHours": -5832.5,
+        "rotationPeriod": {
+          "en": "243.02 Earth days (retrograde rotation)",
+          "fr": "243,02 jours terrestres (rotation rétrograde)"
+        },
+        "axialTilt": 177.36,
+        "moons": 0,
+        "moonsList": [],
+        "surfaceTemperature": {
+          "celsius": "464 °C (737 K)",
+          "kelvin": 737,
+          "description": {
+            "en": "464 °C uniform across the entire planet day and night",
+            "fr": "464 °C constants sur toute la surface de jour comme de nuit"
+          }
+        },
+        "formation": {
+          "en": "Born as Earth's twin ~4.5 billion years ago with similar mass and composition, likely with early liquid water oceans. Closer solar proximity triggered a runaway greenhouse effect: evaporating oceans saturated the atmosphere with water vapor, trapping heat until rocks melted and carbon dioxide baked out of carbonate minerals.",
+          "fr": "Née comme jumelle de la Terre il y a ~4,5 milliards d'années avec des océans primitifs. Sa plus grande proximité du Soleil a déclenché un effet de serre emballé, évaporant l'eau et libérant le CO2 des roches pour créer une fournaise infernale."
+        },
+        "interiorStructure": {
+          "en": "Metallic core (~3,000 km radius), rocky silicate mantle, and thick basaltic volcanic crust with global resurfacing events.",
+          "fr": "Noyau métallique (~3 000 km), manteau rocheux de silicates et croûte basaltique remodelée par un volcanisme colossal."
+        },
+        "atmosphereComposition": {
+          "en": "96.5% Carbon Dioxide, 3.5% Nitrogen, clouds of concentrated Sulfuric Acid (H2SO4); surface pressure 92 bar (92x Earth)",
+          "fr": "96,5 % Dioxyde de carbone, 3,5 % Azote, nuages d'acide sulfurique concentré ; pression au sol de 92 bars"
+        },
+        "colorHex": "#E3BB7B",
+        "texture": "venus.jpg",
+        "funFacts": {
+          "en": [
+            "Venus rotates in retrograde (clockwise): the Sun rises in the west and sets in the east every 117 Earth days.",
+            "Surface atmospheric pressure is equal to being 900 meters deep underwater in Earth's oceans—enough to crush submarines.",
+            "Upper cloud decks whip around the planet in super-rotation at 360 km/h, circling the entire globe every 4 Earth days."
+          ],
+          "fr": [
+            "Vénus tourne à l'envers : le Soleil s'y lève à l'ouest et se couche à l'est tous les 117 jours terrestres.",
+            "La pression en surface équivaut à 900 mètres de profondeur sous les océans terrestres, capable d'écraser un sous-marin.",
+            "Les hautes couches nuageuses tournent en super-rotation à 360 km/h, faisant le tour du globe en seulement 4 jours."
+          ]
+        },
+        "eccentricity": 0.0067,
+        "inclinationDeg": 3.39,
+        "semiMajorAxisAu": 0.7233,
+        "perihelionAu": 0.7184,
+        "aphelionAu": 0.7282,
+        "provenance": {
+          "source": "NASA Planetary Fact Sheet (Goddard Space Flight Center)",
+          "status": "MEASURED",
+          "retrievalDate": "2026-10",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+        }
+      },
+      {
+        "id": "earth",
+        "name": {
+          "en": "Earth",
+          "fr": "Terre"
+        },
+        "type": {
+          "en": "Terrestrial Planet (Habitable)",
+          "fr": "Planète tellurique (Habitable)"
+        },
+        "radiusKm": 6371.0,
+        "radiusEarth": 1.0,
+        "distanceFromSun": {
+          "millionKm": 149.6,
+          "au": 1.0
+        },
+        "orbitalPeriodDays": 365.256,
+        "orbitalSpeedKmS": 29.78,
+        "rotationPeriodHours": 23.934,
+        "rotationPeriod": {
+          "en": "23h 56m 4s (1 sidereal day)",
+          "fr": "23h 56m 4s (1 jour sidéral)"
+        },
+        "axialTilt": 23.44,
+        "moons": 1,
+        "moonsList": [
+          {
+            "id": "luna",
+            "name": {
+              "en": "The Moon (Luna)",
+              "fr": "La Lune"
+            },
+            "radiusKm": 1737.4,
+            "radiusRatio": 0.273,
+            "orbitalDistanceKm": 384400,
+            "orbitRadiusVisual": 8.5,
+            "orbitalPeriodDays": 27.322,
+            "rotationPeriod": {
+              "en": "27.32 days (tidally locked)",
+              "fr": "27,32 jours (verrouillée)"
+            },
+            "colorHex": "#D4D4D8",
+            "formation": {
+              "en": "Formed 4.51 billion years ago in the Giant Impact Hypothesis when a Mars-sized protoplanet named Theia collided with the young proto-Earth. The ejected debris coalesced into orbit within months to form the Moon.",
+              "fr": "Formée il y a 4,51 milliards d'années lors de l'impact géant de la protoplanète Théia avec la jeune proto-Terre. Les débris éjectés en orbite se sont agglomérés en quelques mois."
+            },
+            "funFacts": {
+              "en": [
+                "The Moon is tidally locked to Earth, meaning the exact same face is eternally turned towards us.",
+                "The Moon stabilizes Earth's axial wobble, preserving a steady temperate climate over billions of years.",
+                "Tidal friction is causing the Moon to slowly drift away from Earth at 3.8 cm per year."
+              ],
+              "fr": [
+                "La Lune est en rotation synchrone : elle présente toujours rigoureusement la même face à la Terre.",
+                "La Lune stabilise l'inclinaison de l'axe terrestre, garantissant un climat stable indispensable à la vie.",
+                "L'effet de marée éloigne inexorablement la Lune de la Terre au rythme de 3,8 cm par an."
+              ]
+            }
+          }
+        ],
+        "surfaceTemperature": {
+          "celsius": "-89 °C to 58 °C",
+          "kelvin": 288,
+          "description": {
+            "en": "Global mean average: 15 °C (288 K)",
+            "fr": "Moyenne planétaire globale : 15 °C (288 K)"
+          }
+        },
+        "formation": {
+          "en": "Formed 4.54 billion years ago via accretion of rocky planetesimals in the habitable zone. Outgassing and icy comet/asteroid bombardments during the Late Heavy Bombardment delivered immense reservoirs of water, establishing global liquid oceans within 200 million years of formation.",
+          "fr": "Formée il y a 4,54 milliards d'années par accrétion de planétésimaux rocheux. Les dégazages volcaniques et le grand bombardement tardif de comètes et astéroïdes ont apporté l'eau des océans primitifs."
+        },
+        "interiorStructure": {
+          "en": "Solid inner core (iron-nickel, 1,220 km), liquid outer core (generating the magnetic dynamo, 2,260 km), viscous convective mantle (2,900 km), and tectonic crust (5-70 km).",
+          "fr": "Graine solide (fer-nickel, 1 220 km), noyau externe liquide (générant la magnétosphère, 2 260 km), manteau convectif (2 900 km) et croûte tectonique active (5-70 km)."
+        },
+        "atmosphereComposition": {
+          "en": "78.08% Nitrogen, 20.95% Oxygen, 0.93% Argon, 0.04% Carbon Dioxide, trace water vapor & ozone",
+          "fr": "78,08 % Azote, 20,95 % Oxygène, 0,93 % Argon, 0,04 % Dioxyde de carbone, traces d'eau et d'ozone"
+        },
+        "colorHex": "#2B82C9",
+        "texture": "earth.jpg",
+        "funFacts": {
+          "en": [
+            "Earth is the only planetary body in the known universe confirmed to sustain active organic life and liquid surface oceans.",
+            "Plate tectonics continuously recycle carbon and minerals between the crust, oceans, and mantle over millions of years.",
+            "Our liquid iron core produces a powerful magnetosphere deflecting lethal solar wind particles into brilliant auroral displays."
+          ],
+          "fr": [
+            "La Terre est le seul astre connu de l'Univers confirmant la présence de vie et d'eau liquide en surface.",
+            "La tectonique des plaques recycle continuellement le carbone et régule le climat planétaire sur des millions d'années.",
+            "Son noyau de fer liquide engendre une puissante magnétosphère déviant les radiations solaires mortelles."
+          ]
+        },
+        "eccentricity": 0.0167,
+        "inclinationDeg": 0.0,
+        "semiMajorAxisAu": 1.0,
+        "perihelionAu": 0.9833,
+        "aphelionAu": 1.0167,
+        "provenance": {
+          "source": "NASA Planetary Fact Sheet (Goddard Space Flight Center)",
+          "status": "MEASURED",
+          "retrievalDate": "2026-10",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+        }
+      },
+      {
+        "id": "mars",
+        "name": {
+          "en": "Mars",
+          "fr": "Mars"
+        },
+        "type": {
+          "en": "Terrestrial Planet",
+          "fr": "Planète tellurique"
+        },
+        "radiusKm": 3389.5,
+        "radiusEarth": 0.532,
+        "distanceFromSun": {
+          "millionKm": 227.94,
+          "au": 1.524
+        },
+        "orbitalPeriodDays": 686.98,
+        "orbitalSpeedKmS": 24.07,
+        "rotationPeriodHours": 24.623,
+        "rotationPeriod": {
+          "en": "24h 37m 22s (1 sol)",
+          "fr": "24h 37m 22s (1 sol)"
+        },
+        "axialTilt": 25.19,
+        "moons": 2,
+        "moonsList": [
+          {
+            "id": "phobos",
+            "name": {
+              "en": "Phobos",
+              "fr": "Phobos"
+            },
+            "radiusKm": 11.26,
+            "orbitalDistanceKm": 9376,
+            "orbitRadiusVisual": 4.5,
+            "orbitalPeriodDays": 0.319,
+            "colorHex": "#8C7B75",
+            "funFacts": {
+              "en": [
+                "Orbits Mars three times a day, so close that tidal forces will shatter it into a ring in 30-50 million years."
+              ],
+              "fr": [
+                "Orbite si près de Mars qu'elle fait trois tours par jour et sera broyée en anneau dans 30 à 50 millions d'années."
+              ]
+            }
+          },
+          {
+            "id": "deimos",
+            "name": {
+              "en": "Deimos",
+              "fr": "Déimos"
+            },
+            "radiusKm": 6.2,
+            "orbitalDistanceKm": 23463,
+            "orbitRadiusVisual": 7.5,
+            "orbitalPeriodDays": 1.263,
+            "colorHex": "#A89F91",
+            "funFacts": {
+              "en": [
+                "Smooth dust-covered captured asteroid slowly escaping Mars' gravitational pull."
+              ],
+              "fr": [
+                "Astéroïde capturé recouvert d'une épaisse couche de régolithe qui s'éloigne lentement de Mars."
+              ]
+            }
+          }
+        ],
+        "surfaceTemperature": {
+          "celsius": "-140 °C to 20 °C",
+          "kelvin": 210,
+          "description": {
+            "en": "Average surface temperature: -63 °C",
+            "fr": "Température moyenne en surface : -63 °C"
+          }
+        },
+        "formation": {
+          "en": "Formed ~4.5 billion years ago. Mars grew rapidly within the first few million years of the solar nebula but halted early due to gravitational disruption from giant Jupiter, leaving it as a 'planetary embryo' with only 11% of Earth's mass. When its internal core froze ~4 billion years ago, its magnetic field collapsed, allowing solar winds to strip away its thick atmosphere.",
+          "fr": "Formée il y a ~4,5 milliards d'années. Sa croissance s'est arrêtée prématurément sous l'influence gravitationnelle de Jupiter, en faisant un embryon planétaire. L'arrêt de son champ magnétique interne il y a 4 milliards d'années a permis au vent solaire d'arracher son atmosphère."
+        },
+        "interiorStructure": {
+          "en": "Dense iron-nickel-sulfur core (1,800 km), silicate mantle, and ancient rigid crust rich in iron oxide (rust).",
+          "fr": "Noyau de fer, nickel et soufre (1 800 km), manteau silicaté et croûte rigide rouillée par l'oxyde de fer."
+        },
+        "atmosphereComposition": {
+          "en": "95.3% Carbon Dioxide, 2.6% Nitrogen, 1.9% Argon, 0.16% Oxygen; surface pressure 0.006 bar (0.6% Earth)",
+          "fr": "95,3 % Dioxyde de carbone, 2,6 % Azote, 1,9 % Argon, 0,16 % Oxygène ; pression de seulement 6 millibars"
+        },
+        "colorHex": "#D14A28",
+        "texture": "mars.jpg",
+        "funFacts": {
+          "en": [
+            "Hosts Olympus Mons, the largest volcano in the Solar System: 21.9 km tall, nearly triple Mount Everest's height.",
+            "Valles Marineris is a rift canyon system stretching over 4,000 km—ten times longer and four times deeper than the Grand Canyon.",
+            "NASA rovers Curiosity and Perseverance have proven that ancient lakes, rivers, and organic molecules thrived on ancient Mars."
+          ],
+          "fr": [
+            "Abrite Olympus Mons, le plus vaste volcan du système solaire culminant à 21,9 km, presque 3 fois l'Everest.",
+            "Valles Marineris est un canyon colossal de 4 000 km de long, dix fois plus vaste que le Grand Canyon.",
+            "Les rovers Curiosity et Perseverance ont prouvé que des lacs d'eau douce et des molécules organiques y existaient autrefois."
+          ]
+        },
+        "eccentricity": 0.0934,
+        "inclinationDeg": 1.85,
+        "semiMajorAxisAu": 1.5237,
+        "perihelionAu": 1.3814,
+        "aphelionAu": 1.666,
+        "provenance": {
+          "source": "NASA Planetary Fact Sheet (Goddard Space Flight Center)",
+          "status": "MEASURED",
+          "retrievalDate": "2026-10",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+        }
+      },
+      {
+        "id": "jupiter",
+        "name": {
+          "en": "Jupiter",
+          "fr": "Jupiter"
+        },
+        "type": {
+          "en": "Gas Giant",
+          "fr": "Géante gazeuse"
+        },
+        "radiusKm": 69911,
+        "radiusEarth": 10.97,
+        "distanceFromSun": {
+          "millionKm": 778.5,
+          "au": 5.204
+        },
+        "orbitalPeriodDays": 4332.589,
+        "orbitalSpeedKmS": 13.07,
+        "rotationPeriodHours": 9.925,
+        "rotationPeriod": {
+          "en": "9 hours 55 minutes (fastest planetary rotation)",
+          "fr": "9 heures 55 minutes (rotation la plus rapide)"
+        },
+        "axialTilt": 3.13,
+        "moons": 95,
+        "moonsList": [
+          {
+            "id": "io",
+            "name": {
+              "en": "Io",
+              "fr": "Io"
+            },
+            "radiusKm": 1821.6,
+            "orbitalDistanceKm": 421700,
+            "orbitRadiusVisual": 12,
+            "orbitalPeriodDays": 1.769,
+            "colorHex": "#EAB308",
+            "funFacts": {
+              "en": [
+                "Most volcanically active world in the Solar System, boasting over 400 erupting sulfur volcanoes driven by tidal friction."
+              ],
+              "fr": [
+                "Le monde le plus volcanique du système solaire avec plus de 400 volcans de soufre actifs chauffés par les marées gravitationnelles."
+              ]
+            }
+          },
+          {
+            "id": "europa",
+            "name": {
+              "en": "Europa",
+              "fr": "Europe"
+            },
+            "radiusKm": 1560.8,
+            "orbitalDistanceKm": 670900,
+            "orbitRadiusVisual": 16,
+            "orbitalPeriodDays": 3.551,
+            "colorHex": "#E2E8F0",
+            "funFacts": {
+              "en": [
+                "Harbors a vast global subsurface liquid water ocean containing more water than all of Earth's oceans combined beneath an icy shell."
+              ],
+              "fr": [
+                "Abrite un océan d'eau liquide sous sa banquise contenant deux fois plus d'eau que tous les océans de la Terre réunis."
+              ]
+            }
+          },
+          {
+            "id": "ganymede",
+            "name": {
+              "en": "Ganymede",
+              "fr": "Ganymède"
+            },
+            "radiusKm": 2634.1,
+            "orbitalDistanceKm": 1070400,
+            "orbitRadiusVisual": 21,
+            "orbitalPeriodDays": 7.154,
+            "colorHex": "#94A3B8",
+            "funFacts": {
+              "en": [
+                "Largest moon in the Solar System (larger than planet Mercury) and the only moon with its own internally generated magnetic field."
+              ],
+              "fr": [
+                "La plus grande lune du système solaire (plus grosse que Mercure) et la seule à posséder son propre champ magnétique."
+              ]
+            }
+          },
+          {
+            "id": "callisto",
+            "name": {
+              "en": "Callisto",
+              "fr": "Callisto"
+            },
+            "radiusKm": 2410.3,
+            "orbitalDistanceKm": 1882700,
+            "orbitRadiusVisual": 27,
+            "orbitalPeriodDays": 16.689,
+            "colorHex": "#64748B",
+            "funFacts": {
+              "en": [
+                "Most heavily cratered object known in the solar system, with a 4-billion-year-old unblemished pristine ice-rock surface."
+              ],
+              "fr": [
+                "L'astre le plus cratérisé du système solaire, témoin intact des bombardements d'il y a plus de 4 milliards d'années."
+              ]
+            }
+          }
+        ],
+        "surfaceTemperature": {
+          "celsius": "-110 °C",
+          "kelvin": 165,
+          "description": {
+            "en": "-110 °C at 1 bar level, scorching 24,000 °C in core",
+            "fr": "-110 °C au niveau 1 bar, 24 000 °C au cœur"
+          }
+        },
+        "formation": {
+          "en": "The first planet to coalesce from the solar nebula ~4.56 billion years ago beyond the 'snow line' where water ice could freeze. Accreting a massive 10 Earth-mass rock-ice core in under 3 million years, its titanic gravity rapidly swallowed huge volumes of light hydrogen and helium gas before the Sun cleared the nebula.",
+          "fr": "Première planète née de la nébuleuse au-delà de la ligne des glaces. Son noyau de 10 masses terrestres a accrété de gigantesques quantités d'hydrogène et d'hélium en moins de 3 millions d'années."
+        },
+        "interiorStructure": {
+          "en": "Diffuse dense rocky core, colossal ocean layer of liquid metallic hydrogen (acting as a superconductor generating its gargantuan magnetosphere), liquid molecular hydrogen, and cloud atmosphere.",
+          "fr": "Cœur rocheux dilué, océan colossal d'hydrogène métallique liquide supraconducteur générant sa magnétosphère monstrueuse, et manteau d'hydrogène moléculaire."
+        },
+        "atmosphereComposition": {
+          "en": "89.8% Hydrogen, 10.2% Helium, traces of Methane, Ammonia, Water vapor, Hydrogen Sulfide",
+          "fr": "89,8 % Hydrogène, 10,2 % Hélium, traces de Méthane, Ammoniac et Vapeur d'eau"
+        },
+        "colorHex": "#DDAA77",
+        "texture": "jupiter.jpg",
+        "funFacts": {
+          "en": [
+            "Jupiter contains more than twice the mass of all seven other planets combined (318 Earth masses).",
+            "The Great Red Spot is an anticyclonic storm wider than Earth that has raged non-stop for at least 350 years.",
+            "Its immense gravitational pull protects Earth from outer comets by either ejecting them from the system or absorbing impacts."
+          ],
+          "fr": [
+            "Jupiter concentre plus de deux fois la masse de toutes les autres planètes réunies (318 Terres).",
+            "La Grande Tache rouge est un anticyclone plus large que la Terre qui tourbillonne sans discontinuer depuis au moins 350 ans.",
+            "Son puissant champ gravitationnel agit comme un aspirateur à comètes protégeant la Terre des impacts cataclysmiques."
+          ]
+        },
+        "eccentricity": 0.0489,
+        "inclinationDeg": 1.3,
+        "semiMajorAxisAu": 5.2044,
+        "perihelionAu": 4.9499,
+        "aphelionAu": 5.4589,
+        "provenance": {
+          "source": "NASA Planetary Fact Sheet (Goddard Space Flight Center)",
+          "status": "MEASURED",
+          "retrievalDate": "2026-10",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+        }
+      },
+      {
+        "id": "saturn",
+        "name": {
+          "en": "Saturn",
+          "fr": "Saturne"
+        },
+        "type": {
+          "en": "Gas Giant",
+          "fr": "Géante gazeuse"
+        },
+        "radiusKm": 58232,
+        "radiusEarth": 9.14,
+        "distanceFromSun": {
+          "millionKm": 1434.0,
+          "au": 9.582
+        },
+        "orbitalPeriodDays": 10759.22,
+        "orbitalSpeedKmS": 9.68,
+        "rotationPeriodHours": 10.656,
+        "rotationPeriod": {
+          "en": "10 hours 39 minutes",
+          "fr": "10 heures 39 minutes"
+        },
+        "axialTilt": 26.73,
+        "moons": 146,
+        "moonsList": [
+          {
+            "id": "titan",
+            "name": {
+              "en": "Titan",
+              "fr": "Titan"
+            },
+            "radiusKm": 2574.7,
+            "orbitalDistanceKm": 1221870,
+            "orbitRadiusVisual": 18,
+            "orbitalPeriodDays": 15.945,
+            "colorHex": "#F59E0B",
+            "funFacts": {
+              "en": [
+                "Second largest moon in the Solar System, possessing a dense nitrogen atmosphere 1.5x thicker than Earth's, with rain, rivers, and lakes of liquid methane and ethane."
+              ],
+              "fr": [
+                "Deuxième plus grande lune du système solaire, dotée d'une atmosphère d'azote plus dense que celle de la Terre et de lacs d'hydrocarbures liquides."
+              ]
+            }
+          },
+          {
+            "id": "enceladus",
+            "name": {
+              "en": "Enceladus",
+              "fr": "Encelade"
+            },
+            "radiusKm": 252.1,
+            "orbitalDistanceKm": 238000,
+            "orbitRadiusVisual": 13,
+            "orbitalPeriodDays": 1.37,
+            "colorHex": "#F8FAFC",
+            "funFacts": {
+              "en": [
+                "Pure white ice world blasting geysers of salty water, silica, and organic molecules from hydrothermal vents in its south polar ocean directly into space."
+              ],
+              "fr": [
+                "Monde de glace blanche crachant d'immenses geysers d'eau salée et de composés organiques depuis son océan interne chauffé par des cheminées hydrothermales."
+              ]
+            }
+          }
+        ],
+        "surfaceTemperature": {
+          "celsius": "-140 °C",
+          "kelvin": 134,
+          "description": {
+            "en": "-140 °C at cloud tops",
+            "fr": "-140 °C au sommet des nuages"
+          }
+        },
+        "formation": {
+          "en": "Formed ~4.5 billion years ago slightly after Jupiter. Its majestic rings are comparatively young—likely formed within the last 100 to 200 million years when an icy moon was torn apart by Saturn's intense tidal Roche limit.",
+          "fr": "Formée il y a ~4,5 milliards d'années juste après Jupiter. Ses spectaculaires anneaux sont très récents (100 à 200 millions d'années), nés du déchirement d'une lune de glace par les forces de marée."
+        },
+        "interiorStructure": {
+          "en": "Dense core of rock and ice, layer of liquid metallic hydrogen, thick envelope of molecular hydrogen and helium.",
+          "fr": "Noyau de roches et de glaces, couche d'hydrogène métallique liquide, et vaste enveloppe d'hydrogène moléculaire et d'hélium."
+        },
+        "atmosphereComposition": {
+          "en": "96.3% Hydrogen, 3.25% Helium, traces of Methane, Ammonia, Ethane",
+          "fr": "96,3 % Hydrogène, 3,25 % Hélium, traces de Méthane et d'Ammoniac"
+        },
+        "colorHex": "#E2BF7D",
+        "texture": "saturn.jpg",
+        "hasRing": true,
+        "ringInner": 1.25,
+        "ringOuter": 2.3,
+        "funFacts": {
+          "en": [
+            "Saturn is the only planet in the Solar System less dense than liquid water (0.687 g/cm³)—it would float in an enormous cosmic bathtub!",
+            "Its ring system spans up to 282,000 km across, yet is astoundingly thin: averaging only 10 to 30 meters thick.",
+            "Saturn's north pole features a bizarre, persistent hexagonal jet stream storm over 30,000 km wide."
+          ],
+          "fr": [
+            "Saturne est la seule planète moins dense que l'eau liquide (0,687 g/cm³) : elle flotterait sur un océan géant !",
+            "Ses anneaux s'étendent sur 282 000 km mais sont d'une finesse inouïe : seulement 10 à 30 mètres d'épaisseur en moyenne.",
+            "Le pôle nord de Saturne présente une incroyable tempête hexagonale géométrique de 30 000 km de diamètre."
+          ]
+        },
+        "eccentricity": 0.0565,
+        "inclinationDeg": 2.49,
+        "semiMajorAxisAu": 9.5826,
+        "perihelionAu": 9.0412,
+        "aphelionAu": 10.124,
+        "provenance": {
+          "source": "NASA Planetary Fact Sheet (Goddard Space Flight Center)",
+          "status": "MEASURED",
+          "retrievalDate": "2026-10",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+        }
+      },
+      {
+        "id": "uranus",
+        "name": {
+          "en": "Uranus",
+          "fr": "Uranus"
+        },
+        "type": {
+          "en": "Ice Giant",
+          "fr": "Géante de glace"
+        },
+        "radiusKm": 25362,
+        "radiusEarth": 3.98,
+        "distanceFromSun": {
+          "millionKm": 2871.0,
+          "au": 19.201
+        },
+        "orbitalPeriodDays": 30685.4,
+        "orbitalSpeedKmS": 6.8,
+        "rotationPeriodHours": -17.24,
+        "rotationPeriod": {
+          "en": "17 hours 14 minutes (retrograde rotation)",
+          "fr": "17 heures 14 minutes (rétrograde)"
+        },
+        "axialTilt": 97.77,
+        "moons": 28,
+        "moonsList": [
+          {
+            "id": "titania",
+            "name": {
+              "en": "Titania",
+              "fr": "Titania"
+            },
+            "radiusKm": 788.4,
+            "orbitalDistanceKm": 435900,
+            "orbitRadiusVisual": 11,
+            "orbitalPeriodDays": 8.706,
+            "colorHex": "#CBD5E1",
+            "funFacts": {
+              "en": [
+                "Largest moon of Uranus, scarred by colossal tectonic fault canyons stretching over 1,500 km across its icy surface."
+              ],
+              "fr": [
+                "La plus grande lune d'Uranus, balafrée par d'immenses canyons tectoniques de plus de 1 500 km de long."
+              ]
+            }
+          },
+          {
+            "id": "miranda",
+            "name": {
+              "en": "Miranda",
+              "fr": "Miranda"
+            },
+            "radiusKm": 235.8,
+            "orbitalDistanceKm": 129390,
+            "orbitRadiusVisual": 7.5,
+            "orbitalPeriodDays": 1.413,
+            "colorHex": "#94A3B8",
+            "funFacts": {
+              "en": [
+                "Has the most dramatic jumbled cliff terrain in the solar system, including Verona Rupes, a 20-km vertical shear cliff."
+              ],
+              "fr": [
+                "Possède le relief le plus tourmenté du système solaire, dont la falaise verticale Verona Rupes haute de 20 km."
+              ]
+            }
+          }
+        ],
+        "surfaceTemperature": {
+          "celsius": "-195 °C",
+          "kelvin": 76,
+          "description": {
+            "en": "Down to -224 °C (49 K)—coldest planetary atmosphere in the Solar System",
+            "fr": "Descend à -224 °C (49 K)—l'atmosphère la plus froide du système solaire"
+          }
+        },
+        "formation": {
+          "en": "Formed ~4.5 billion years ago in the outer planetary disc. A colossal impact with an Earth-sized protoplanet during the late accretion phase knocked Uranus completely on its side, permanently altering its rotational axis and ring-moon systems.",
+          "fr": "Née il y a ~4,5 milliards d'années. Une collision titanesque avec une protoplanète de la taille de la Terre a fait basculer son axe de rotation de 98°, la faisant rouler sur son orbite."
+        },
+        "interiorStructure": {
+          "en": "Rocky iron core, vast mantle of dense superionic water, ammonia, and methane 'ices', wrapped in a hydrogen-helium atmosphere.",
+          "fr": "Noyau de fer et silicates, vaste manteau chaud d'eau superionique, d'ammoniac et de méthane condensés, et haute atmosphère hydrogène-hélium."
+        },
+        "atmosphereComposition": {
+          "en": "82.5% Hydrogen, 15.2% Helium, 2.3% Methane (absorbing red light to produce its brilliant aquamarine-cyan color)",
+          "fr": "82,5 % Hydrogène, 15,2 % Hélium, 2,3 % Méthane (qui absorbe le rouge pour lui conférer sa teinte cyan lumineuse)"
+        },
+        "colorHex": "#70D6FF",
+        "texture": "uranus.jpg",
+        "hasRing": true,
+        "ringInner": 1.3,
+        "ringOuter": 1.7,
+        "funFacts": {
+          "en": [
+            "Uranus rotates virtually on its side with a 97.8° tilt: its poles experience 42 years of continuous day followed by 42 years of night.",
+            "It radiates virtually no internal heat into space, making it colder than Neptune despite being a billion kilometers closer to the Sun.",
+            "Uranus was the first planet discovered using an astronomical telescope, spotted by William Herschel in 1781."
+          ],
+          "fr": [
+            "Uranus roule sur son côté (inclinaison de 98°) : chaque pôle vit 42 ans de jour continu suivis de 42 ans de nuit polaire.",
+            "Elle n'émet pratiquement aucune chaleur interne, ce qui la rend plus froide que Neptune malgré un milliard de km de moins du Soleil.",
+            "Elle est la première planète découverte au télescope moderne, observée par William Herschel en 1781."
+          ]
+        },
+        "eccentricity": 0.0463,
+        "inclinationDeg": 0.77,
+        "semiMajorAxisAu": 19.2184,
+        "perihelionAu": 18.3288,
+        "aphelionAu": 20.108,
+        "provenance": {
+          "source": "NASA Planetary Fact Sheet (Goddard Space Flight Center)",
+          "status": "MEASURED",
+          "retrievalDate": "2026-10",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+        }
+      },
+      {
+        "id": "neptune",
+        "name": {
+          "en": "Neptune",
+          "fr": "Neptune"
+        },
+        "type": {
+          "en": "Ice Giant",
+          "fr": "Géante de glace"
+        },
+        "radiusKm": 24622,
+        "radiusEarth": 3.86,
+        "distanceFromSun": {
+          "millionKm": 4495.0,
+          "au": 30.047
+        },
+        "orbitalPeriodDays": 60189.0,
+        "orbitalSpeedKmS": 5.43,
+        "rotationPeriodHours": 16.11,
+        "rotationPeriod": {
+          "en": "16 hours 6 minutes",
+          "fr": "16 heures 6 minutes"
+        },
+        "axialTilt": 28.32,
+        "moons": 16,
+        "moonsList": [
+          {
+            "id": "triton",
+            "name": {
+              "en": "Triton",
+              "fr": "Triton"
+            },
+            "radiusKm": 1353.4,
+            "orbitalDistanceKm": 354760,
+            "orbitRadiusVisual": 12,
+            "orbitalPeriodDays": -5.877,
+            "colorHex": "#E0E7FF",
+            "funFacts": {
+              "en": [
+                "Only large moon in the Solar System orbiting in retrograde (backwards), captured from the Kuiper Belt with active cryovolcanic nitrogen geysers."
+              ],
+              "fr": [
+                "Seule grande lune orbitant à contre-sens (rétrograde), capturée dans la ceinture de Kuiper, propulsant des geysers d'azote liquide."
+              ]
+            }
+          }
+        ],
+        "surfaceTemperature": {
+          "celsius": "-200 °C",
+          "kelvin": 72,
+          "description": {
+            "en": "-200 °C to -214 °C in upper clouds",
+            "fr": "-200 °C à -214 °C dans les hautes couches"
+          }
+        },
+        "formation": {
+          "en": "Formed ~4.5 billion years ago closer to the Sun in the Nice model of planetary migration, then gravitationally flung outward to 30 AU by resonant interactions with migrating Jupiter and Saturn, sculpting the Kuiper Belt.",
+          "fr": "Formée il y a ~4,5 milliards d'années plus près du Soleil, puis projetée vers 30 UA lors de la migration des géantes gazeuses selon le modèle de Nice."
+        },
+        "interiorStructure": {
+          "en": "Dense rocky-metal core, deep supercritical mantle of water, methane, and ammonia under extreme pressure, and thick hydrogen-helium atmosphere.",
+          "fr": "Cœur de fer et roche, manteau d'eau et de méthane supercritiques sous des millions d'atmosphères, et atmosphère dynamique d'hydrogène."
+        },
+        "atmosphereComposition": {
+          "en": "80% Hydrogen, 19% Helium, 1.5% Methane with high-altitude methane cirrus clouds",
+          "fr": "80 % Hydrogène, 19 % Hélium, 1,5 % Méthane formant des nuages de cristaux d'ammoniac et de méthane"
+        },
+        "colorHex": "#3F6CE0",
+        "texture": "neptune.jpg",
+        "funFacts": {
+          "en": [
+            "Neptune unleashes the fastest supersonic winds in the entire Solar System, reaching blistering speeds of 2,160 km/h.",
+            "Neptune was discovered through pure mathematical prediction in 1846 by Urbain Le Verrier before it was ever seen.",
+            "A single year on Neptune takes 164.8 Earth years—it completed its very first full orbit since discovery only in 2011!"
+          ],
+          "fr": [
+            "Neptune déchaîne les vents supersoniques les plus rapides du système solaire, culminant à 2 160 km/h.",
+            "Découverte par le pur calcul mathématique en 1846 par Urbain Le Verrier avant la première confirmation visuelle.",
+            "Une année sur Neptune dure 164,8 années terrestres : elle n'a achevé sa première orbite depuis sa découverte qu'en 2011 !"
+          ]
+        },
+        "eccentricity": 0.0095,
+        "inclinationDeg": 1.77,
+        "semiMajorAxisAu": 30.07,
+        "perihelionAu": 29.7843,
+        "aphelionAu": 30.3557,
+        "provenance": {
+          "source": "NASA Planetary Fact Sheet (Goddard Space Flight Center)",
+          "status": "MEASURED",
+          "retrievalDate": "2026-10",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+        }
+      },
+      {
+        "id": "pluto",
+        "name": {
+          "en": "Pluto",
+          "fr": "Pluton"
+        },
+        "type": {
+          "en": "Dwarf Planet (Kuiper Belt)",
+          "fr": "Planète naine (Ceinture de Kuiper)"
+        },
+        "radiusKm": 1188.3,
+        "radiusEarth": 0.186,
+        "distanceFromSun": {
+          "millionKm": 5906.4,
+          "au": 39.482
+        },
+        "orbitalPeriodDays": 90560.0,
+        "orbitalSpeedKmS": 4.67,
+        "rotationPeriodHours": -153.3,
+        "rotationPeriod": {
+          "en": "6.39 Earth days (retrograde)",
+          "fr": "6,39 jours terrestres (rétrograde)"
+        },
+        "axialTilt": 122.53,
+        "moons": 5,
+        "moonsList": [
+          {
+            "id": "charon",
+            "name": {
+              "en": "Charon",
+              "fr": "Charon"
+            },
+            "radiusKm": 606.0,
+            "orbitalDistanceKm": 19570,
+            "orbitRadiusVisual": 5.2,
+            "orbitalPeriodDays": 6.387,
+            "colorHex": "#9CA3AF",
+            "funFacts": {
+              "en": [
+                "Half the size of Pluto, locked with Pluto so both objects eternally face the same side towards one another in a binary dwarf planet dance."
+              ],
+              "fr": [
+                "Moitié moins grande que Pluton, formant un vrai système double où les deux corps se font éternellement face."
+              ]
+            }
+          }
+        ],
+        "surfaceTemperature": {
+          "celsius": "-225 °C",
+          "kelvin": 44,
+          "description": {
+            "en": "-225 °C to -233 °C average",
+            "fr": "-225 °C à -233 °C"
+          }
+        },
+        "formation": {
+          "en": "Formed 4.5 billion years ago in the primordial trans-Neptunian disk as an icy planetesimal. Gravitational perturbations from expanding giant planets scattered Pluto into a stable 2:3 orbital resonance with Neptune.",
+          "fr": "Formée il y a 4,5 milliards d'années dans le disque transneptunien primitif. Les migrations des géantes ont piégé Pluton dans une résonance orbitale stable 2:3 avec Neptune."
+        },
+        "interiorStructure": {
+          "en": "Substantial dense rocky core (70% of mass) surrounded by a thick mantle of water ice and a nitrogen ice crust.",
+          "fr": "Noyau rocheux volumineux (70 % de la masse), épais manteau de glace d'eau et croûte d'azote gelé."
+        },
+        "atmosphereComposition": {
+          "en": "Tenuous seasonal atmosphere: 99% Nitrogen, 0.5% Methane, 0.05% Carbon Monoxide",
+          "fr": "Atmosphère ténue saisonnière : 99 % Azote, 0,5 % Méthane, 0,05 % Monoxyde de carbone"
+        },
+        "colorHex": "#C9B396",
+        "texture": "pluto.jpg",
+        "funFacts": {
+          "en": [
+            "Pluto features Tombaugh Regio, a magnificent 1,000-km-wide heart-shaped glacier of flowing nitrogen ice.",
+            "Water ice mountains on Pluto rise up to 3,500 meters high, acting as hard bedrock under cryogenic conditions.",
+            "Pluto and its moon Charon orbit a common barycenter located outside of Pluto itself."
+          ],
+          "fr": [
+            "Pluton arbore Tombaugh Regio, un gigantesque glacier d'azote liquide en forme de cœur de 1 000 km de large.",
+            "Des montagnes de glace d'eau s'élèvent à 3 500 mètres de hauteur, aussi dures que du granit à ces températures.",
+            "Pluton et Charon tournent autour d'un barycentre situé en plein espace à l'extérieur de Pluton."
+          ]
+        },
+        "eccentricity": 0.2488,
+        "inclinationDeg": 17.16,
+        "semiMajorAxisAu": 39.482,
+        "perihelionAu": 29.658,
+        "aphelionAu": 49.306,
+        "provenance": {
+          "source": "NASA Planetary Fact Sheet (Goddard Space Flight Center)",
+          "status": "MEASURED",
+          "retrievalDate": "2026-10",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+        }
+      }
+    ]
+  }
+}
