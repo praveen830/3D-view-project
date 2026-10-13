@@ -1290,6 +1290,9 @@ class MilkyWayExplorer {
     this.updateBreadcrumbs();
     this.showDetailsPanel(this.currentPlanet, 'planet');
     if (typeof this.highlightActiveNav === 'function') this.highlightActiveNav('planet', this.currentPlanet.id);
+    if (typeof this.updateChartBoardTarget === 'function') {
+      this.updateChartBoardTarget(this.currentPlanet, 'planet');
+    }
   }
 
   /**
@@ -1351,6 +1354,9 @@ class MilkyWayExplorer {
     this.updateBreadcrumbs();
     this.showDetailsPanel(this.currentMoon, 'moon');
     if (typeof this.highlightActiveNav === 'function') this.highlightActiveNav('moon', this.currentMoon.id);
+    if (typeof this.updateChartBoardTarget === 'function') {
+      this.updateChartBoardTarget(this.currentMoon, 'moon');
+    }
   }
 
   /**
@@ -1410,6 +1416,9 @@ class MilkyWayExplorer {
     this.updateBreadcrumbs();
     this.showDetailsPanel(this.currentSystem, 'system');
     if (typeof this.highlightActiveNav === 'function') this.highlightActiveNav('star', 'sun');
+    if (typeof this.updateChartBoardTarget === 'function') {
+      this.updateChartBoardTarget(solarSystemData?.system?.star || { name: { en: 'The Sun' }, id: 'sun' }, 'star');
+    }
   }
 
   flyToGalaxyView() {
@@ -4506,6 +4515,9 @@ class MilkyWayExplorer {
 
     if (!this.isTransitioning) {
       this.controls.update();
+    }
+    if (typeof this.updateLiveChartTelemetry === 'function') {
+      this.updateLiveChartTelemetry();
     }
     this.renderer.render(this.scene, this.camera);
   }
