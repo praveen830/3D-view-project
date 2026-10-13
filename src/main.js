@@ -2882,6 +2882,455 @@ class MilkyWayExplorer {
     if (footerCreditsBtn) {
       footerCreditsBtn.addEventListener('click', () => creditsModal.classList.add('active'));
     }
+
+    // 8. NASA Planetary Chart Board & View Mode Switcher
+    this.initChartBoard();
+    this.initViewModeSwitcher();
+  }
+
+  initChartBoard() {
+    const chartPanel = document.getElementById('chart-board-panel');
+    const btnChart = document.getElementById('btn-chart-board');
+    const btnToolChart = document.getElementById('btn-toolbar-chart');
+    const btnClose = document.getElementById('btn-chart-close');
+    const btnMin = document.getElementById('btn-chart-minimize');
+
+    const toggle = () => {
+      if (!chartPanel) return;
+      const isClosed = chartPanel.classList.contains('collapsed') || !chartPanel.classList.contains('active');
+      this.openChartBoard(isClosed);
+    };
+
+    if (btnChart) btnChart.addEventListener('click', toggle);
+    if (btnToolChart) btnToolChart.addEventListener('click', toggle);
+    if (btnClose) btnClose.addEventListener('click', () => this.openChartBoard(false));
+    if (btnMin) btnMin.addEventListener('click', () => {
+      chartPanel.classList.toggle('minimized');
+    });
+
+    // Tab buttons inside chart board
+    const chartTabBtns = document.querySelectorAll('.chart-tab-btn');
+    chartTabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        chartTabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const tabId = btn.dataset.tab;
+        document.querySelectorAll('.chart-tab-pane').forEach(p => p.classList.remove('active'));
+        const pane = document.getElementById(tabId);
+        if (pane) pane.classList.add('active');
+      });
+    });
+
+    // Target chips inside chart board
+    const chips = document.querySelectorAll('.target-chip');
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const targetId = chip.dataset.target;
+        this.navigateToCelestialBody(targetId);
+      });
+    });
+
+    // Radar canvas click interactivity
+    const radarCanvas = document.getElementById('orbit-radar-canvas');
+    if (radarCanvas) {
+      radarCanvas.addEventListener('click', (e) => {
+        const rect = radarCanvas.getBoundingClientRect();
+        const clickX = ((e.clientX - rect.left) / rect.width) * 340;
+        const clickY = ((e.clientY - rect.top) / rect.height) * 260;
+        if (this.chartRadarMoons && this.chartRadarMoons.length > 0) {
+          for (const m of this.chartRadarMoons) {
+            if (m.currentCanvasPos) {
+              const d = Math.hypot(clickX - m.currentCanvasPos.x, clickY - m.currentCanvasPos.y);
+              if (d < 18) {
+                this.navigateToCelestialBody(m.id);
+                break;
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // Initialize comparative bar charts
+    this.renderComparativeCharts();
+
+    // Default to Jupiter as requested ("implement, for example, Jupiter and how many suns... and moons to rotate to Jupiter")
+    const jupiterData = solarSystemData.system.planets.find(p => p.id === 'jupiter');
+    if (jupiterData) {
+      this.updateChartBoardTarget(jupiterData, 'planet');
+    }
+  }
+
+  openChartBoard(open = true) {
+    const chartPanel = document.getElementById('chart-board-panel');
+    const btnChart = document.getElementById('btn-chart-board');
+    const btnToolChart = document.getElementById('btn-toolbar-chart');
+    if (!chartPanel) return;
+    if (open) {
+      chartPanel.classList.remove('collapsed');
+      chartPanel.classList.add('active');
+      if (btnChart) btnChart.classList.add('active');
+      if (btnToolChart) btnToolChart.classList.add('active');
+    } else {
+      chartPanel.classList.add('collapsed');
+      chartPanel.classList.remove('active');
+      if (btnChart) btnChart.classList.remove('active');
+      if (btnToolChart) btnToolChart.classList.remove('active');
+    }
+  }
+
+  initViewModeSwitcher() {
+    const btnViewMode = document.getElementById('btn-view-mode');
+    const txtViewMode = document.getElementById('txt-btn-view-mode');
+    const iconViewMode = document.getElementById('view-mode-icon');
+    if (!btnViewMode) return;
+
+    btnViewMode.addEventListener('click', () => {
+      const isMobile = document.body.classList.toggle('view-mobile');
+      document.body.classList.toggle('view-desktop', !isMobile);
+      if (isMobile) {
+        if (txtViewMode) txtViewMode.textContent = 'Desktop View';
+        if (iconViewMode) iconViewMode.textContent = '🖥️';
+      } else {
+        if (txtViewMode) txtViewMode.textContent = 'Mobile View';
+        if (iconViewMode) iconViewMode.textContent = '📱';
+      }
+      this.onWindowResize();
+    });
+  }
+
+  updateChartBoardTarget(target, type = 'planet') {
+    if (!target) return;
+    this.currentChartTarget = target;
+    this.currentChartType = type;
+
+    // 1. Identify Target and Parent System
+    let targetName = typeof target.name === 'object' ? (target.name[i18n.lang] || target.name.en) : (target.name || '');
+    let targetId = target.id || (type === 'star' ? 'sun' : '');
+    let targetTypeDesc = typeof target.type === 'object' ? (target.type[i18n.lang] || target.type.en) : (target.type || 'Celestial World');
+
+    // If moon, find its parent planet
+    let parentPlanet = null;
+    if (type === 'moon') {
+      parentPlanet = (solarSystemData.system.planets || []).find(p => p.moonsList && p.moonsList.some(m => m.id === target.id));
+    }
+    const hostPlanet = parentPlanet || (type === 'planet' ? target : null);
+
+    // Update target info header
+    const nameEl = document.getElementById('chart-target-name');
+    const typeEl = document.getElementById('chart-target-type');
+    if (nameEl) nameEl.textContent = targetName;
+    if (typeEl) typeEl.textContent = targetTypeDesc;
+
+    // Highlight target chip
+    document.querySelectorAll('.target-chip').forEach(chip => {
+      chip.classList.toggle('active', chip.dataset.target === targetId || (parentPlanet && chip.dataset.target === parentPlanet.id));
+    });
+
+    // 2. Host Sun(s) System Data ("how many suns")
+    const sunCountBadge = document.getElementById('chart-suns-count');
+    const sunNameEl = document.getElementById('chart-sun-name');
+    const sunDistEl = document.getElementById('chart-sun-dist');
+    const sunLightTimeEl = document.getElementById('chart-sun-light-time');
+    const sunFluxEl = document.getElementById('chart-sun-flux');
+
+    // NASA Host Suns Calculation
+    let sunCount = 1;
+    let sunName = 'The Sun (Sol - G2V)';
+    let sunDist = '5.20 AU (778.5M km)';
+    let lightTime = '43.3 Minutes';
+    let solarFlux = '50.3 W/m² (3.7% Earth)';
+
+    if (hostPlanet) {
+      const au = hostPlanet.distanceFromSun ? hostPlanet.distanceFromSun.au : (hostPlanet.semiMajorAxisAu || 1.0);
+      const millionKm = hostPlanet.distanceFromSun ? hostPlanet.distanceFromSun.millionKm : (au * 149.6).toFixed(1);
+      sunDist = `${au} AU (${millionKm}M km)`;
+      const lightMinutes = (au * 8.317).toFixed(1);
+      lightTime = au < 0.1 ? 'Instantaneous' : (au > 10 ? `${(lightMinutes / 60).toFixed(2)} Hours` : `${lightMinutes} Minutes`);
+      const flux = Math.round(1361 / (au * au));
+      const fluxPct = ((flux / 1361) * 100).toFixed(1);
+      solarFlux = `${flux} W/m² (${fluxPct}% Earth)`;
+    } else if (type === 'star') {
+      sunCount = 1;
+      sunDist = '0.00 AU (Primary Star)';
+      lightTime = '0.00 Seconds';
+      solarFlux = '63,000,000 W/m² (Surface)';
+    }
+
+    if (sunCountBadge) sunCountBadge.textContent = `${sunCount} Sun (Sol G2V)`;
+    if (sunNameEl) sunNameEl.textContent = sunName;
+    if (sunDistEl) sunDistEl.textContent = sunDist;
+    if (sunLightTimeEl) sunLightTimeEl.textContent = lightTime;
+    if (sunFluxEl) sunFluxEl.textContent = solarFlux;
+
+    // 3. Moons in Orbit Data ("how many moons to rotate to the Jupiter")
+    const totalMoonsBadge = document.getElementById('chart-moons-total-count');
+    const resonanceBox = document.getElementById('chart-resonance-box');
+    const moonsListEl = document.getElementById('chart-moons-revolving-list');
+
+    // NASA official moon counts (2024-2026 update)
+    const officialNasaMoonCounts = {
+      jupiter: { total: 95, major: 4, label: '95 Moons (NASA 2026)' },
+      saturn: { total: 146, major: 8, label: '146 Moons (NASA 2026)' },
+      uranus: { total: 28, major: 5, label: '28 Moons (NASA 2026)' },
+      neptune: { total: 16, major: 1, label: '16 Moons (NASA 2026)' },
+      mars: { total: 2, major: 2, label: '2 Moons (NASA 2026)' },
+      earth: { total: 1, major: 1, label: '1 Moon (Luna)' },
+      pluto: { total: 5, major: 1, label: '5 Moons (Charon)' },
+      venus: { total: 0, major: 0, label: '0 Moons' },
+      mercury: { total: 0, major: 0, label: '0 Moons' },
+      sun: { total: 0, major: 0, label: '8 Major Planets' }
+    };
+
+    const targetKey = hostPlanet ? hostPlanet.id : (type === 'star' ? 'sun' : 'jupiter');
+    const moonStat = officialNasaMoonCounts[targetKey] || { total: hostPlanet?.moons || 0, major: hostPlanet?.moonsList?.length || 0, label: `${hostPlanet?.moons || 0} Moons` };
+
+    if (totalMoonsBadge) totalMoonsBadge.textContent = moonStat.label;
+
+    // Laplace resonance box for Jupiter
+    if (resonanceBox) {
+      if (targetKey === 'jupiter') {
+        resonanceBox.style.display = 'flex';
+        resonanceBox.innerHTML = `
+          <span class="resonance-icon">⚡</span>
+          <div>
+            <strong>Laplace Orbital Resonance (4:2:1):</strong>
+            <p>For every 4 orbits of Io (1.77d), Europa completes 2 (3.55d), and Ganymede completes 1 orbit (7.15d)! Driven by mutual gravitational tidal interaction.</p>
+          </div>
+        `;
+      } else if (targetKey === 'saturn') {
+        resonanceBox.style.display = 'flex';
+        resonanceBox.innerHTML = `
+          <span class="resonance-icon">💍</span>
+          <div>
+            <strong>Saturnian Moon & Ring Dynamics:</strong>
+            <p>Mimas, Enceladus, Tethys, Dione, Rhea, and giant Titan (larger than Mercury) clear gaps in Saturn's rings and drive cryovolcanic plumes.</p>
+          </div>
+        `;
+      } else {
+        resonanceBox.style.display = 'none';
+      }
+    }
+
+    // Populate revolving moons cards
+    if (moonsListEl) {
+      moonsListEl.innerHTML = '';
+      const moons = (hostPlanet && hostPlanet.moonsList) ? hostPlanet.moonsList : [];
+      if (moons.length > 0) {
+        moons.forEach(m => {
+          const mCard = document.createElement('div');
+          mCard.className = 'chart-moon-card';
+          const mName = typeof m.name === 'object' ? (m.name[i18n.lang] || m.name.en) : m.name;
+          const period = m.orbitalPeriodDays ? `${m.orbitalPeriodDays}d` : '';
+          const radiusKm = m.radiusKm ? `${m.radiusKm.toLocaleString()} km` : '';
+          mCard.innerHTML = `
+            <div class="chart-moon-card-left">
+              <img src="${this.getMoonImagePath(m.id)}" alt="${mName}" class="chart-moon-thumb" onerror="this.src='/images/moon.jpg'">
+              <div>
+                <div class="chart-moon-name">${mName}</div>
+                <div class="chart-moon-meta">${radiusKm} • Orbit: ${period}</div>
+              </div>
+            </div>
+            <button class="chart-moon-fly-btn" type="button" title="Fly to ${mName} in 3D">🚀 Fly 3D</button>
+          `;
+          mCard.addEventListener('click', () => {
+            this.navigateToCelestialBody(m.id);
+          });
+          moonsListEl.appendChild(mCard);
+        });
+      } else {
+        const emptyMsg = document.createElement('div');
+        emptyMsg.style.fontSize = '0.75rem';
+        emptyMsg.style.color = '#94a3b8';
+        emptyMsg.style.padding = '8px 0';
+        emptyMsg.textContent = targetKey === 'sun' ? 'Host star of 8 planets, 5 dwarf planets, and 300+ moons.' : 'No natural satellites in orbit around this celestial body.';
+        moonsListEl.appendChild(emptyMsg);
+      }
+    }
+
+    // 4. Setup Radar Moons
+    const radarHostLegend = document.getElementById('radar-legend-host');
+    if (radarHostLegend) radarHostLegend.textContent = targetName;
+    this.chartRadarMoons = (hostPlanet && hostPlanet.moonsList) ? hostPlanet.moonsList.map((m, idx) => ({
+      id: m.id,
+      name: typeof m.name === 'object' ? (m.name[i18n.lang] || m.name.en) : m.name,
+      period: m.orbitalPeriodDays || 10,
+      radiusVisual: 28 + (idx + 1) * 22,
+      color: m.id === 'io' ? '#eab308' : (m.id === 'europa' ? '#38bdf8' : (m.id === 'titan' ? '#f97316' : '#cbd5e1')),
+      initialAngle: idx * 1.5
+    })) : [];
+  }
+
+  renderChartRadar() {
+    const canvas = document.getElementById('orbit-radar-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width;
+    const h = canvas.height;
+    ctx.clearRect(0, 0, w, h);
+
+    const cx = w / 2;
+    const cy = h / 2;
+
+    // Draw background radar concentric grid rings
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.08)';
+    ctx.lineWidth = 1;
+    for (let r = 20; r <= 120; r += 24) {
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    // Draw subtle crosshair lines
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+    ctx.beginPath();
+    ctx.moveTo(cx, 10);
+    ctx.lineTo(cx, h - 10);
+    ctx.moveTo(10, cy);
+    ctx.lineTo(w - 10, cy);
+    ctx.stroke();
+
+    // Draw central host world
+    const hostCol = this.currentChartTarget?.colorHex || '#f59e0b';
+    const radGrad = ctx.createRadialGradient(cx, cy, 2, cx, cy, 14);
+    radGrad.addColorStop(0, '#ffffff');
+    radGrad.addColorStop(0.5, hostCol);
+    radGrad.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = radGrad;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 14, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Draw moons rotating around host
+    if (this.chartRadarMoons && this.chartRadarMoons.length > 0) {
+      this.chartRadarMoons.forEach(m => {
+        const angle = m.initialAngle + (2 * Math.PI * (this.simulatedDays / m.period));
+        const mx = cx + Math.cos(angle) * m.radiusVisual;
+        const my = cy + Math.sin(angle) * (m.radiusVisual * 0.72);
+        m.currentCanvasPos = { x: mx, y: my };
+
+        // Draw moon orbit line
+        ctx.strokeStyle = 'rgba(56, 189, 248, 0.22)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, m.radiusVisual, m.radiusVisual * 0.72, 0, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // Draw moon orb
+        ctx.fillStyle = m.color;
+        ctx.shadowColor = m.color;
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+        ctx.arc(mx, my, 4.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        // Draw moon label with angle
+        const deg = Math.round(((angle * 180 / Math.PI) % 360 + 360) % 360);
+        ctx.font = '600 9px "Space Grotesk", sans-serif';
+        ctx.fillStyle = '#94a3b8';
+        ctx.fillText(`${m.name} (${deg}°)`, mx + 6, my - 3);
+      });
+    } else {
+      ctx.font = '11px "Space Grotesk", sans-serif';
+      ctx.fillStyle = '#64748b';
+      ctx.textAlign = 'center';
+      ctx.fillText('No moons in orbit', cx, cy + 30);
+      ctx.textAlign = 'start';
+    }
+  }
+
+  updateLiveChartTelemetry() {
+    const chartPanel = document.getElementById('chart-board-panel');
+    if (!chartPanel || chartPanel.classList.contains('collapsed')) return;
+
+    this.renderChartRadar();
+
+    const target = this.currentChartTarget || solarSystemData.system.planets.find(p => p.id === 'jupiter');
+    if (!target) return;
+
+    const periodDays = target.orbitalPeriodDays || 4332.8;
+    const rotHours = target.rotationPeriodHours || 9.93;
+
+    const trueAnomaly = ((this.simulatedDays / periodDays) * 360 % 360 + 360) % 360;
+    const rotDir = rotHours < 0 ? -1 : 1;
+    const spinDeg = ((this.simulatedDays * 24 / Math.abs(rotHours)) * 360 * rotDir % 360 + 360) % 360;
+    const rotDone = (this.simulatedDays * 24 / Math.abs(rotHours));
+    const orbDone = (this.simulatedDays / periodDays);
+
+    const angleEl = document.getElementById('telemetry-angle');
+    const spinEl = document.getElementById('telemetry-spin');
+    const rotEl = document.getElementById('telemetry-rotations');
+    const orbEl = document.getElementById('telemetry-orbits');
+    const velEl = document.getElementById('telemetry-velocity');
+
+    if (angleEl) angleEl.textContent = `${trueAnomaly.toFixed(2)}°`;
+    if (spinEl) spinEl.textContent = `${spinDeg.toFixed(2)}°`;
+    if (rotEl) rotEl.textContent = rotDone.toFixed(2);
+    if (orbEl) orbEl.textContent = orbDone.toFixed(3);
+    if (velEl) velEl.textContent = target.orbitalSpeedKmS ? `${target.orbitalSpeedKmS} km/s` : '13.07 km/s';
+  }
+
+  renderComparativeCharts() {
+    const moonsBarContainer = document.getElementById('bar-chart-moons');
+    const radiiBarContainer = document.getElementById('bar-chart-radii');
+
+    if (moonsBarContainer) {
+      moonsBarContainer.innerHTML = '';
+      const moonsData = [
+        { name: 'Saturn', count: 146, max: 146 },
+        { name: 'Jupiter', count: 95, max: 146 },
+        { name: 'Uranus', count: 28, max: 146 },
+        { name: 'Neptune', count: 16, max: 146 },
+        { name: 'Pluto', count: 5, max: 146 },
+        { name: 'Mars', count: 2, max: 146 },
+        { name: 'Earth', count: 1, max: 146 },
+        { name: 'Venus', count: 0, max: 146 },
+        { name: 'Mercury', count: 0, max: 146 }
+      ];
+
+      moonsData.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'bar-chart-row';
+        const pct = item.max > 0 ? (item.count / item.max) * 100 : 0;
+        row.innerHTML = `
+          <span class="bar-chart-label">${item.name}</span>
+          <div class="bar-chart-bar-wrap">
+            <div class="bar-chart-bar-fill" style="width: ${Math.max(2, pct)}%;"></div>
+          </div>
+          <span class="bar-chart-val">${item.count}</span>
+        `;
+        moonsBarContainer.appendChild(row);
+      });
+    }
+
+    if (radiiBarContainer) {
+      radiiBarContainer.innerHTML = '';
+      const radiiData = [
+        { name: 'Jupiter', ratio: 11.21 },
+        { name: 'Saturn', ratio: 9.45 },
+        { name: 'Uranus', ratio: 4.01 },
+        { name: 'Neptune', ratio: 3.88 },
+        { name: 'Earth', ratio: 1.00 },
+        { name: 'Venus', ratio: 0.95 },
+        { name: 'Mars', ratio: 0.53 },
+        { name: 'Mercury', ratio: 0.38 }
+      ];
+
+      radiiData.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'bar-chart-row';
+        const pct = (item.ratio / 11.21) * 100;
+        row.innerHTML = `
+          <span class="bar-chart-label">${item.name}</span>
+          <div class="bar-chart-bar-wrap">
+            <div class="bar-chart-bar-fill" style="width: ${pct}%; background: linear-gradient(90deg, #f59e0b, #ec4899);"></div>
+          </div>
+          <span class="bar-chart-val">${item.ratio}x</span>
+        `;
+        radiiBarContainer.appendChild(row);
+      });
+    }
   }
 
   initCosmicGuideModal() {
