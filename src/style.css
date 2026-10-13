@@ -4,7 +4,7 @@
   --bg-space: #030712;
   --glass-bg: rgba(15, 23, 42, 0.78);
   --glass-bg-hover: rgba(30, 41, 59, 0.90);
-  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border: transparent;
   --glass-border-glow: rgba(96, 165, 250, 0.35);
   --accent-cyan: #38bdf8;
   --accent-blue: #3b82f6;
@@ -54,19 +54,19 @@ canvas {
   height: 100%;
 }
 
-/* Glassmorphism UI Base */
+/* Seamless Borderless Glassmorphism UI Base */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: none;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-md);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-panel:hover {
-  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 
 /* UI Overlay Container */
@@ -1466,55 +1466,331 @@ canvas {
 }
 
 @media (max-width: 768px) {
+  /* ---- TOP NAV ---- */
   .top-nav {
-    padding: 10px 14px;
+    padding: 8px 10px;
+    gap: 8px;
+  }
+  .brand-icon {
+    width: 34px;
+    height: 34px;
+  }
+  .brand-text h1 {
+    font-size: 0.95rem;
+  }
+  .brand-text p {
+    display: none;
   }
   .search-wrapper {
     display: none;
   }
+  .nav-actions {
+    gap: 5px;
+  }
+  .btn-guide {
+    padding: 5px 8px;
+    font-size: 0.72rem;
+    gap: 4px;
+  }
+  .guide-btn-badge {
+    display: none;
+  }
+  .lang-switch {
+    display: none;
+  }
+  .btn-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* ---- SUB NAV ---- */
   .sub-nav {
-    padding: 0 14px;
+    padding: 0 8px;
+    gap: 6px;
+  }
+  .breadcrumbs {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .disclaimer-badge {
     display: none;
   }
+
+  /* ---- DETAILS PANEL ---- */
   #details-panel {
-    top: auto;
-    bottom: 80px;
-    right: 12px;
-    left: 12px;
-    width: auto;
-    max-height: 55vh;
+    position: fixed;
+    top: auto !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-height: 60vh !important;
+    border-radius: 18px 18px 0 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    padding: 14px;
+    z-index: 50;
+    animation: slideUpMobile 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .bottom-bar {
-    padding: 0 8px 4px;
+  
+  @keyframes slideUpMobile {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
   }
-  .time-simulator {
-    flex-direction: column;
+
+  .detail-hero-banner {
+    height: 110px;
+  }
+  .details-title-group h2 {
+    font-size: 1.1rem;
+  }
+  .spec-grid {
+    grid-template-columns: 1fr 1fr;
     gap: 6px;
-    padding: 6px 10px;
-    width: 100%;
   }
-  .time-buttons {
-    flex-wrap: wrap;
-    justify-content: center;
+
+  /* ---- BOTTOM BAR & TOOLBAR ---- */
+  .bottom-deck {
     gap: 4px;
   }
-  .time-step-btn {
-    padding: 3px 6px;
-    font-size: 0.68rem;
+  .bottom-bar {
+    padding: 0 6px 6px;
+    gap: 4px;
   }
+
+  .time-simulator {
+    flex-direction: column;
+    gap: 5px;
+    padding: 6px 10px;
+    width: 100%;
+    border-radius: 12px;
+  }
+  .time-readout {
+    gap: 6px;
+  }
+  .time-icon {
+    font-size: 0.9rem;
+  }
+  .time-primary {
+    font-size: 0.72rem;
+  }
+  .time-secondary {
+    font-size: 0.62rem;
+  }
+  .time-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    width: 100%;
+  }
+  .time-step-btn {
+    padding: 5px 4px;
+    font-size: 0.65rem;
+    border-radius: 6px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* Full-width toolbar on mobile */
   .toolbar {
     padding: 4px 6px;
     overflow-x: auto;
     max-width: 100%;
+    gap: 4px;
+    border-radius: 12px;
+    scrollbar-width: none;
+  }
+  .toolbar::-webkit-scrollbar { display: none; }
+
+  .tool-btn {
+    padding: 5px 8px;
+    gap: 4px;
+    font-size: 0.72rem;
+    flex-shrink: 0;
   }
   .tool-btn span {
     display: none;
   }
+  .tool-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+  .speed-select {
+    font-size: 0.68rem;
+    padding: 3px 4px;
+  }
+  .tool-divider {
+    height: 16px;
+    margin: 0 1px;
+  }
+
   #time-leap-toast {
+    width: 100%;
+    font-size: 0.68rem;
+    padding: 5px 10px;
+    border-radius: 10px;
+  }
+
+  .custom-time-panel {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+  }
+
+  /* ---- APP FOOTER ---- */
+  #app-footer {
+    flex-direction: column;
+    gap: 2px;
+    padding: 4px 10px;
+    text-align: center;
+    font-size: 0.62rem;
+  }
+  .footer-center {
+    display: none;
+  }
+
+  /* ---- LEFT NAV DRAWER ---- */
+  #left-nav-drawer.left-nav-panel {
+    width: 100%;
+    max-width: 100%;
+    border-right: none;
+    border-top: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 20px 20px 0 0;
+    top: auto;
+    height: 85vh;
+    max-height: 85vh;
+    bottom: 0;
+    box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.8);
+  }
+  
+  #btn-left-nav-floating-open.left-nav-floating-tab {
+    top: auto;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    border: 1px solid rgba(56, 189, 248, 0.45);
+    border-left: 1px solid rgba(56, 189, 248, 0.45);
+  }
+  
+  #btn-left-nav-floating-open:hover {
+    transform: translateX(-50%) translateY(-2px);
+  }
+
+  /* ---- TOUR OVERLAY ---- */
+  #tour-overlay {
+    bottom: 200px;
     width: 95%;
+    padding: 14px 16px;
+  }
+  .tour-title {
+    font-size: 1rem;
+  }
+  .tour-text {
+    font-size: 0.8rem;
+  }
+
+  /* ---- COSMIC GUIDE MODAL ---- */
+  #cosmic-guide-modal {
+    padding: 0;
+    align-items: flex-end;
+  }
+  .guide-modal-card {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 20px 20px 0 0;
+    border-bottom: none;
+  }
+  .guide-modal-header {
+    padding: 14px 16px;
+  }
+  .guide-modal-header h2 {
+    font-size: 1rem;
+  }
+  .guide-modal-header p {
     font-size: 0.72rem;
+  }
+  .guide-tabs-bar {
+    padding: 8px 12px;
+    gap: 6px;
+  }
+  .guide-tab-btn {
+    padding: 6px 10px;
+    font-size: 0.76rem;
+  }
+  .guide-content-area {
+    padding: 14px;
+    max-height: calc(90vh - 140px);
+  }
+  .guide-hero-img-wrap {
+    height: 160px;
+  }
+  .guide-hero-body {
+    padding: 14px;
+  }
+  .guide-hero-body h3 {
+    font-size: 1.05rem;
+  }
+  .guide-metrics-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .guide-planets-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .guide-planet-thumb-wrap {
+    height: 100px;
+  }
+
+  /* ---- CREDITS MODAL ---- */
+  #credits-modal {
+    padding: 0;
+    align-items: flex-end;
+  }
+  .modal-card {
+    max-height: 85vh;
+    border-radius: 20px 20px 0 0;
+    border-bottom: none;
+    padding: 18px;
+  }
+}
+
+/* Extra small screens (< 480px) */
+@media (max-width: 480px) {
+  .top-nav {
+    padding: 6px 8px;
+  }
+  .brand-text h1 {
+    font-size: 0.85rem;
+  }
+  .btn-guide {
+    padding: 4px 6px;
+    font-size: 0.68rem;
+  }
+  .guide-btn-text {
+    display: none;
+  }
+  .time-buttons {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .time-step-btn {
+    font-size: 0.6rem;
+    padding: 4px 2px;
+  }
+  #details-panel {
+    max-height: 65vh !important;
+  }
+  .lnav-planets-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .guide-planets-grid {
+    grid-template-columns: 1fr !important;
   }
 }
 
@@ -1993,11 +2269,11 @@ canvas {
   max-width: 90vw;
   height: 100vh;
   z-index: 110;
-  background: rgba(8, 12, 25, 0.92);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-right: 1px solid rgba(56, 189, 248, 0.22);
-  box-shadow: 6px 0 40px rgba(0, 0, 0, 0.75);
+  background: rgba(8, 12, 25, 0.94);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: none;
+  box-shadow: 12px 0 50px rgba(0, 0, 0, 0.85);
   display: flex;
   flex-direction: column;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
@@ -2022,18 +2298,17 @@ canvas {
   align-items: center;
   gap: 8px;
   padding: 10px 16px 10px 12px;
-  background: rgba(10, 16, 32, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(56, 189, 248, 0.45);
-  border-left: none;
+  background: rgba(10, 16, 32, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: none;
   border-radius: 0 12px 12px 0;
   color: #e0f2fe;
   font-family: var(--font-heading);
   font-size: 0.82rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(56, 189, 248, 0.25);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(56, 189, 248, 0.3);
   transition: all 0.25s ease;
   pointer-events: auto;
 }
@@ -2049,9 +2324,8 @@ canvas {
 }
 
 #btn-left-nav-floating-open:hover {
-  background: rgba(16, 26, 52, 0.96);
-  border-color: rgba(56, 189, 248, 0.8);
-  box-shadow: 0 4px 25px rgba(56, 189, 248, 0.35);
+  background: rgba(16, 26, 52, 0.98);
+  box-shadow: 0 6px 30px rgba(56, 189, 248, 0.45);
   transform: translateX(3px);
 }
 
@@ -2075,8 +2349,9 @@ canvas {
   align-items: center;
   justify-content: space-between;
   padding: 14px 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: none;
   background: rgba(5, 8, 18, 0.6);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 
 .left-nav-brand {
@@ -2127,7 +2402,7 @@ canvas {
 /* Left Nav Quick Search */
 .left-nav-search-wrap {
   padding: 10px 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: none;
   background: rgba(0, 0, 0, 0.2);
 }
 
@@ -2136,15 +2411,14 @@ canvas {
   align-items: center;
   gap: 8px;
   background: rgba(15, 23, 42, 0.85);
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  border: none;
   border-radius: 8px;
   padding: 6px 10px;
-  transition: border-color 0.2s;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .left-nav-search-box:focus-within {
-  border-color: var(--accent-cyan);
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
 }
 
 .left-nav-search-box input {
@@ -2172,7 +2446,7 @@ canvas {
   gap: 6px;
   padding: 8px 14px;
   overflow-x: auto;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: none;
   background: rgba(5, 8, 18, 0.35);
   scrollbar-width: none;
 }
@@ -2183,10 +2457,10 @@ canvas {
 
 .lnav-pill {
   flex-shrink: 0;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: none;
   color: #94a3b8;
   font-size: 0.72rem;
   font-weight: 600;
@@ -2196,9 +2470,9 @@ canvas {
 
 .lnav-pill:hover,
 .lnav-pill.active {
-  background: rgba(56, 189, 248, 0.18);
-  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(56, 189, 248, 0.22);
   color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
 }
 
 /* Left Nav Scrollable Body */
@@ -2237,16 +2511,17 @@ canvas {
   font-size: 0.65rem;
   padding: 2px 7px;
   border-radius: 999px;
-  background: rgba(56, 189, 248, 0.12);
+  background: rgba(56, 189, 248, 0.14);
   color: var(--accent-cyan);
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  border: none;
   font-weight: 600;
   margin-left: auto;
 }
 
 .lnav-card {
   background: rgba(15, 23, 42, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   border-radius: 12px;
   padding: 12px;
   display: flex;
@@ -2273,7 +2548,7 @@ canvas {
   height: 48px;
   border-radius: 8px;
   object-fit: cover;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: none;
   flex-shrink: 0;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -2353,7 +2628,7 @@ canvas {
   justify-content: space-between;
   padding: 6px 10px;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: none;
   border-radius: 8px;
   font-size: 0.76rem;
   color: #cbd5e1;
@@ -2367,7 +2642,6 @@ canvas {
 .lnav-sat-item:hover,
 .lnav-exo-item:hover {
   background: rgba(56, 189, 248, 0.12);
-  border-color: rgba(56, 189, 248, 0.4);
   color: #ffffff;
   transform: translateX(2px);
 }
@@ -2387,7 +2661,6 @@ canvas {
 
 #sec-galaxy.active .lnav-thumb-img,
 #sec-solar.active .lnav-thumb-img {
-  border-color: #38bdf8;
   box-shadow: 0 0 16px rgba(56, 189, 248, 0.7);
   transform: scale(1.06);
 }
@@ -2415,7 +2688,8 @@ canvas {
 
 .lnav-planet-card {
   background: rgba(15, 23, 42, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
   padding: 8px;
   display: flex;
@@ -2427,7 +2701,6 @@ canvas {
 
 .lnav-planet-card:hover {
   background: rgba(20, 30, 55, 0.85);
-  border-color: rgba(56, 189, 248, 0.5);
   box-shadow: 0 0 14px rgba(56, 189, 248, 0.25);
   transform: translateY(-2px);
 }
@@ -2446,17 +2719,16 @@ canvas {
   overflow: hidden;
   position: relative;
   background: #000;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   transition: all 0.25s ease;
 }
 
 .lnav-planet-card:hover .lnav-planet-thumb-wrap {
-  border-color: #38bdf8;
   box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
 }
 
 .lnav-planet-card.active .lnav-planet-thumb-wrap {
-  border: 2px solid #38bdf8;
   box-shadow: 0 0 14px rgba(56, 189, 248, 0.7);
 }
 
@@ -2491,7 +2763,6 @@ canvas {
   background: rgba(15, 23, 42, 0.92);
   padding: 2px 7px;
   border-radius: 4px;
-  border: 1px solid rgba(56, 189, 248, 0.6);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -2508,7 +2779,7 @@ canvas {
   font-family: var(--font-heading);
   color: #e0f2fe;
   background: rgba(56, 189, 248, 0.16);
-  border: 1px solid rgba(56, 189, 248, 0.35);
+  border: none;
   border-radius: 4px;
   cursor: pointer;
   display: flex;
@@ -2520,7 +2791,6 @@ canvas {
 
 .lnav-card-nav-btn:hover {
   background: rgba(56, 189, 248, 0.35);
-  border-color: #38bdf8;
   color: #ffffff;
   box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
 }
@@ -2528,7 +2798,6 @@ canvas {
 .lnav-planet-card.active .lnav-card-nav-btn {
   background: #38bdf8;
   color: #020617;
-  border-color: #7dd3fc;
   font-weight: 700;
 }
 
@@ -2665,3 +2934,719 @@ canvas {
   margin-top: 4px;
 }
 
+/* Enhanced Earth atmosphere animation */
+@keyframes earthGlowPulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1.0; }
+}
+
+/* Smooth scrollbar styling for left nav body */
+.left-nav-body::-webkit-scrollbar {
+  width: 4px;
+}
+.left-nav-body::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.03);
+}
+.left-nav-body::-webkit-scrollbar-thumb {
+  background: rgba(56,189,248,0.3);
+  border-radius: 2px;
+}
+.left-nav-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(56,189,248,0.5);
+}
+
+/* Touch-friendly buttons on mobile */
+@media (pointer: coarse) {
+  .tool-btn,
+  .time-step-btn,
+  .btn-primary,
+  .btn-secondary,
+  .lnav-action-btn,
+  .guide-planet-btn,
+  .btn-view-moon,
+  .lnav-card-nav-btn,
+  .lnav-moon-nav-btn {
+    min-height: 36px;
+    touch-action: manipulation;
+  }
+  
+  .lnav-sys-item,
+  .lnav-moon-item,
+  .lnav-star-item,
+  .lnav-sat-item,
+  .lnav-exo-item {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+  
+  .lnav-planet-card {
+    touch-action: manipulation;
+  }
+  
+  .moon-card-item {
+    touch-action: manipulation;
+  }
+  
+  .btn-view-moon {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+}
+
+
+/* ==========================================================================
+   NASA PLANETARY CHART BOARD SYSTEM (Jupiter & Suns/Moons Telemetry)
+   ========================================================================== */
+
+#chart-board-panel {
+  position: absolute;
+  top: 70px;
+  right: 24px;
+  width: 420px;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100% - 150px);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  background: rgba(10, 16, 32, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: none;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  pointer-events: auto;
+}
+
+#chart-board-panel.collapsed {
+  display: none !important;
+}
+
+#chart-board-panel.active {
+  display: flex;
+  animation: chartPanelSlideIn 0.3s ease-out;
+}
+
+@keyframes chartPanelSlideIn {
+  from { opacity: 0; transform: translateY(-10px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.chart-board-header {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(5, 10, 22, 0.7);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  border-bottom: none;
+}
+
+.chart-board-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chart-board-badge-icon {
+  font-size: 1.35rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(56, 189, 248, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-board-top-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chart-board-title {
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.chart-board-live-pill {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #4ade80;
+  background: rgba(34, 197, 94, 0.15);
+  padding: 2px 7px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  animation: pulseDot 1.8s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.chart-board-subtitle {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  margin: 2px 0 0;
+}
+
+.chart-board-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chart-btn-icon {
+  background: rgba(255, 255, 255, 0.06);
+  border: none;
+  color: #cbd5e1;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.chart-btn-icon:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+/* Target Selector Bar */
+.chart-target-bar {
+  padding: 8px 14px;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-bottom: none;
+}
+
+.chart-target-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+}
+
+.chart-target-label {
+  color: #94a3b8;
+}
+
+.chart-target-name {
+  color: #38bdf8;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.chart-target-badge {
+  margin-left: auto;
+  font-size: 0.65rem;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: none;
+}
+
+.chart-target-chips {
+  display: flex;
+  gap: 5px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.target-chip {
+  flex-shrink: 0;
+  padding: 4px 9px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  color: #94a3b8;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.target-chip:hover {
+  background: rgba(56, 189, 248, 0.15);
+  color: #e0f2fe;
+}
+
+.target-chip.active {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.35), rgba(59, 130, 246, 0.35));
+  color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+  font-weight: 700;
+}
+
+/* Chart Tabs Bar */
+.chart-tabs-bar {
+  display: flex;
+  background: rgba(5, 8, 18, 0.4);
+  padding: 4px 10px;
+  gap: 4px;
+  border-bottom: none;
+}
+
+.chart-tab-btn {
+  flex: 1;
+  padding: 6px 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.chart-tab-btn:hover {
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.chart-tab-btn.active {
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+/* Chart Board Body */
+.chart-board-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chart-tab-pane {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chart-tab-pane.active {
+  display: flex;
+}
+
+.chart-card {
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  border: none;
+}
+
+.chart-card.highlight-sun {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(15, 23, 42, 0.8));
+}
+
+.chart-card.highlight-moons {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(15, 23, 42, 0.8));
+}
+
+.chart-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chart-card-icon {
+  font-size: 1.25rem;
+}
+
+.chart-card-title {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.chart-card-desc {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.chart-stat-badge {
+  margin-left: auto;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  border: none;
+}
+
+.suns-badge {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+}
+
+.moons-badge {
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+}
+
+.chart-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.chart-stat-item {
+  background: rgba(2, 6, 23, 0.55);
+  padding: 8px 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: none;
+}
+
+.chart-stat-label {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.chart-stat-val {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.chart-stat-val.live-color {
+  color: #38bdf8;
+  font-family: monospace;
+}
+
+.chart-resonance-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(56, 189, 248, 0.08);
+  font-size: 0.72rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+  border: none;
+}
+
+.chart-resonance-callout strong {
+  color: #38bdf8;
+}
+
+.resonance-icon {
+  font-size: 1rem;
+  color: #f59e0b;
+}
+
+/* Major Moons Revolving List */
+.chart-moons-revolving-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.chart-moon-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(2, 6, 23, 0.6);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.chart-moon-card:hover {
+  background: rgba(56, 189, 248, 0.18);
+  transform: translateX(3px);
+}
+
+.chart-moon-card-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chart-moon-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: none;
+}
+
+.chart-moon-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.chart-moon-meta {
+  font-size: 0.66rem;
+  color: #94a3b8;
+}
+
+.chart-moon-fly-btn {
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(56, 189, 248, 0.2);
+  border: none;
+  color: #38bdf8;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.chart-moon-fly-btn:hover {
+  background: #38bdf8;
+  color: #020617;
+}
+
+/* Live Orbital Radar Canvas */
+.radar-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: #cbd5e1;
+}
+
+.radar-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.radar-legend-dot.host {
+  background: #f59e0b;
+  box-shadow: 0 0 6px #f59e0b;
+}
+
+.radar-legend-dot.moon {
+  background: #38bdf8;
+  box-shadow: 0 0 6px #38bdf8;
+}
+
+.radar-canvas-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+  background: radial-gradient(circle at center, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.98));
+  border-radius: 10px;
+  border: none;
+}
+
+#orbit-radar-canvas {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  aspect-ratio: 340 / 260;
+  cursor: crosshair;
+}
+
+.radar-hint {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  text-align: center;
+  margin: 0;
+}
+
+/* Comparative Bar Charts */
+.bar-chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bar-chart-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+}
+
+.bar-chart-label {
+  width: 75px;
+  color: #cbd5e1;
+  white-space: nowrap;
+}
+
+.bar-chart-bar-wrap {
+  flex: 1;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  border: none;
+}
+
+.bar-chart-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #3b82f6);
+  border-radius: 6px;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bar-chart-val {
+  width: 45px;
+  text-align: right;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Highlight button in nav */
+.btn-guide.highlight-chart {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(59, 130, 246, 0.25));
+  color: #38bdf8;
+  border: none;
+}
+
+.tool-btn.highlight-chart {
+  color: #38bdf8;
+}
+
+/* ==========================================================================
+   MOBILE & DESKTOP VIEW MODES (Requested: insert mobile view and desktop view)
+   ========================================================================== */
+
+/* Explicit Mobile Mode (.view-mobile on body) */
+body.view-mobile {
+  max-width: 430px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.9);
+}
+
+body.view-mobile #ui-overlay {
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+body.view-mobile .top-nav {
+  padding: 8px 12px;
+  gap: 8px;
+}
+
+body.view-mobile .brand-text p {
+  display: none;
+}
+
+body.view-mobile .search-wrapper {
+  max-width: 130px;
+}
+
+body.view-mobile #left-nav-drawer.left-nav-panel {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 16px 16px 0 0;
+}
+
+body.view-mobile #chart-board-panel,
+body.view-mobile #details-panel {
+  position: fixed;
+  top: auto !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  max-height: 72vh !important;
+  border-radius: 20px 20px 0 0 !important;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.85);
+}
+
+body.view-mobile .bottom-deck {
+  gap: 4px;
+}
+
+body.view-mobile .time-buttons {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Explicit Desktop Mode (.view-desktop on body) */
+body.view-desktop {
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+body.view-desktop #left-nav-drawer.left-nav-panel {
+  width: 340px;
+}
+
+body.view-desktop #chart-board-panel,
+body.view-desktop #details-panel {
+  position: absolute !important;
+  top: 70px !important;
+  right: 24px !important;
+  left: auto !important;
+  bottom: auto !important;
+  width: 420px !important;
+  max-height: calc(100% - 150px) !important;
+}
+
+/* Responsive Auto Mobile Breakpoint */
+@media (max-width: 768px) {
+  body:not(.view-desktop) #left-nav-drawer.left-nav-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  body:not(.view-desktop) #chart-board-panel,
+  body:not(.view-desktop) #details-panel {
+    position: fixed;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 72vh !important;
+    border-radius: 20px 20px 0 0 !important;
+  }
+}

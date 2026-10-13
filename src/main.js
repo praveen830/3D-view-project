@@ -74,6 +74,13 @@ class MilkyWayExplorer {
     this.initTour();
     this.initCosmicGuideModal();
     this.initLeftNavDrawer();
+    // Auto-collapse navigation on mobile for better initial experience
+    if (window.innerWidth <= 768) {
+      const drawer = document.getElementById('left-nav-drawer');
+      const floatingBtn = document.getElementById('btn-left-nav-floating-open');
+      if (drawer) drawer.classList.add('collapsed');
+      if (floatingBtn) floatingBtn.classList.add('visible');
+    }
     this.animate(0);
 
     setTimeout(() => {
@@ -656,7 +663,7 @@ class MilkyWayExplorer {
   }
 
   createAtmosphereGlow(radius, colorHex, intensity = 1.0, power = 3.0) {
-    const atmoGeo = new THREE.SphereGeometry(radius * 1.045, 64, 64);
+    const atmoGeo = new THREE.SphereGeometry(radius * 1.06, 64, 64);
     const atmoMat = new THREE.ShaderMaterial({
       uniforms: {
         glowColor: { value: new THREE.Color(colorHex) },
@@ -680,9 +687,12 @@ class MilkyWayExplorer {
         varying vec3 vPosition;
         void main() {
           vec3 viewDir = normalize(-vPosition);
-          float rim = 1.0 - max(dot(viewDir, vNormal), 0.0);
+          float rim = 1.0 - clamp(dot(viewDir, vNormal), 0.0, 1.0);
           float glow = pow(rim, power) * intensity;
-          gl_FragColor = vec4(glowColor, glow);
+          // Soft inner haze for realism
+          float innerFade = pow(max(dot(viewDir, vNormal), 0.0), 2.0);
+          glow = glow * (1.0 - innerFade * 0.35);
+          gl_FragColor = vec4(glowColor, glow * 0.92);
         }
       `,
       side: THREE.BackSide,
@@ -822,8 +832,11 @@ class MilkyWayExplorer {
 
       // Authentic Atmospheric Rayleigh Limb Glows in Deep Space
       if (planet.id === 'earth') {
-        const atmo = this.createAtmosphereGlow(planetRadius, 0x38bdf8, 1.35, 2.6);
+        const atmo = this.createAtmosphereGlow(planetRadius, 0x38bdf8, 1.8, 2.2);
         planetMesh.add(atmo);
+        // Second atmosphere layer for more realistic limb glow
+        const atmo2 = this.createAtmosphereGlow(planetRadius, 0x0ea5e9, 0.7, 4.5);
+        planetMesh.add(atmo2);
       } else if (planet.id === 'venus') {
         const atmo = this.createAtmosphereGlow(planetRadius, 0xfde68a, 1.45, 2.4);
         planetMesh.add(atmo);
@@ -3028,6 +3041,15 @@ class MilkyWayExplorer {
           if (targetSec && navBody) {
             targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
+          if (secId === 'sec-moons') {
+            this.navigateToMoonsOverview();
+          } else if (secId === 'sec-solar') {
+            this.flyToStarSystem(solarSystemData.system);
+            this.highlightActiveNav('system', 'solar-system');
+          } else if (secId === 'sec-galaxy') {
+            this.flyToGalaxyView();
+            this.highlightActiveNav('galaxy');
+          }
         }
       });
     });
@@ -3154,6 +3176,16 @@ class MilkyWayExplorer {
         planetsGrid.appendChild(card);
       });
     }
+
+    // Section 6: Moons Overview button & interactive row
+    const btnFlyMoons = document.getElementById('btn-lnav-fly-moons');
+    const secMoonsRow = document.getElementById('sec-moons-row');
+    const triggerMoonsNav = () => {
+      this.toggleLeftNav(false);
+      this.navigateToMoonsOverview();
+    };
+    if (btnFlyMoons) btnFlyMoons.addEventListener('click', triggerMoonsNav);
+    if (secMoonsRow) secMoonsRow.addEventListener('click', triggerMoonsNav);
 
     // Section 6: Moons List (13 Natural Satellites) with interactive image click and explicit navigation option
     const moonsListContainer = document.getElementById('lnav-moons-list');
@@ -3329,7 +3361,7 @@ class MilkyWayExplorer {
     if (btnStartTour) {
       btnStartTour.addEventListener('click', () => {
         this.toggleLeftNav(false);
-        this.startTour();
+        this.startGuidedTour();
       });
     }
 
@@ -3375,6 +3407,11 @@ class MilkyWayExplorer {
         });
         satListContainer.appendChild(item);
       });
+    }
+
+    // Auto-collapse on mobile
+    if (window.innerWidth <= 768) {
+      this.toggleLeftNav(false);
     }
   }
 
@@ -3506,6 +3543,32 @@ class MilkyWayExplorer {
     });
   }
 
+  navigateToMoonsOverview() {
+    this.closeCosmicGuide();
+    if (typeof this.toggleLeftNav === 'function') {
+      this.toggleLeftNav(false);
+    }
+    const wasAlreadyInSolarSystem = this.currentSystem && this.currentSystem.isSolarSystem;
+    if (!wasAlreadyInSolarSystem) {
+      this.loadStarSystem(solarSystemData.system);
+    }
+
+    setTimeout(() => {
+      const lunaMesh = this.moonMeshes.find(m => {
+        const mid = String(m.userData?.moonData?.id || '').toLowerCase();
+        return mid === 'luna' || mid === 'moon';
+      });
+      if (lunaMesh) {
+        this.focusOnMoon(lunaMesh);
+        this.highlightActiveNav('moon', 'luna');
+        if (typeof this.updateChartBoardTarget === 'function') {
+          this.updateChartBoardTarget(lunaMesh.userData.moonData, 'moon');
+        }
+      }
+      this.openChartBoard(true);
+    }, wasAlreadyInSolarSystem ? 50 : 200);
+  }
+
   navigateToCelestialBody(id, isStar = false) {
     if (typeof this.toggleLeftNav === 'function') {
       this.toggleLeftNav(false);
@@ -3518,6 +3581,10 @@ class MilkyWayExplorer {
     if (cleanId === 'solar-system' || cleanId === 'solarsystem' || cleanId === 'solar') {
       this.flyToStarSystem(solarSystemData.system);
       this.highlightActiveNav('system', 'solar-system');
+      if (typeof this.updateChartBoardTarget === 'function') {
+        const jupiter = solarSystemData.system.planets.find(p => p.id === 'jupiter') || solarSystemData.system.planets[0];
+        this.updateChartBoardTarget(jupiter, 'planet');
+      }
       return;
     }
     if (cleanId === 'galaxy' || cleanId === 'milkyway' || cleanId === 'milky-way') {
@@ -3526,7 +3593,15 @@ class MilkyWayExplorer {
       return;
     }
 
-    if (!this.currentSystem || !this.currentSystem.isSolarSystem) {
+    // Direct routing for Solar System Moons
+    if (cleanId === 'moons' || cleanId === 'solar-moons' || cleanId === 'solar-system-moons') {
+      this.navigateToMoonsOverview();
+      return;
+    }
+
+    const wasAlreadyInSolarSystem = this.currentSystem && this.currentSystem.isSolarSystem;
+
+    if (!wasAlreadyInSolarSystem) {
       this.loadStarSystem(solarSystemData.system);
       // Place camera in system proximity if coming from distant galaxy view for snappy flight
       if (this.camera.position.length() > 1200) {
@@ -3537,66 +3612,119 @@ class MilkyWayExplorer {
     }
     this.scene.updateMatrixWorld(true);
 
-    if (isStar || cleanId === 'sun' || cleanId === 'the sun') {
-      if (this.starMesh) {
-        this.focusOnStar(this.starMesh);
+    const doFocusAfterLoad = () => {
+      if (isStar || cleanId === 'sun' || cleanId === 'the sun') {
+        if (this.starMesh) {
+          this.focusOnStar(this.starMesh);
+          this.highlightActiveNav('star', 'sun');
+          if (typeof this.updateChartBoardTarget === 'function') {
+            this.updateChartBoardTarget(solarSystemData.system.star, 'star');
+          }
+        }
+        return true;
       }
-      return;
-    }
 
-    // Check if it's a moon (e.g. luna, moon, phobos, deimos, io, europa, ganymede, callisto, titan, enceladus, etc.)
-    const moonMesh = this.moonMeshes.find(m => {
-      const mid = String(m.userData?.moonData?.id || '').toLowerCase();
-      const mName = String(m.userData?.moonData?.name?.en || '').toLowerCase();
-      return mid === cleanId || mName === cleanId ||
-        (cleanId === 'moon' && mid === 'luna') || (cleanId === 'luna' && mid === 'moon');
-    });
-    if (moonMesh) {
-      this.focusOnMoon(moonMesh);
-      return;
-    }
+      // Check if it's a moon
+      const moonMesh = this.moonMeshes.find(m => {
+        const mid = String(m.userData?.moonData?.id || '').toLowerCase();
+        const mName = String(m.userData?.moonData?.name?.en || '').toLowerCase();
+        return mid === cleanId || mName === cleanId ||
+          (cleanId === 'moon' && mid === 'luna') || (cleanId === 'luna' && mid === 'moon');
+      });
+      if (moonMesh) {
+        this.focusOnMoon(moonMesh);
+        this.highlightActiveNav('moon', moonMesh.userData?.moonData?.id || cleanId);
+        if (typeof this.updateChartBoardTarget === 'function') {
+          this.updateChartBoardTarget(moonMesh.userData?.moonData, 'moon');
+        }
+        return true;
+      }
 
-    // Check if it's a spacecraft (e.g. iss, hubble, jwst, astronaut, voyager1)
-    const scMesh = this.spacecraftMeshes.find(m => {
-      const scid = String(m.userData?.craftData?.id || '').toLowerCase();
-      return scid === cleanId;
-    });
-    if (scMesh) {
-      this.focusOnSpacecraft(scMesh);
-      return;
-    }
+      // Check if it's a spacecraft
+      const scMesh = this.spacecraftMeshes.find(m => {
+        const scid = String(m.userData?.craftData?.id || '').toLowerCase();
+        return scid === cleanId;
+      });
+      if (scMesh) {
+        this.focusOnSpacecraft(scMesh);
+        this.highlightActiveNav('spacecraft', cleanId);
+        return true;
+      }
 
-    // Check if it's a planet (e.g. mercury, venus, earth, mars, jupiter, saturn, uranus, neptune, pluto)
-    const pMesh = this.planetMeshes.find(m => {
-      const pid = String(m.userData?.planetData?.id || '').toLowerCase();
-      const pname = String(m.userData?.planetData?.name?.en || '').toLowerCase();
-      return pid === cleanId || pname === cleanId;
-    });
-    if (pMesh) {
-      this.focusOnPlanet(pMesh);
-      return;
-    }
-
-    // Check if it's an exoplanet or outside star system
-    const foundSys = systemsData.find(s => s.id === cleanId || s.planets?.some(p => {
-      const pid = String(p.id || '').toLowerCase();
-      const pname = String(p.name?.en || '').toLowerCase();
-      return pid === cleanId || pname === cleanId;
-    }));
-    if (foundSys) {
-      this.flyToStarSystem(foundSys);
-      const foundP = this.planetMeshes.find(m => {
+      // Check if it's a planet
+      const pMesh = this.planetMeshes.find(m => {
         const pid = String(m.userData?.planetData?.id || '').toLowerCase();
         const pname = String(m.userData?.planetData?.name?.en || '').toLowerCase();
         return pid === cleanId || pname === cleanId;
       });
-      if (foundP) {
-        this.focusOnPlanet(foundP);
+      if (pMesh) {
+        this.focusOnPlanet(pMesh);
+        this.highlightActiveNav('planet', pMesh.userData?.planetData?.id || cleanId);
+        if (typeof this.updateChartBoardTarget === 'function') {
+          this.updateChartBoardTarget(pMesh.userData?.planetData, 'planet');
+        }
+        return true;
       }
-      return;
-    }
 
-    this.flyToStarSystem(solarSystemData.system);
+      return false;
+    };
+
+    // If we just loaded the system fresh, give it a tiny delay for meshes to settle
+    if (!wasAlreadyInSolarSystem) {
+      setTimeout(() => {
+        const found = doFocusAfterLoad();
+        if (!found) {
+          // Check if it's an exoplanet or outside star system
+          const foundSys = systemsData.find(s => s.id === cleanId || s.planets?.some(p => {
+            const pid = String(p.id || '').toLowerCase();
+            const pname = String(p.name?.en || '').toLowerCase();
+            return pid === cleanId || pname === cleanId;
+          }));
+          if (foundSys) {
+            this.flyToStarSystem(foundSys);
+            setTimeout(() => {
+              const foundP = this.planetMeshes.find(m => {
+                const pid = String(m.userData?.planetData?.id || '').toLowerCase();
+                const pname = String(m.userData?.planetData?.name?.en || '').toLowerCase();
+                return pid === cleanId || pname === cleanId;
+              });
+              if (foundP) {
+                this.focusOnPlanet(foundP);
+                if (typeof this.updateChartBoardTarget === 'function') {
+                  this.updateChartBoardTarget(foundP.userData?.planetData, 'planet');
+                }
+              }
+            }, 150);
+          }
+        }
+      }, 150);
+    } else {
+      const found = doFocusAfterLoad();
+      if (!found) {
+        // Check if it's an exoplanet or outside star system
+        const foundSys = systemsData.find(s => s.id === cleanId || s.planets?.some(p => {
+          const pid = String(p.id || '').toLowerCase();
+          const pname = String(p.name?.en || '').toLowerCase();
+          return pid === cleanId || pname === cleanId;
+        }));
+        if (foundSys) {
+          this.flyToStarSystem(foundSys);
+          setTimeout(() => {
+            const foundP = this.planetMeshes.find(m => {
+              const pid = String(m.userData?.planetData?.id || '').toLowerCase();
+              const pname = String(m.userData?.planetData?.name?.en || '').toLowerCase();
+              return pid === cleanId || pname === cleanId;
+            });
+            if (foundP) {
+              this.focusOnPlanet(foundP);
+              if (typeof this.updateChartBoardTarget === 'function') {
+                this.updateChartBoardTarget(foundP.userData?.planetData, 'planet');
+              }
+            }
+          }, 150);
+        }
+      }
+    }
   }
 
   updateCosmicGuideI18n() {

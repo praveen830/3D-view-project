@@ -164,6 +164,18 @@
             <span class="lnav-sec-title">6. Moons</span>
             <span class="lnav-sec-tag">Natural Satellites</span>
           </div>
+          <div class="lnav-card">
+            <div class="lnav-card-thumb-row" id="sec-moons-row" style="cursor: pointer;">
+              <img src="/images/moons/luna.jpg" alt="Solar System Moons" class="lnav-thumb-img">
+              <div>
+                <strong>Solar System Moons</strong>
+                <p class="lnav-card-desc">13 Major natural satellites orbiting Earth, Mars, Jupiter, Saturn, Uranus, Neptune &amp; Pluto.</p>
+              </div>
+            </div>
+            <button class="btn-primary lnav-action-btn highlight-gold" id="btn-lnav-fly-moons">
+              <span>🌙</span> Navigate to Solar System Moons (3D View)
+            </button>
+          </div>
           <div class="lnav-moons-list" id="lnav-moons-list">
             <!-- Populated by main.js with Luna, Phobos, Deimos, Galilean moons, Titan, etc. -->
           </div>
@@ -283,11 +295,24 @@
 
         <!-- Nav Actions -->
         <div class="nav-actions interactive">
+          <!-- NASA Planetary Chart Board Button -->
+          <button class="btn-guide interactive highlight-chart" id="btn-chart-board" title="Open NASA Planetary Chart Board (Suns & Moons Rotation)">
+            <span class="guide-btn-icon">📊</span>
+            <span class="guide-btn-text" id="txt-btn-chart">Chart Board</span>
+            <span class="guide-btn-badge">NASA</span>
+          </button>
+
           <!-- Universe Menu Button -->
           <button class="btn-guide interactive" id="btn-cosmic-guide" title="Open Universe Menu: Milky Way & Planets (Shortcut: M)">
             <span class="guide-btn-icon">☰</span>
             <span class="guide-btn-text" id="txt-btn-guide">Universe Menu</span>
             <span class="guide-btn-badge">3D</span>
+          </button>
+
+          <!-- Mobile / Desktop View Mode Switcher -->
+          <button class="btn-guide interactive" id="btn-view-mode" title="Toggle Mobile / Desktop View Mode">
+            <span class="guide-btn-icon" id="view-mode-icon">📱</span>
+            <span class="guide-btn-text" id="txt-btn-view-mode">Mobile View</span>
           </button>
 
           <!-- Language Switcher -->
@@ -459,6 +484,184 @@
       </div>
     </div>
 
+    <!-- NASA Planetary Chart Board Panel (Requested: Jupiter and how many suns/moons rotating to Jupiter, chart board chart system, pin-to-pin NASA updating) -->
+    <aside id="chart-board-panel" class="interactive chart-board-panel collapsed" aria-label="NASA Planetary Chart Board">
+      <div class="chart-board-header">
+        <div class="chart-board-title-wrap">
+          <div class="chart-board-badge-icon">📊</div>
+          <div>
+            <div class="chart-board-top-line">
+              <h3 class="chart-board-title" id="chart-title">NASA Planetary Chart Board</h3>
+              <span class="chart-board-live-pill"><span class="live-dot"></span> LIVE NASA 2026</span>
+            </div>
+            <p class="chart-board-subtitle" id="chart-subtitle">Real-Time Celestial Dynamics • Host Suns &amp; Moons Rotation</p>
+          </div>
+        </div>
+        <div class="chart-board-actions">
+          <button id="btn-chart-minimize" class="chart-btn-icon" title="Minimize/Maximize Chart">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <polyline points="4 14 10 14 10 20"></polyline>
+              <polyline points="20 10 14 10 14 4"></polyline>
+            </svg>
+          </button>
+          <button id="btn-chart-close" class="chart-btn-icon" title="Close Chart Board">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Target Selector & Quick Nav Chips -->
+      <div class="chart-target-bar">
+        <div class="chart-target-info">
+          <span class="chart-target-label">Target:</span>
+          <strong class="chart-target-name" id="chart-target-name">Jupiter</strong>
+          <span class="chart-target-badge" id="chart-target-type">Gas Giant • Jovian System</span>
+        </div>
+        <div class="chart-target-chips custom-scrollbar-h">
+          <button class="target-chip active" data-target="jupiter">Jupiter</button>
+          <button class="target-chip" data-target="earth">Earth</button>
+          <button class="target-chip" data-target="saturn">Saturn</button>
+          <button class="target-chip" data-target="mars">Mars</button>
+          <button class="target-chip" data-target="sun">The Sun</button>
+          <button class="target-chip" data-target="uranus">Uranus</button>
+          <button class="target-chip" data-target="neptune">Neptune</button>
+        </div>
+      </div>
+
+      <!-- Chart Tabs Bar -->
+      <div class="chart-tabs-bar">
+        <button class="chart-tab-btn active" data-tab="tab-rotation">🔄 Suns &amp; Moons</button>
+        <button class="chart-tab-btn" data-tab="tab-radar">📡 Live Radar</button>
+        <button class="chart-tab-btn" data-tab="tab-telemetry">⚡ Pin Telemetry</button>
+        <button class="chart-tab-btn" data-tab="tab-compare">📈 NASA Comparison</button>
+      </div>
+
+      <!-- Tab Content Area -->
+      <div class="chart-board-body custom-scrollbar">
+        <!-- TAB 1: SUNS & MOONS ROTATION BREAKDOWN -->
+        <div class="chart-tab-pane active" id="tab-rotation">
+          <!-- Suns Metric Card -->
+          <div class="chart-card highlight-sun">
+            <div class="chart-card-header">
+              <span class="chart-card-icon">☀️</span>
+              <div>
+                <h4 class="chart-card-title" id="lbl-chart-suns-title">Host Sun(s) System</h4>
+                <p class="chart-card-desc" id="lbl-chart-suns-sub">Gravitational anchor &amp; stellar radiation source</p>
+              </div>
+              <span class="chart-stat-badge suns-badge" id="chart-suns-count">1 Sun (Sol)</span>
+            </div>
+            <div class="chart-metrics-grid">
+              <div class="chart-stat-item">
+                <span class="chart-stat-label">Host Star</span>
+                <strong class="chart-stat-val" id="chart-sun-name">The Sun (Sol - G2V)</strong>
+              </div>
+              <div class="chart-stat-item">
+                <span class="chart-stat-label">Orbital Distance</span>
+                <strong class="chart-stat-val" id="chart-sun-dist">5.20 AU (778.5M km)</strong>
+              </div>
+              <div class="chart-stat-item">
+                <span class="chart-stat-label">Light Travel Time</span>
+                <strong class="chart-stat-val" id="chart-sun-light-time">43.3 Minutes</strong>
+              </div>
+              <div class="chart-stat-item">
+                <span class="chart-stat-label">Solar Irradiance</span>
+                <strong class="chart-stat-val" id="chart-sun-flux">50.3 W/m² (3.7% Earth)</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Moons Rotation Card -->
+          <div class="chart-card highlight-moons">
+            <div class="chart-card-header">
+              <span class="chart-card-icon">🌙</span>
+              <div>
+                <h4 class="chart-card-title" id="lbl-chart-moons-title">Moons In Orbit</h4>
+                <p class="chart-card-desc" id="lbl-chart-moons-sub">Natural satellites revolving around target world</p>
+              </div>
+              <span class="chart-stat-badge moons-badge" id="chart-moons-total-count">95 Moons</span>
+            </div>
+            <div class="chart-resonance-callout" id="chart-resonance-box">
+              <span class="resonance-icon">⚡</span>
+              <div>
+                <strong>Laplace Orbital Resonance (4:2:1):</strong>
+                <p>For every 4 orbits of Io, Europa completes exactly 2, and Ganymede completes 1 orbit!</p>
+              </div>
+            </div>
+            <!-- Major Moons Revolving List -->
+            <div class="chart-moons-revolving-list" id="chart-moons-revolving-list">
+              <!-- Dynamically populated with real-time rotating cards for each moon -->
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: LIVE ORBITAL RADAR CANVAS -->
+        <div class="chart-tab-pane" id="tab-radar">
+          <div class="chart-card">
+            <div class="radar-header">
+              <span class="radar-legend-dot host"></span> <span id="radar-legend-host">Jupiter</span>
+              <span class="radar-legend-dot moon"></span> <span>Rotating Moons (Real-Time Synchronous)</span>
+            </div>
+            <div class="radar-canvas-container">
+              <canvas id="orbit-radar-canvas" width="340" height="260"></canvas>
+            </div>
+            <p class="radar-hint">Click any moon on the radar to navigate and fly into it in 3D 🚀</p>
+          </div>
+        </div>
+
+        <!-- TAB 3: PIN-TO-PIN LIVE TELEMETRY -->
+        <div class="chart-tab-pane" id="tab-telemetry">
+          <div class="chart-card">
+            <h4 class="chart-card-title">Live Pin-to-Pin Kinematic Telemetry</h4>
+            <div class="chart-metrics-grid">
+              <div class="chart-stat-item">
+                <span class="chart-stat-label">True Anomaly (θ)</span>
+                <strong class="chart-stat-val live-color" id="telemetry-angle">0.00°</strong>
+              </div>
+              <div class="chart-stat-item">
+                <span class="chart-stat-label">Axial Spin Angle</span>
+                <strong class="chart-stat-val live-color" id="telemetry-spin">0.00°</strong>
+              </div>
+              <div class="chart-stat-item">
+                <span class="chart-stat-label">Orbital Velocity</span>
+                <strong class="chart-stat-val" id="telemetry-velocity">13.07 km/s</strong>
+              </div>
+              <div class="chart-stat-item">
+                <span class="chart-stat-label">Rotations Completed</span>
+                <strong class="chart-stat-val live-color" id="telemetry-rotations">0.00</strong>
+              </div>
+              <div class="chart-stat-item">
+                <span class="chart-stat-label">Orbits Completed</span>
+                <strong class="chart-stat-val live-color" id="telemetry-orbits">0.000</strong>
+              </div>
+              <div class="chart-stat-item">
+                <span class="chart-stat-label">NASA Provenance</span>
+                <strong class="chart-stat-val" id="telemetry-provenance">NASA JPL Horizons (2026)</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: NASA COMPARATIVE CHARTS -->
+        <div class="chart-tab-pane" id="tab-compare">
+          <div class="chart-card">
+            <h4 class="chart-card-title">Solar System Moons by Planet (NASA Official 2026)</h4>
+            <div class="bar-chart-container" id="bar-chart-moons">
+              <!-- Dynamically populated comparison bars -->
+            </div>
+          </div>
+          <div class="chart-card" style="margin-top: 10px;">
+            <h4 class="chart-card-title">Planetary Radii vs Earth (R⊕ = 1.0)</h4>
+            <div class="bar-chart-container" id="bar-chart-radii">
+              <!-- Dynamically populated radius bars -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
     <!-- Guided Tour Card Overlay -->
     <div id="tour-overlay" class="glass-panel interactive">
       <div class="tour-header">
@@ -555,6 +758,12 @@
           <button class="tool-btn highlight-menu" id="btn-menu-bar" title="Open Universe Menu (Milky Way & Planets)">
             <span style="font-size: 1.05rem; line-height: 1;">🪐</span>
             <span id="txt-btn-menu-bar">Menu</span>
+          </button>
+
+          <!-- NASA Chart Board Quick Button -->
+          <button class="tool-btn highlight-chart" id="btn-toolbar-chart" title="Toggle NASA Chart Board (Suns & Moons Rotation)">
+            <span style="font-size: 1.05rem; line-height: 1;">📊</span>
+            <span id="txt-btn-tool-chart">Charts</span>
           </button>
 
           <div class="tool-divider"></div>
