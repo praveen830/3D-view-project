@@ -6,6 +6,9 @@
   <title>Milky Way Explorer - 3D Galaxy, Star Systems & Planetary Evolution</title>
   <meta name="description" content="Explore the Milky Way galaxy, 100+ NASA confirmed exoplanet systems, and our Solar System with interactive 3D time simulation, moons, and formation histories.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/style.css">
 </head>
 <body>
@@ -92,7 +95,7 @@
               </div>
             </div>
             <button class="btn-primary lnav-action-btn" id="btn-lnav-fly-galaxy">
-              <span>🌌</span> Fly to Milky Way (3D View)
+              <span>🌌</span> Explore Milky Way (3D View)
             </button>
           </div>
         </section>
@@ -128,7 +131,7 @@
               </div>
             </div>
             <button class="btn-primary lnav-action-btn highlight-gold" id="btn-lnav-fly-solar">
-              <span>🚀</span> Fly to Solar System (3D View)
+              <span>🚀</span> Explore Solar System (3D View)
             </button>
           </div>
         </section>
@@ -345,15 +348,66 @@
         </div>
       </header>
 
-      <!-- Sub Navigation: Breadcrumbs & Scale Disclaimer -->
+      <!-- Sub Navigation: Breadcrumbs, Celestial Pills Bar & Scale Disclaimer (Screenshots 1 & 3) -->
       <div class="sub-nav">
         <div class="breadcrumbs glass-panel interactive" id="breadcrumbs-bar">
           <span class="crumb-item" id="crumb-galaxy">Milky Way</span>
         </div>
 
+        <!-- Horizontal Celestial Pills Navigation Bar (Screenshots 1 & 3) -->
+        <div class="celestial-pills-bar interactive custom-scrollbar-h" id="celestial-pills-bar">
+          <button class="cel-pill active" data-id="sun" title="The Sun / Soleil">
+            <span class="cel-pill-dot dot-sun"></span>
+            <span class="cel-pill-name" id="pill-name-sun">The Sun</span>
+          </button>
+          <button class="cel-pill" data-id="mercury" title="Mercury / Mercure">
+            <span class="cel-pill-dot dot-mercury"></span>
+            <span class="cel-pill-name" id="pill-name-mercury">Mercury</span>
+          </button>
+          <button class="cel-pill" data-id="venus" title="Venus / Vénus">
+            <span class="cel-pill-dot dot-venus"></span>
+            <span class="cel-pill-name" id="pill-name-venus">Venus</span>
+          </button>
+          <button class="cel-pill" data-id="earth" title="Earth / Terre">
+            <span class="cel-pill-dot dot-earth"></span>
+            <span class="cel-pill-name" id="pill-name-earth">Earth</span>
+          </button>
+          <button class="cel-pill" data-id="moon" title="Moon / Lune">
+            <span class="cel-pill-dot dot-moon"></span>
+            <span class="cel-pill-name" id="pill-name-moon">Moon</span>
+          </button>
+          <button class="cel-pill" data-id="mars" title="Mars">
+            <span class="cel-pill-dot dot-mars"></span>
+            <span class="cel-pill-name" id="pill-name-mars">Mars</span>
+          </button>
+          <button class="cel-pill" data-id="jupiter" title="Jupiter">
+            <span class="cel-pill-dot dot-jupiter"></span>
+            <span class="cel-pill-name" id="pill-name-jupiter">Jupiter</span>
+          </button>
+          <button class="cel-pill" data-id="saturn" title="Saturn / Saturne">
+            <span class="cel-pill-dot dot-saturn"></span>
+            <span class="cel-pill-name" id="pill-name-saturn">Saturn</span>
+          </button>
+          <button class="cel-pill" data-id="uranus" title="Uranus">
+            <span class="cel-pill-dot dot-uranus"></span>
+            <span class="cel-pill-name" id="pill-name-uranus">Uranus</span>
+          </button>
+          <button class="cel-pill" data-id="neptune" title="Neptune">
+            <span class="cel-pill-dot dot-neptune"></span>
+            <span class="cel-pill-name" id="pill-name-neptune">Neptune</span>
+          </button>
+        </div>
+
         <div class="disclaimer-badge glass-panel" id="txt-disclaimer">
           Sizes and distances are not to scale
         </div>
+      </div>
+
+      <!-- Solar System Dynamics Header Ticker (Screenshot 3) -->
+      <div class="system-guide-ticker glass-panel interactive" id="system-guide-ticker">
+        <strong class="ticker-title" id="txt-sys-ticker-title">The Solar System</strong>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-text" id="txt-sys-ticker-desc">Simulated time: 0.00 Earth years • drag to turn in every direction • scroll / pinch to zoom • sizes and distances not to scale</span>
       </div>
     </div>
 
@@ -662,6 +716,66 @@
       </div>
     </aside>
 
+    <!-- Guided Tour Welcome / Solar System Dashboard Overlay (Matching Screenshot 1) -->
+    <div id="tour-welcome-panel" class="tour-welcome-panel interactive">
+      <div class="tour-welcome-card glass-panel">
+        <button class="btn-tour-welcome-close" id="btn-close-tour-welcome" title="Close / Roam Freely">&times;</button>
+        <div class="tour-welcome-tag" id="txt-tour-badge">GUIDED TOUR</div>
+        <h1 class="tour-welcome-title" id="txt-tour-welcome-title">
+          Take a tour of the <span class="highlight-solar">solar system</span>
+        </h1>
+        <p class="tour-welcome-desc" id="txt-tour-welcome-desc">
+          Here, everything really moves: the planets orbit the Sun, each at its own pace. You can spin them around, get up close and read their fact sheet.
+        </p>
+
+        <!-- Stats Row -->
+        <div class="tour-stats-row">
+          <div class="tour-stat-item">
+            <span class="tour-stat-num">1</span>
+            <span class="tour-stat-label" id="txt-stat-star">star, the Sun</span>
+          </div>
+          <div class="tour-stat-item">
+            <span class="tour-stat-num">8</span>
+            <span class="tour-stat-label" id="txt-stat-planets">planets</span>
+          </div>
+          <div class="tour-stat-item">
+            <span class="tour-stat-num">1</span>
+            <span class="tour-stat-label" id="txt-stat-earth">Earth, our home</span>
+          </div>
+        </div>
+
+        <!-- Sticky Note (Tilted Yellow Card from Screenshot 1) -->
+        <div class="tour-sticky-card">
+          <p class="sticky-text" id="txt-sticky-note">
+            Did you know? By plane, it would take almost 20 years to fly from Earth to the Sun!
+          </p>
+        </div>
+
+        <!-- 3-Step Numbered Guide -->
+        <div class="tour-steps-list">
+          <div class="tour-step-item">
+            <span class="tour-step-badge">1</span>
+            <span class="tour-step-text" id="txt-step-1">Swipe to turn in every direction</span>
+          </div>
+          <div class="tour-step-item">
+            <span class="tour-step-badge">2</span>
+            <span class="tour-step-text" id="txt-step-2">Pinch (or scroll) to zoom</span>
+          </div>
+          <div class="tour-step-item">
+            <span class="tour-step-badge">3</span>
+            <span class="tour-step-text" id="txt-step-3">Tap a planet to discover it</span>
+          </div>
+        </div>
+
+        <!-- Tour CTA Button -->
+        <div class="tour-welcome-actions">
+          <button class="btn-start-solar-tour" id="btn-start-solar-tour">
+            <span id="txt-btn-start-tour">Start the tour →</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Guided Tour Card Overlay -->
     <div id="tour-overlay" class="glass-panel interactive">
       <div class="tour-header">
@@ -753,6 +867,12 @@
           </div>
         </div>
 
+        <!-- Educational Astronomical Insight Ticker (Screenshots 1 & 3) -->
+        <div id="bottom-fact-pill" class="bottom-fact-banner glass-panel interactive">
+          <span class="fact-bulb-icon">💡</span>
+          <span id="txt-bottom-fact">Sunlight takes more than 4 hours to reach Neptune.</span>
+        </div>
+
         <div class="toolbar glass-panel interactive">
           <!-- Universe Menu Quick Button -->
           <button class="tool-btn highlight-menu" id="btn-menu-bar" title="Open Universe Menu (Milky Way & Planets)">
@@ -779,26 +899,17 @@
 
           <div class="tool-divider"></div>
 
-          <!-- Zoom In / Zoom Out -->
-          <button class="tool-btn" id="btn-zoom-in" title="Zoom In">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              <line x1="11" y1="8" x2="11" y2="14"></line>
-              <line x1="8" y1="11" x2="14" y2="11"></line>
-            </svg>
+          <!-- Zoom In / Zoom Out (Screenshot 1 & 3: - / +) -->
+          <button class="tool-btn" id="btn-zoom-out" title="Zoom Out (-)">
+            <span style="font-weight: 700; font-size: 1.2rem; line-height: 1;">−</span>
           </button>
-          <button class="tool-btn" id="btn-zoom-out" title="Zoom Out">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              <line x1="8" y1="11" x2="14" y2="11"></line>
-            </svg>
+          <button class="tool-btn" id="btn-zoom-in" title="Zoom In (+)">
+            <span style="font-weight: 700; font-size: 1.2rem; line-height: 1;">+</span>
           </button>
 
           <div class="tool-divider"></div>
 
-          <!-- Play / Pause Orbit Animation -->
+          <!-- Play / Pause Orbit Animation (Screenshot 1 & 3: || / ▶) -->
           <button class="tool-btn active" id="btn-play-pause" title="Pause / Play Orbits">
             <svg id="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="6" y="4" width="4" height="16"></rect>
@@ -809,8 +920,14 @@
             </svg>
           </button>
 
-          <!-- Orbit Speed Multiplier -->
-          <select class="speed-select" id="select-speed" title="Time & Orbit Speed">
+          <!-- Interactive Simulation Speed Slider (Screenshot 1 & 3) -->
+          <div class="bottom-speed-slider-wrap interactive" title="Adjust Simulation Orbit Speed">
+            <input type="range" id="sim-speed-slider" min="0.1" max="100" step="0.5" value="30" class="sim-speed-slider" />
+            <span id="txt-slider-speed-badge" class="slider-speed-badge">30 days/s</span>
+          </div>
+
+          <!-- Orbit Speed Multiplier Dropdown (Kept for existing tests) -->
+          <select class="speed-select" id="select-speed" title="Time & Orbit Speed" style="display:none;">
             <option value="0.2">0.2x (Slow)</option>
             <option value="1" selected>1.0x (Normal)</option>
             <option value="5">5.0x (1 Wk/s)</option>
@@ -820,27 +937,33 @@
 
           <div class="tool-divider"></div>
 
-          <!-- Toggle Orbit Paths -->
-          <button class="tool-btn active" id="btn-toggle-orbits" title="Toggle Orbit Lines">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="9"></circle>
-              <path d="M3.6 9h16.8"></path>
-              <path d="M3.6 15h16.8"></path>
-            </svg>
+          <!-- Toggle Orbit Paths (Screenshot 1 & 3 Checkbox: Orbits) -->
+          <label class="bottom-toggle-pill interactive" id="lbl-toggle-orbits" title="Toggle Orbits">
+            <input type="checkbox" id="chk-bottom-orbits" checked />
+            <span class="chk-custom-box">✔</span>
+            <span id="txt-chk-orbits-label">Orbits</span>
+          </label>
+          <button class="tool-btn active" id="btn-toggle-orbits" title="Toggle Orbit Lines" style="display:none;">
             <span id="txt-btn-orbits">Orbits</span>
           </button>
 
-          <!-- Toggle Star Labels -->
-          <button class="tool-btn active" id="btn-toggle-labels" title="Toggle 3D Labels">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 7V4h16v3"></path>
-              <path d="M9 20h6"></path>
-              <path d="M12 4v16"></path>
-            </svg>
+          <!-- Toggle Star Labels (Screenshot 1 & 3 Checkbox: Names) -->
+          <label class="bottom-toggle-pill interactive" id="lbl-toggle-names" title="Toggle 3D Names">
+            <input type="checkbox" id="chk-bottom-names" checked />
+            <span class="chk-custom-box">✔</span>
+            <span id="txt-chk-names-label">Names</span>
+          </label>
+          <button class="tool-btn active" id="btn-toggle-labels" title="Toggle 3D Labels" style="display:none;">
             <span id="txt-btn-labels">Labels</span>
           </button>
 
           <div class="tool-divider"></div>
+
+          <!-- Home / Accueil Pill Button (Screenshot 1 & 3) -->
+          <button class="bottom-home-pill interactive" id="btn-bottom-home" title="Return to Solar System Overview">
+            <span class="home-icon">🏠</span>
+            <span id="txt-bottom-home-label">Home</span>
+          </button>
 
           <!-- Guided Tour Mode -->
           <button class="tool-btn" id="btn-guided-tour" title="Launch Guided Cosmic Tour">

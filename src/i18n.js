@@ -162,9 +162,38 @@ export const translations = {
     btnNavSolarSystem: "🚀 Navigate to Solar System in 3D",
 
     planetsGalleryTitle: "Planetary Worlds & Celestial Bodies",
-    planetsGallerySubtitle: "Select any celestial body to fly in 3D, inspect authentic NASA space photography, and rotate 360°:",
-    btnFlyPlanet3D: "🔭 Fly & Rotate in 3D",
-    realSpacePhoto: "Official NASA Photography"
+    planetsGallerySubtitle: "Select any celestial body to inspect in 3D, view authentic NASA photography, and rotate 360°:",
+    btnFlyPlanet3D: "🔭 Inspect & Rotate in 3D",
+    realSpacePhoto: "Official NASA Photography",
+
+    // Solar System Guided Tour Dashboard (Screenshot 1)
+    tourBadge: "GUIDED TOUR",
+    tourMainHeadingPrefix: "Take a tour of the",
+    tourMainHeadingAccent: "solar system",
+    tourMainDesc: "Here, everything really moves: the planets orbit the Sun, each at its own pace. You can spin them around, get up close and read their fact sheet.",
+    tourStatStar: "star, the Sun",
+    tourStatPlanets: "planets",
+    tourStatEarth: "Earth, our home",
+    tourStickyNote: "Did you know? By plane, it would take almost 20 years to fly from Earth to the Sun!",
+    tourStep1: "Swipe to turn in every direction",
+    tourStep2: "Pinch (or scroll) to zoom",
+    tourStep3: "Tap a planet to discover it",
+    tourBtnStart: "Start the tour →",
+    tourBtnSkip: "Explore Freely",
+
+    // Top Celestial Navigation Bar (Screenshots 1 & 3)
+    topSysTitle: "The Solar System",
+    topSysSubtitle: "Simulated time: {time} Earth years • drag to turn in every direction • scroll / pinch to zoom • sizes and distances not to scale",
+    
+    // Bottom Controls & Insights
+    bottomFact1: "💡 Sunlight takes more than 4 hours to reach Neptune.",
+    bottomFact2: "💡 If the Sun were a basketball, Earth would be a peppercorn 26 meters away.",
+    bottomFact3: "💡 A year on Mercury is only 88 Earth days long!",
+    bottomFact4: "💡 Jupiter is so massive that all other planets in the Solar System could fit inside it.",
+    bottomDaysPerSec: "days/s",
+    bottomAccueil: "Home",
+    bottomOrbits: "Orbits",
+    bottomNames: "Names"
   },
   
   fr: {
@@ -326,9 +355,38 @@ export const translations = {
     btnNavSolarSystem: "🚀 Naviguer vers le Système Solaire en 3D",
 
     planetsGalleryTitle: "Mondes Planétaires & Astres du Système",
-    planetsGallerySubtitle: "Sélectionnez un astre pour voler en 3D, inspecter les photographies réelles de la NASA et pivoter à 360° :",
-    btnFlyPlanet3D: "🔭 Voler & Observer en 3D",
-    realSpacePhoto: "Photographie Réelle NASA"
+    planetsGallerySubtitle: "Sélectionnez un astre pour l'observer en 3D, inspecter les photographies réelles de la NASA et pivoter à 360° :",
+    btnFlyPlanet3D: "🔭 Observer & Pivoter en 3D",
+    realSpacePhoto: "Photographie Réelle NASA",
+
+    // Solar System Guided Tour Dashboard (Screenshot 1)
+    tourBadge: "VISITE GUIDÉE",
+    tourMainHeadingPrefix: "Faites le tour du",
+    tourMainHeadingAccent: "système solaire",
+    tourMainDesc: "Ici, tout bouge vraiment : les planètes tournent autour du Soleil, chacune à son rythme. Vous pouvez les faire pivoter, vous en approcher et lire leur fiche descriptive.",
+    tourStatStar: "étoile, le Soleil",
+    tourStatPlanets: "planètes",
+    tourStatEarth: "Terre, notre maison",
+    tourStickyNote: "Le saviez-vous ? En avion, il faudrait près de 20 ans pour voler de la Terre au Soleil !",
+    tourStep1: "Glisse pour tourner dans tous les sens",
+    tourStep2: "Pince (ou molette) pour zoomer",
+    tourStep3: "Touche une planète pour la découvrir",
+    tourBtnStart: "Démarrer la visite →",
+    tourBtnSkip: "Explorer Librement",
+
+    // Top Celestial Navigation Bar (Screenshots 1 & 3)
+    topSysTitle: "Le système solaire",
+    topSysSubtitle: "Temps simulé : {time} années terrestres • glisse pour tourner dans tous les sens • molette / pincement : zoom • tailles et distances non à l'échelle",
+
+    // Bottom Controls & Insights
+    bottomFact1: "💡 La lumière du Soleil met plus de 4 heures pour atteindre Neptune.",
+    bottomFact2: "💡 Si le Soleil était un ballon de basket, la Terre serait un grain de poivre à 26 mètres.",
+    bottomFact3: "💡 Une année sur Mercure ne dure que 88 jours terrestres !",
+    bottomFact4: "💡 Jupiter est si massive que toutes les autres planètes réunies pourraient y entrer.",
+    bottomDaysPerSec: "jours/s",
+    bottomAccueil: "Accueil",
+    bottomOrbits: "Orbites",
+    bottomNames: "Noms"
   }
 };
 

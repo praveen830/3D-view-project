@@ -81,6 +81,17 @@ class MilkyWayExplorer {
       if (drawer) drawer.classList.add('collapsed');
       if (floatingBtn) floatingBtn.classList.add('visible');
     }
+
+    // Initialize with Solar System loaded so the Welcome Tour matches Reference Screenshots 1 & 2
+    this.loadStarSystem(solarSystemData.system);
+    const initSysPos = this.systemGroup.position;
+    this.camera.position.set(initSysPos.x, initSysPos.y + 160, initSysPos.z + 320);
+    this.controls.target.copy(initSysPos);
+    this.controls.update();
+    if (typeof this.highlightCelestialPill === 'function') {
+      this.highlightCelestialPill('sun');
+    }
+
     this.animate(0);
 
     setTimeout(() => {
@@ -96,6 +107,11 @@ class MilkyWayExplorer {
     }
     gsap.killTweensOf(this.camera.position);
     gsap.killTweensOf(this.controls.target);
+    this.isTransitioning = false;
+    if (this.controls) {
+      this.controls.enabled = true;
+      this.controls.update();
+    }
   }
 
   get simulatedDays() {
@@ -591,15 +607,27 @@ class MilkyWayExplorer {
     this.starLabelSprite = null;
     this.systemGroup.visible = true;
 
-    const sunCoords = this.galaxy.sunCoordinates;
-    if (systemData.isSolarSystem) {
+    const isSolar = Boolean(
+      systemData.isSolarSystem ||
+      systemData.id === 'solar-system' ||
+      systemData.name?.en === 'Solar System' ||
+      !systemData.coords_ly
+    );
+    systemData.isSolarSystem = isSolar;
+    if (!systemData.coords_ly) {
+      systemData.coords_ly = { x: 0, y: 0, z: 0 };
+    }
+
+    const sunCoords = (this.galaxy && this.galaxy.sunCoordinates) ? this.galaxy.sunCoordinates : { x: 0, y: 0, z: 0 };
+    if (isSolar) {
       this.systemGroup.position.set(sunCoords.x, sunCoords.y, sunCoords.z);
     } else {
       const scale = 0.08;
+      const coords = systemData.coords_ly || { x: 0, y: 0, z: 0 };
       this.systemGroup.position.set(
-        sunCoords.x + (systemData.coords_ly.x * scale),
-        sunCoords.y + (systemData.coords_ly.z * scale),
-        sunCoords.z + (systemData.coords_ly.y * scale)
+        sunCoords.x + (coords.x * scale),
+        sunCoords.y + (coords.z * scale),
+        sunCoords.z + (coords.y * scale)
       );
     }
 
@@ -1029,8 +1057,71 @@ class MilkyWayExplorer {
       }
     });
 
+    // Authentic Asteroid Belt between Mars & Jupiter (Matching Reference Screenshots 1 & 2)
+    this.buildAsteroidBelt();
+
     // Authentic NASA & SpaceX Human Spacecraft (ISS, Hubble, JWST, Artemis Spacewalker, Voyager 1)
     this.buildHumanSpacecraft();
+  }
+
+  buildAsteroidBelt() {
+    const particleCount = 2800;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    const colors = new Float32Array(particleCount * 3);
+
+    const colorChoices = [
+      new THREE.Color(0xd4d4d8), // Slate gray
+      new THREE.Color(0xa1a1aa), // Medium stone
+      new THREE.Color(0xd6d3d1), // Warm chalk
+      new THREE.Color(0xc29b61), // Ochre silicate
+      new THREE.Color(0x78716c)  // Dark iron-chondrite
+    ];
+
+    for (let i = 0; i < particleCount; i++) {
+      // Main Asteroid Belt is between Mars (~108) and Jupiter (~132)
+      const radius = 114 + Math.random() * 14 + (Math.random() - 0.5) * 3;
+      const angle = Math.random() * Math.PI * 2;
+      const height = (Math.random() - 0.5) * 4.2;
+
+      positions[i * 3] = Math.cos(angle) * radius;
+      positions[i * 3 + 1] = height;
+      positions[i * 3 + 2] = Math.sin(angle) * radius;
+
+      const c = colorChoices[Math.floor(Math.random() * colorChoices.length)];
+      colors[i * 3] = c.r;
+      colors[i * 3 + 1] = c.g;
+      colors[i * 3 + 2] = c.b;
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    const canvas = document.createElement('canvas');
+    canvas.width = 16;
+    canvas.height = 16;
+    const ctx = canvas.getContext('2d');
+    const grad = ctx.createRadialGradient(8, 8, 0, 8, 8, 8);
+    grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+    grad.addColorStop(0.5, 'rgba(210, 210, 210, 0.8)');
+    grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 16, 16);
+    const tex = new THREE.CanvasTexture(canvas);
+
+    const material = new THREE.PointsMaterial({
+      size: 1.4,
+      vertexColors: true,
+      map: tex,
+      transparent: true,
+      opacity: 0.85,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false
+    });
+
+    this.asteroidBeltMesh = new THREE.Points(geometry, material);
+    this.asteroidBeltMesh.name = 'asteroid-belt';
+    this.systemGroup.add(this.asteroidBeltMesh);
   }
 
   buildHumanSpacecraft() {
@@ -1247,6 +1338,7 @@ class MilkyWayExplorer {
 
     this.scene.updateMatrixWorld(true);
     const planetRadius = planetMesh.geometry.parameters.radius || 4;
+    const isEarth = this.currentPlanet?.id === 'earth';
     
     // Dynamic zoom limits tailored to planet radius for ultra-close inspection without clipping
     this.controls.minDistance = Math.max(1.2, planetRadius * 1.35);
@@ -1254,7 +1346,10 @@ class MilkyWayExplorer {
     this.controls.enableDamping = true;
     this.controls.dampingFactor = 0.055;
 
-    const camOffset = new THREE.Vector3(planetRadius * 3.6, planetRadius * 1.5, planetRadius * 3.6);
+    // For Earth, frame camera to show Earth with atmosphere and Moon (Lune) orbiting (Screenshot 2)
+    const camOffset = isEarth 
+      ? new THREE.Vector3(planetRadius * 4.2, planetRadius * 1.4, planetRadius * 4.2)
+      : new THREE.Vector3(planetRadius * 3.6, planetRadius * 1.5, planetRadius * 3.6);
 
     this.killCameraTransition();
 
@@ -1266,7 +1361,7 @@ class MilkyWayExplorer {
 
     this.activeCamTween = gsap.to(trans, {
       progress: 1.0,
-      duration: 0.75,
+      duration: 0.65,
       ease: 'power2.out',
       onUpdate: () => {
         const livePos = new THREE.Vector3();
@@ -1290,13 +1385,14 @@ class MilkyWayExplorer {
     this.updateBreadcrumbs();
     this.showDetailsPanel(this.currentPlanet, 'planet');
     if (typeof this.highlightActiveNav === 'function') this.highlightActiveNav('planet', this.currentPlanet.id);
+    if (typeof this.highlightCelestialPill === 'function') this.highlightCelestialPill(this.currentPlanet.id);
     if (typeof this.updateChartBoardTarget === 'function') {
       this.updateChartBoardTarget(this.currentPlanet, 'planet');
     }
   }
 
   /**
-   * Focus on Moon
+   * Focus on Moon (Swoops right in front of the viewer with rotating details)
    */
   focusOnMoon(moonMesh) {
     this.currentMoon = moonMesh.userData.moonData;
@@ -1318,7 +1414,8 @@ class MilkyWayExplorer {
     this.controls.enableDamping = true;
     this.controls.dampingFactor = 0.055;
 
-    const moonOffset = new THREE.Vector3(mR * 3.8, mR * 1.5, mR * 3.8);
+    // Intimate camera placement right in front of the rotating Moon
+    const moonOffset = new THREE.Vector3(mR * 2.9, mR * 1.1, mR * 2.9);
 
     this.killCameraTransition();
 
@@ -1330,7 +1427,7 @@ class MilkyWayExplorer {
 
     this.activeCamTween = gsap.to(trans, {
       progress: 1.0,
-      duration: 0.70,
+      duration: 0.65,
       ease: 'power2.out',
       onUpdate: () => {
         const livePos = new THREE.Vector3();
@@ -1354,6 +1451,7 @@ class MilkyWayExplorer {
     this.updateBreadcrumbs();
     this.showDetailsPanel(this.currentMoon, 'moon');
     if (typeof this.highlightActiveNav === 'function') this.highlightActiveNav('moon', this.currentMoon.id);
+    if (typeof this.highlightCelestialPill === 'function') this.highlightCelestialPill('moon');
     if (typeof this.updateChartBoardTarget === 'function') {
       this.updateChartBoardTarget(this.currentMoon, 'moon');
     }
@@ -1938,7 +2036,7 @@ class MilkyWayExplorer {
       }
 
       heroImgEl.style.cursor = 'pointer';
-      heroImgEl.title = 'Click image to fly into 3D view 🚀';
+      heroImgEl.title = 'Click image for 3D View 🔭';
       heroImgEl.onclick = () => {
         if (type === 'galaxy') {
           this.flyToGalaxyView();
@@ -2895,6 +2993,209 @@ class MilkyWayExplorer {
     // 8. NASA Planetary Chart Board & View Mode Switcher
     this.initChartBoard();
     this.initViewModeSwitcher();
+
+    // 9. Solar System Guided Tour Dashboard & Celestial Navigation (Screenshots 1 & 3)
+    this.initTourWelcome();
+    this.initCelestialPills();
+    this.initBottomControls();
+  }
+
+  initTourWelcome() {
+    const welcomePanel = document.getElementById('tour-welcome-panel');
+    const btnStart = document.getElementById('btn-start-solar-tour');
+    const btnClose = document.getElementById('btn-close-tour-welcome');
+    const btnGuidedTour = document.getElementById('btn-guided-tour');
+    const btnLnavTour = document.getElementById('btn-lnav-start-tour');
+
+    const openWelcome = () => {
+      if (welcomePanel) {
+        welcomePanel.classList.remove('hidden');
+        if (typeof this.toggleLeftNav === 'function') this.toggleLeftNav(false);
+        this.closeCosmicGuide();
+      }
+    };
+
+    const closeWelcome = () => {
+      if (welcomePanel) welcomePanel.classList.add('hidden');
+    };
+
+    if (btnStart) {
+      btnStart.addEventListener('click', () => {
+        closeWelcome();
+        this.startGuidedTour();
+      });
+    }
+
+    if (btnClose) {
+      btnClose.addEventListener('click', closeWelcome);
+    }
+
+    if (btnGuidedTour) {
+      btnGuidedTour.addEventListener('click', () => {
+        openWelcome();
+      });
+    }
+
+    if (btnLnavTour) {
+      btnLnavTour.addEventListener('click', () => {
+        openWelcome();
+      });
+    }
+  }
+
+  initCelestialPills() {
+    const pills = document.querySelectorAll('.cel-pill');
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const id = pill.dataset.id;
+        this.highlightCelestialPill(id);
+        this.navigateToCelestialBody(id);
+      });
+    });
+  }
+
+  highlightCelestialPill(targetId) {
+    if (!targetId) return;
+    const clean = String(targetId).trim().toLowerCase();
+    const aliasMap = {
+      'soleil': 'sun', 'the sun': 'sun', 'sol': 'sun',
+      'mercure': 'mercury',
+      'vénus': 'venus',
+      'terre': 'earth',
+      'lune': 'moon', 'luna': 'moon',
+      'saturne': 'saturn'
+    };
+    const mapped = aliasMap[clean] || clean;
+    const pills = document.querySelectorAll('.cel-pill');
+    pills.forEach(p => {
+      if (p.dataset.id === mapped) {
+        p.classList.add('active');
+        p.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      } else {
+        p.classList.remove('active');
+      }
+    });
+  }
+
+  initBottomControls() {
+    // Speed Slider
+    const simSlider = document.getElementById('sim-speed-slider');
+    const speedBadge = document.getElementById('txt-slider-speed-badge');
+    const selectSpeed = document.getElementById('select-speed');
+
+    if (simSlider) {
+      simSlider.addEventListener('input', (e) => {
+        const val = parseFloat(e.target.value);
+        this.timeScale = val;
+        if (this.clock) this.clock.timeScale = val;
+        if (speedBadge) {
+          const unit = i18n.t('bottomDaysPerSec') || (i18n.lang === 'fr' ? 'jours/s' : 'days/s');
+          speedBadge.textContent = `${Math.round(val)} ${unit}`;
+        }
+        if (selectSpeed) selectSpeed.value = String(val);
+      });
+    }
+
+    // Bottom Checkbox Orbits
+    const chkOrbits = document.getElementById('chk-bottom-orbits');
+    const btnToggleOrbits = document.getElementById('btn-toggle-orbits');
+    if (chkOrbits) {
+      chkOrbits.addEventListener('change', () => {
+        this.showOrbits = chkOrbits.checked;
+        if (btnToggleOrbits) btnToggleOrbits.classList.toggle('active', this.showOrbits);
+        this.orbitMeshes.forEach(m => m.visible = this.showOrbits);
+        this.moonOrbitLines.forEach(m => m.visible = this.showOrbits);
+      });
+    }
+
+    // Bottom Checkbox Names
+    const chkNames = document.getElementById('chk-bottom-names');
+    const btnToggleLabels = document.getElementById('btn-toggle-labels');
+    if (chkNames) {
+      chkNames.addEventListener('change', () => {
+        this.showLabels = chkNames.checked;
+        if (btnToggleLabels) btnToggleLabels.classList.toggle('active', this.showLabels);
+        this.updateLabelsVisibility();
+      });
+    }
+
+    // Bottom Home Pill
+    const btnBottomHome = document.getElementById('btn-bottom-home');
+    if (btnBottomHome) {
+      btnBottomHome.addEventListener('click', () => {
+        this.navigateToCelestialBody('solar-system');
+      });
+    }
+
+    // Bottom Insight Facts Rotating Ticker
+    this.factList = [
+      'bottomFact1',
+      'bottomFact2',
+      'bottomFact3',
+      'bottomFact4'
+    ];
+    this.currentFactIndex = 0;
+    const factText = document.getElementById('txt-bottom-fact');
+    if (factText) {
+      factText.textContent = i18n.t(this.factList[0]);
+      setInterval(() => {
+        this.currentFactIndex = (this.currentFactIndex + 1) % this.factList.length;
+        if (factText) {
+          factText.style.opacity = '0';
+          setTimeout(() => {
+            factText.textContent = i18n.t(this.factList[this.currentFactIndex]);
+            factText.style.opacity = '1';
+          }, 300);
+        }
+      }, 9000);
+    }
+  }
+
+  updateBillboardLabelsText() {
+    if (this.planetMeshes) {
+      this.planetMeshes.forEach(mesh => {
+        const pData = mesh.userData?.planetData;
+        if (!pData || !mesh.userData?.labelSprite) return;
+        const localizedName = typeof pData.name === 'object' ? (pData.name[i18n.lang] || pData.name.en) : pData.name;
+        this.updateLabelSpriteTexture(mesh.userData.labelSprite, localizedName, mesh.userData.labelSprite.userData?.isMoon);
+      });
+    }
+    if (this.moonMeshes) {
+      this.moonMeshes.forEach(mesh => {
+        const mData = mesh.userData?.moonData;
+        if (!mData || !mesh.userData?.labelSprite) return;
+        const localizedName = typeof mData.name === 'object' ? (mData.name[i18n.lang] || mData.name.en) : mData.name;
+        this.updateLabelSpriteTexture(mesh.userData.labelSprite, localizedName, true);
+      });
+    }
+    if (this.starLabelSprite && this.currentSystem) {
+      const sData = this.currentSystem.star || solarSystemData.system.star;
+      const localizedName = typeof sData.name === 'object' ? (sData.name[i18n.lang] || sData.name.en) : sData.name;
+      this.updateLabelSpriteTexture(this.starLabelSprite, localizedName, false);
+    }
+  }
+
+  updateLabelSpriteTexture(sprite, name, isMoon = false) {
+    if (!sprite) return;
+    const canvas = document.createElement('canvas');
+    canvas.width = 512;
+    canvas.height = 128;
+    const ctx = canvas.getContext('2d');
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    const cleanName = String(name || '').trim();
+    const fontSize = isMoon ? 38 : 44;
+    ctx.font = `700 ${fontSize}px "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif`;
+    ctx.lineWidth = 8;
+    ctx.strokeStyle = 'rgba(2, 6, 23, 0.95)';
+    ctx.strokeText(cleanName, 256, 64);
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(cleanName, 256, 64);
+    if (sprite.material && sprite.material.map) {
+      sprite.material.map.dispose();
+      sprite.material.map = new THREE.CanvasTexture(canvas);
+      sprite.material.map.needsUpdate = true;
+    }
   }
 
   initChartBoard() {
@@ -3140,7 +3441,7 @@ class MilkyWayExplorer {
                 <div class="chart-moon-meta">${radiusKm} • Orbit: ${period}</div>
               </div>
             </div>
-            <button class="chart-moon-fly-btn" type="button" title="Fly to ${mName} in 3D">🚀 Fly 3D</button>
+            <button class="chart-moon-fly-btn" type="button" title="View ${mName} in 3D">🔭 3D View</button>
           `;
           mCard.addEventListener('click', () => {
             this.navigateToCelestialBody(m.id);
@@ -3623,7 +3924,7 @@ class MilkyWayExplorer {
             <span>${periodDays}</span>
           </div>
           <button class="lnav-card-nav-btn" type="button">
-            <span>🚀</span> Fly 3D
+            <span>🔭</span> 3D View
           </button>
         `;
         card.addEventListener('click', () => {
@@ -3675,7 +3976,7 @@ class MilkyWayExplorer {
           </div>
           <div style="display:flex; align-items:center; gap:6px;">
             <span class="lnav-item-badge">${m.orbitalPeriodDays}d</span>
-            <button class="lnav-moon-nav-btn" type="button" title="Fly to ${mName} in 3D">🚀</button>
+            <button class="lnav-moon-nav-btn" type="button" title="View ${mName} in 3D">🔭</button>
           </div>
         `;
         item.addEventListener('click', () => {
@@ -4011,20 +4312,20 @@ class MilkyWayExplorer {
       this.loadStarSystem(solarSystemData.system);
     }
 
-    setTimeout(() => {
-      const lunaMesh = this.moonMeshes.find(m => {
-        const mid = String(m.userData?.moonData?.id || '').toLowerCase();
-        return mid === 'luna' || mid === 'moon';
-      });
-      if (lunaMesh) {
-        this.focusOnMoon(lunaMesh);
-        this.highlightActiveNav('moon', 'luna');
-        if (typeof this.updateChartBoardTarget === 'function') {
-          this.updateChartBoardTarget(lunaMesh.userData.moonData, 'moon');
-        }
+    const lunaMesh = this.moonMeshes.find(m => {
+      const mid = String(m.userData?.moonData?.id || '').toLowerCase();
+      return mid === 'luna' || mid === 'moon';
+    });
+    if (lunaMesh) {
+      this.focusOnMoon(lunaMesh);
+      this.highlightActiveNav('moon', 'luna');
+      if (typeof this.highlightCelestialPill === 'function') {
+        this.highlightCelestialPill('moon');
       }
-      this.openChartBoard(true);
-    }, wasAlreadyInSolarSystem ? 50 : 200);
+      if (typeof this.updateChartBoardTarget === 'function') {
+        this.updateChartBoardTarget(lunaMesh.userData.moonData, 'moon');
+      }
+    }
   }
 
   navigateToCelestialBody(id, isStar = false) {
@@ -4035,24 +4336,42 @@ class MilkyWayExplorer {
 
     const cleanId = String(id || '').trim().toLowerCase();
 
+    // Comprehensive Bilingual Synonym & Alias Dictionary (English & French)
+    const nameAliases = {
+      'soleil': 'sun', 'the sun': 'sun', 'sol': 'sun', 'le soleil': 'sun',
+      'mercure': 'mercury',
+      'vénus': 'venus',
+      'terre': 'earth', 'la terre': 'earth',
+      'lune': 'luna', 'moon': 'luna', 'la lune': 'luna', 'luna': 'luna',
+      'saturne': 'saturn',
+      'pluton': 'pluto',
+      'europe': 'europa',
+      'ganymède': 'ganymede',
+      'encélade': 'enceladus', 'encelade': 'enceladus'
+    };
+    const normId = nameAliases[cleanId] || cleanId;
+    const solarSys = systemsData.find(s => s.isSolarSystem) || systemsData[0];
+    solarSys.isSolarSystem = true;
+
     // Direct routing for Solar System and Milky Way Galaxy
-    if (cleanId === 'solar-system' || cleanId === 'solarsystem' || cleanId === 'solar') {
-      this.flyToStarSystem(solarSystemData.system);
+    if (cleanId === 'solar-system' || cleanId === 'solarsystem' || cleanId === 'solar' || cleanId === 'système solaire') {
+      this.flyToStarSystem(solarSys);
       this.highlightActiveNav('system', 'solar-system');
+      if (typeof this.highlightCelestialPill === 'function') this.highlightCelestialPill('sun');
       if (typeof this.updateChartBoardTarget === 'function') {
         const jupiter = solarSystemData.system.planets.find(p => p.id === 'jupiter') || solarSystemData.system.planets[0];
         this.updateChartBoardTarget(jupiter, 'planet');
       }
       return;
     }
-    if (cleanId === 'galaxy' || cleanId === 'milkyway' || cleanId === 'milky-way') {
+    if (cleanId === 'galaxy' || cleanId === 'milkyway' || cleanId === 'milky-way' || cleanId === 'voie lactée') {
       this.flyToGalaxyView();
       this.highlightActiveNav('galaxy');
       return;
     }
 
     // Direct routing for Solar System Moons
-    if (cleanId === 'moons' || cleanId === 'solar-moons' || cleanId === 'solar-system-moons') {
+    if (cleanId === 'moons' || cleanId === 'solar-moons' || cleanId === 'solar-system-moons' || cleanId === 'lunes') {
       this.navigateToMoonsOverview();
       return;
     }
@@ -4060,8 +4379,7 @@ class MilkyWayExplorer {
     const wasAlreadyInSolarSystem = this.currentSystem && this.currentSystem.isSolarSystem;
 
     if (!wasAlreadyInSolarSystem) {
-      this.loadStarSystem(solarSystemData.system);
-      // Place camera in system proximity if coming from distant galaxy view for snappy flight
+      this.loadStarSystem(solarSys);
       if (this.camera.position.length() > 1200) {
         const sysPos = this.systemGroup.position;
         this.camera.position.set(sysPos.x + 120, sysPos.y + 140, sysPos.z + 240);
@@ -4071,10 +4389,12 @@ class MilkyWayExplorer {
     this.scene.updateMatrixWorld(true);
 
     const doFocusAfterLoad = () => {
-      if (isStar || cleanId === 'sun' || cleanId === 'the sun') {
+      // Check if it's the Sun / Host Star
+      if (isStar || normId === 'sun' || cleanId === 'sun' || cleanId === 'the sun' || cleanId === 'soleil') {
         if (this.starMesh) {
           this.focusOnStar(this.starMesh);
           this.highlightActiveNav('star', 'sun');
+          if (typeof this.highlightCelestialPill === 'function') this.highlightCelestialPill('sun');
           if (typeof this.updateChartBoardTarget === 'function') {
             this.updateChartBoardTarget(solarSystemData.system.star, 'star');
           }
@@ -4082,16 +4402,20 @@ class MilkyWayExplorer {
         return true;
       }
 
-      // Check if it's a moon
+      // Check if it's a moon (supports Luna/Moon/Lune, Europa, Titan, Ganymede, etc. in EN and FR)
       const moonMesh = this.moonMeshes.find(m => {
         const mid = String(m.userData?.moonData?.id || '').toLowerCase();
         const mName = String(m.userData?.moonData?.name?.en || '').toLowerCase();
-        return mid === cleanId || mName === cleanId ||
-          (cleanId === 'moon' && mid === 'luna') || (cleanId === 'luna' && mid === 'moon');
+        const mFrName = String(m.userData?.moonData?.name?.fr || '').toLowerCase();
+        return mid === cleanId || mName === cleanId || mFrName === cleanId ||
+          mid === normId || mName === normId || mFrName === normId ||
+          (cleanId === 'moon' && mid === 'luna') || (cleanId === 'luna' && mid === 'moon') ||
+          (cleanId === 'lune' && mid === 'luna') || (normId === 'luna' && mid === 'luna');
       });
       if (moonMesh) {
         this.focusOnMoon(moonMesh);
         this.highlightActiveNav('moon', moonMesh.userData?.moonData?.id || cleanId);
+        if (typeof this.highlightCelestialPill === 'function') this.highlightCelestialPill('moon');
         if (typeof this.updateChartBoardTarget === 'function') {
           this.updateChartBoardTarget(moonMesh.userData?.moonData, 'moon');
         }
@@ -4101,7 +4425,7 @@ class MilkyWayExplorer {
       // Check if it's a spacecraft
       const scMesh = this.spacecraftMeshes.find(m => {
         const scid = String(m.userData?.craftData?.id || '').toLowerCase();
-        return scid === cleanId;
+        return scid === cleanId || scid === normId;
       });
       if (scMesh) {
         this.focusOnSpacecraft(scMesh);
@@ -4109,15 +4433,18 @@ class MilkyWayExplorer {
         return true;
       }
 
-      // Check if it's a planet
+      // Check if it's a planet (supports Earth/Terre, Mercury/Mercure, Saturn/Saturne, etc. in EN and FR)
       const pMesh = this.planetMeshes.find(m => {
         const pid = String(m.userData?.planetData?.id || '').toLowerCase();
         const pname = String(m.userData?.planetData?.name?.en || '').toLowerCase();
-        return pid === cleanId || pname === cleanId;
+        const pFrName = String(m.userData?.planetData?.name?.fr || '').toLowerCase();
+        return pid === cleanId || pname === cleanId || pFrName === cleanId ||
+          pid === normId || pname === normId || pFrName === normId;
       });
       if (pMesh) {
         this.focusOnPlanet(pMesh);
         this.highlightActiveNav('planet', pMesh.userData?.planetData?.id || cleanId);
+        if (typeof this.highlightCelestialPill === 'function') this.highlightCelestialPill(pMesh.userData?.planetData?.id);
         if (typeof this.updateChartBoardTarget === 'function') {
           this.updateChartBoardTarget(pMesh.userData?.planetData, 'planet');
         }
@@ -4127,59 +4454,36 @@ class MilkyWayExplorer {
       return false;
     };
 
-    // If we just loaded the system fresh, give it a tiny delay for meshes to settle
-    if (!wasAlreadyInSolarSystem) {
-      setTimeout(() => {
-        const found = doFocusAfterLoad();
-        if (!found) {
-          // Check if it's an exoplanet or outside star system
-          const foundSys = systemsData.find(s => s.id === cleanId || s.planets?.some(p => {
-            const pid = String(p.id || '').toLowerCase();
-            const pname = String(p.name?.en || '').toLowerCase();
-            return pid === cleanId || pname === cleanId;
-          }));
-          if (foundSys) {
-            this.flyToStarSystem(foundSys);
-            setTimeout(() => {
-              const foundP = this.planetMeshes.find(m => {
-                const pid = String(m.userData?.planetData?.id || '').toLowerCase();
-                const pname = String(m.userData?.planetData?.name?.en || '').toLowerCase();
-                return pid === cleanId || pname === cleanId;
-              });
-              if (foundP) {
-                this.focusOnPlanet(foundP);
-                if (typeof this.updateChartBoardTarget === 'function') {
-                  this.updateChartBoardTarget(foundP.userData?.planetData, 'planet');
-                }
-              }
-            }, 150);
-          }
-        }
-      }, 150);
-    } else {
-      const found = doFocusAfterLoad();
-      if (!found) {
-        // Check if it's an exoplanet or outside star system
-        const foundSys = systemsData.find(s => s.id === cleanId || s.planets?.some(p => {
+    const found = doFocusAfterLoad();
+    if (!found) {
+      // Check if it's an exoplanet or outside star system (e.g. Proxima Centauri, TRAPPIST-1, Kepler-90)
+      const foundSys = systemsData.find(s => {
+        const sid = String(s.id || '').toLowerCase();
+        const sNameEn = String(s.name?.en || '').toLowerCase();
+        const sNameFr = String(s.name?.fr || '').toLowerCase();
+        const starNameEn = String(s.star?.name?.en || '').toLowerCase();
+        const starNameFr = String(s.star?.name?.fr || '').toLowerCase();
+        const matchesSys = sid === cleanId || sNameEn === cleanId || sNameFr === cleanId ||
+          sid === normId || sNameEn === normId || starNameEn === cleanId || starNameFr === cleanId;
+        const matchesPlanet = s.planets?.some(p => {
           const pid = String(p.id || '').toLowerCase();
           const pname = String(p.name?.en || '').toLowerCase();
-          return pid === cleanId || pname === cleanId;
-        }));
-        if (foundSys) {
-          this.flyToStarSystem(foundSys);
-          setTimeout(() => {
-            const foundP = this.planetMeshes.find(m => {
-              const pid = String(m.userData?.planetData?.id || '').toLowerCase();
-              const pname = String(m.userData?.planetData?.name?.en || '').toLowerCase();
-              return pid === cleanId || pname === cleanId;
-            });
-            if (foundP) {
-              this.focusOnPlanet(foundP);
-              if (typeof this.updateChartBoardTarget === 'function') {
-                this.updateChartBoardTarget(foundP.userData?.planetData, 'planet');
-              }
-            }
-          }, 150);
+          return pid === cleanId || pname === cleanId || pid === normId || pname === normId;
+        });
+        return matchesSys || matchesPlanet;
+      });
+      if (foundSys) {
+        this.flyToStarSystem(foundSys);
+        const foundP = this.planetMeshes.find(m => {
+          const pid = String(m.userData?.planetData?.id || '').toLowerCase();
+          const pname = String(m.userData?.planetData?.name?.en || '').toLowerCase();
+          return pid === cleanId || pname === cleanId || pid === normId;
+        });
+        if (foundP) {
+          this.focusOnPlanet(foundP);
+          if (typeof this.updateChartBoardTarget === 'function') {
+            this.updateChartBoardTarget(foundP.userData?.planetData, 'planet');
+          }
         }
       }
     }
@@ -4280,11 +4584,72 @@ class MilkyWayExplorer {
     document.getElementById('lbl-interior-title').textContent = i18n.t('interiorTitle');
     document.getElementById('lbl-atmo-title').textContent = i18n.t('atmoTitle');
 
-    const footTitle = document.getElementById('txt-footer-title');
-    if (footTitle) footTitle.textContent = i18n.t('footerTitle');
-    const footData = document.getElementById('txt-footer-data');
-    if (footData) footData.textContent = i18n.t('footerData');
+    // Guided Tour Welcome Dashboard (Screenshot 1)
+    const txtTourBadge = document.getElementById('txt-tour-badge');
+    if (txtTourBadge) txtTourBadge.textContent = i18n.t('tourBadge');
+    const txtTourTitle = document.getElementById('txt-tour-welcome-title');
+    if (txtTourTitle) {
+      txtTourTitle.innerHTML = `${i18n.t('tourMainHeadingPrefix')} <span class="highlight-solar">${i18n.t('tourMainHeadingAccent')}</span>`;
+    }
+    const txtTourDesc = document.getElementById('txt-tour-welcome-desc');
+    if (txtTourDesc) txtTourDesc.textContent = i18n.t('tourMainDesc');
+    const txtStatStar = document.getElementById('txt-stat-star');
+    if (txtStatStar) txtStatStar.textContent = i18n.t('tourStatStar');
+    const txtStatPlanets = document.getElementById('txt-stat-planets');
+    if (txtStatPlanets) txtStatPlanets.textContent = i18n.t('tourStatPlanets');
+    const txtStatEarth = document.getElementById('txt-stat-earth');
+    if (txtStatEarth) txtStatEarth.textContent = i18n.t('tourStatEarth');
+    const txtSticky = document.getElementById('txt-sticky-note');
+    if (txtSticky) txtSticky.textContent = i18n.t('tourStickyNote');
+    const txtStep1 = document.getElementById('txt-step-1');
+    if (txtStep1) txtStep1.textContent = i18n.t('tourStep1');
+    const txtStep2 = document.getElementById('txt-step-2');
+    if (txtStep2) txtStep2.textContent = i18n.t('tourStep2');
+    const txtStep3 = document.getElementById('txt-step-3');
+    if (txtStep3) txtStep3.textContent = i18n.t('tourStep3');
+    const txtBtnStartTour = document.getElementById('txt-btn-start-tour');
+    if (txtBtnStartTour) txtBtnStartTour.textContent = i18n.t('tourBtnStart');
 
+    // System Guide Ticker (Screenshot 3)
+    const txtSysTickerTitle = document.getElementById('txt-sys-ticker-title');
+    if (txtSysTickerTitle) txtSysTickerTitle.textContent = i18n.t('topSysTitle');
+
+    // Bottom Controls & Ticker (Screenshots 1 & 3)
+    const txtOrbitsLabel = document.getElementById('txt-chk-orbits-label');
+    if (txtOrbitsLabel) txtOrbitsLabel.textContent = i18n.t('bottomOrbits');
+    const txtNamesLabel = document.getElementById('txt-chk-names-label');
+    if (txtNamesLabel) txtNamesLabel.textContent = i18n.t('bottomNames');
+    const txtHomeLabel = document.getElementById('txt-bottom-home-label');
+    if (txtHomeLabel) txtHomeLabel.textContent = i18n.t('bottomAccueil');
+    const txtSpeedBadge = document.getElementById('txt-slider-speed-badge');
+    if (txtSpeedBadge) {
+      txtSpeedBadge.textContent = `${Math.round(this.timeScale || 30)} ${i18n.t('bottomDaysPerSec')}`;
+    }
+    const txtBottomFact = document.getElementById('txt-bottom-fact');
+    if (txtBottomFact && this.factList) {
+      txtBottomFact.textContent = i18n.t(this.factList[this.currentFactIndex || 0]);
+    }
+
+    // Top Celestial Pills localized names
+    const isFr = i18n.lang === 'fr';
+    const pillNames = {
+      'pill-name-sun': isFr ? 'Soleil' : 'The Sun',
+      'pill-name-mercury': isFr ? 'Mercure' : 'Mercury',
+      'pill-name-venus': isFr ? 'Vénus' : 'Venus',
+      'pill-name-earth': isFr ? 'Terre' : 'Earth',
+      'pill-name-moon': isFr ? 'Lune' : 'Moon',
+      'pill-name-mars': 'Mars',
+      'pill-name-jupiter': 'Jupiter',
+      'pill-name-saturn': isFr ? 'Saturne' : 'Saturn',
+      'pill-name-uranus': 'Uranus',
+      'pill-name-neptune': 'Neptune'
+    };
+    for (const [id, name] of Object.entries(pillNames)) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = name;
+    }
+
+    this.updateBillboardLabelsText();
     this.updateBreadcrumbs();
     this.updateTimeHUD();
     this.updateCosmicGuideI18n();
@@ -4310,6 +4675,13 @@ class MilkyWayExplorer {
     const daysStep = this.clock.update(timestamp);
     if (daysStep > 0 || this.clock.isLeaping) {
       this.updateTimeHUD();
+    }
+
+    const tickerDesc = document.getElementById('txt-sys-ticker-desc');
+    if (tickerDesc && (daysStep > 0 || this.clock.isLeaping || !tickerDesc.dataset.init)) {
+      tickerDesc.dataset.init = '1';
+      const simYears = (this.simulatedDays / 365.25).toFixed(2);
+      tickerDesc.textContent = i18n.t('topSysSubtitle', { time: simYears });
     }
 
     // 1. Majestic Galaxy Rotation (continuous cosmic rotation from start + time evolution)
@@ -4377,6 +4749,10 @@ class MilkyWayExplorer {
 
       if (this.earthCloudsMesh) {
         this.earthCloudsMesh.rotation.y += 0.0008;
+      }
+
+      if (this.asteroidBeltMesh) {
+        this.asteroidBeltMesh.rotation.y = (timestamp * 0.00004) + (this.simulatedDays * 0.0004);
       }
     }
 
