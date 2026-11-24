@@ -83,7 +83,13 @@ class MilkyWayExplorer {
     }
 
     // Initialize with Solar System loaded so the Welcome Tour matches Reference Screenshots 1 & 2
-    this.loadStarSystem(solarSystemData.system);
+    const initialSolarSystem = Object.assign({}, systemsData[0], solarSystemData.system, {
+      id: 'solar-system',
+      isSolarSystem: true,
+      planetCount: 8,
+      dist_ly: 0.0
+    });
+    this.loadStarSystem(initialSolarSystem);
     const initSysPos = this.systemGroup.position;
     this.camera.position.set(initSysPos.x, initSysPos.y + 160, initSysPos.z + 320);
     this.controls.target.copy(initSysPos);
@@ -617,6 +623,12 @@ class MilkyWayExplorer {
     if (!systemData.coords_ly) {
       systemData.coords_ly = { x: 0, y: 0, z: 0 };
     }
+    systemData.planetCount = (systemData.planetCount !== undefined && systemData.planetCount !== null)
+      ? systemData.planetCount
+      : (systemData.planets ? systemData.planets.length : (isSolar ? 8 : 0));
+    systemData.dist_ly = (systemData.dist_ly !== undefined && systemData.dist_ly !== null)
+      ? systemData.dist_ly
+      : (isSolar ? 0.0 : 'Not measured');
 
     const sunCoords = (this.galaxy && this.galaxy.sunCoordinates) ? this.galaxy.sunCoordinates : { x: 0, y: 0, z: 0 };
     if (isSolar) {
@@ -1264,6 +1276,8 @@ class MilkyWayExplorer {
     const distanceStep = 22;
 
     planets.forEach((planet, index) => {
+      planet.id = planet.id || (planet.name ? planet.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') : `exoplanet-${index}`);
+      planet.semiMajorAxisAu = (planet.semiMajorAxisAu !== undefined) ? planet.semiMajorAxisAu : planet.semiMajorAxisAU;
       const orbitRadius = baseDistance + (index * distanceStep);
       const orbitCurve = new THREE.EllipseCurve(0, 0, orbitRadius, orbitRadius, 0, 2 * Math.PI, false, 0);
       const points = orbitCurve.getPoints(128);
@@ -2221,25 +2235,28 @@ class MilkyWayExplorer {
       }
 
       document.getElementById('lbl-dist').textContent = i18n.t('distFromStar');
-      document.getElementById('val-dist').textContent = data.distanceFromSun ? `${data.distanceFromSun.au} AU` : (data.orbitalDistanceKm ? `${data.orbitalDistanceKm.toLocaleString()} km` : 'N/A');
+      const distVal = data.distanceFromSun ? `${data.distanceFromSun.au} AU` :
+        ((data.semiMajorAxisAU !== undefined || data.semiMajorAxisAu !== undefined) ? `${(data.semiMajorAxisAU || data.semiMajorAxisAu)} AU` :
+        (data.orbitalDistanceKm ? `${data.orbitalDistanceKm.toLocaleString()} km` : 'Not measured'));
+      document.getElementById('val-dist').textContent = distVal;
 
       document.getElementById('lbl-planets').textContent = type === 'moon' ? 'Parent World' : i18n.t('moons');
-      document.getElementById('val-planets').textContent = type === 'moon' ? (this.currentPlanet?.name?.en || 'Planet') : (data.moons !== undefined ? data.moons : '0');
+      document.getElementById('val-planets').textContent = type === 'moon' ? (this.currentPlanet?.name?.en || 'Planet') : (data.moons !== undefined ? String(data.moons) : '0');
 
       document.getElementById('lbl-radius').textContent = i18n.t('radius');
       document.getElementById('val-radius').textContent = data.radiusKm ? `${data.radiusKm.toLocaleString()} km` : `${data.radiusEarth || 1.0} R⊕`;
 
       document.getElementById('lbl-temp').textContent = i18n.t('temperature');
-      document.getElementById('val-temp').textContent = data.surfaceTemperature ? (typeof data.surfaceTemperature.celsius === 'string' ? data.surfaceTemperature.celsius : `${data.surfaceTemperature.celsius} °C`) : 'Variable';
+      document.getElementById('val-temp').textContent = data.surfaceTemperature ? (typeof data.surfaceTemperature.celsius === 'string' ? data.surfaceTemperature.celsius : `${data.surfaceTemperature.celsius} °C`) : (data.isHabitableZone ? 'Temperate (Habitable Zone)' : 'Not measured');
 
       document.getElementById('lbl-rotation').textContent = i18n.t('rotationPeriod');
-      document.getElementById('val-rotation').textContent = data.rotationPeriod ? (data.rotationPeriod[lang] || data.rotationPeriod.en) : 'Synchronous';
+      document.getElementById('val-rotation').textContent = data.rotationPeriod ? (data.rotationPeriod[lang] || data.rotationPeriod.en) : (data.rotationPeriodHours ? `${Math.abs(data.rotationPeriodHours).toFixed(1)} hrs` : 'Synchronous');
 
       document.getElementById('lbl-tilt').textContent = i18n.t('axialTilt');
-      document.getElementById('val-tilt').textContent = data.axialTilt !== undefined ? `${data.axialTilt}°` : 'N/A';
+      document.getElementById('val-tilt').textContent = data.axialTilt !== undefined ? `${data.axialTilt}°` : 'Not measured';
 
       document.getElementById('lbl-period').textContent = i18n.t('orbitalPeriod');
-      document.getElementById('val-period').textContent = data.orbitalPeriodDays ? `${data.orbitalPeriodDays} ${i18n.t('days')}` : 'N/A';
+      document.getElementById('val-period').textContent = data.orbitalPeriodDays ? `${data.orbitalPeriodDays} ${i18n.t('days')}` : 'Not measured';
 
       document.getElementById('lbl-speed').textContent = i18n.t('orbitalSpeed');
       document.getElementById('val-speed').textContent = data.orbitalSpeedKmS ? `${data.orbitalSpeedKmS} km/s` : 'Keplerian';
@@ -2345,10 +2362,19 @@ class MilkyWayExplorer {
       });
 
     } else {
-      const sName = data.isSolarSystem ? i18n.t('crumbSolarSystem') : (data.name[lang] || data.name.en);
+      const isSol = Boolean(data.isSolarSystem || data.id === 'solar-system' || data.name?.en === 'Solar System');
+      const sName = isSol ? i18n.t('crumbSolarSystem') : (typeof data.name === 'object' ? (data.name[lang] || data.name.en) : (data.name || 'Star System'));
       if (badgeEl) badgeEl.textContent = sName;
       nameEl.textContent = sName;
-      typeEl.textContent = `${data.star.spectralType || data.star.class} • ${data.planetCount} planets`;
+      const sPlanetCount = (data.planetCount !== undefined && data.planetCount !== null)
+        ? data.planetCount
+        : (data.planets ? data.planets.length : (isSol ? 8 : 0));
+      const sDistLy = (data.dist_ly !== undefined && data.dist_ly !== null)
+        ? data.dist_ly
+        : (isSol ? 0.0 : 'Not measured');
+      const sSpectralType = data.star?.spectralType || data.star?.class || 'G2V';
+
+      typeEl.textContent = `${sSpectralType} • ${sPlanetCount} planets`;
       descEl.textContent = data.description ? (data.description[lang] || data.description.en) : '';
 
       if (provBadgeEl) {
@@ -2356,33 +2382,33 @@ class MilkyWayExplorer {
         provBadgeEl.textContent = i18n.t('provenanceMeasured');
       }
       if (provSourceEl) {
-        provSourceEl.textContent = data.isSolarSystem ? i18n.t('provenanceSourceNasa') : i18n.t('provenanceSourceArchive');
+        provSourceEl.textContent = isSol ? i18n.t('provenanceSourceNasa') : i18n.t('provenanceSourceArchive');
       }
 
       const formEl = document.getElementById('detail-formation-desc');
       if (formEl) formEl.textContent = solarSystemData.system.formation ? (solarSystemData.system.formation[lang] || solarSystemData.system.formation.en) : "Collapsing molecular nebula.";
       const structEl = document.getElementById('detail-interior-desc');
-      if (structEl) structEl.textContent = data.star.interiorStructure ? (data.star.interiorStructure[lang] || data.star.interiorStructure.en) : "Thermonuclear fusion core surrounded by radiative and convective zones.";
+      if (structEl) structEl.textContent = data.star?.interiorStructure ? (data.star.interiorStructure[lang] || data.star.interiorStructure.en) : "Thermonuclear fusion core surrounded by radiative and convective zones.";
       const atmoEl = document.getElementById('detail-atmo-desc');
-      if (atmoEl) atmoEl.textContent = data.star.composition ? (data.star.composition[lang] || data.star.composition.en) : "73% Hydrogen, 25% Helium.";
+      if (atmoEl) atmoEl.textContent = data.star?.composition ? (data.star.composition[lang] || data.star.composition.en) : "73% Hydrogen, 25% Helium.";
 
       document.getElementById('lbl-dist').textContent = i18n.t('distFromSun');
-      document.getElementById('val-dist').textContent = `${data.dist_ly} ${i18n.t('lightYears')}`;
+      document.getElementById('val-dist').textContent = typeof sDistLy === 'number' ? `${sDistLy} ${i18n.t('lightYears')}` : sDistLy;
 
       document.getElementById('lbl-planets').textContent = 'Confirmed Planets';
-      document.getElementById('val-planets').textContent = `${data.planetCount} Worlds`;
+      document.getElementById('val-planets').textContent = `${sPlanetCount} Worlds`;
 
       document.getElementById('lbl-radius').textContent = i18n.t('radius');
-      document.getElementById('val-radius').textContent = `${data.star.radiusSolar || 1.0} R☉`;
+      document.getElementById('val-radius').textContent = `${data.star?.radiusSolar || 1.0} R☉`;
 
       document.getElementById('lbl-temp').textContent = i18n.t('temperature');
-      document.getElementById('val-temp').textContent = data.star.temperatureK ? `${data.star.temperatureK} K` : '5,778 K';
+      document.getElementById('val-temp').textContent = data.star?.temperatureK ? `${data.star.temperatureK} K` : '5,778 K';
 
       document.getElementById('lbl-rotation').textContent = i18n.t('spectralType');
-      document.getElementById('val-rotation').textContent = data.star.spectralType || 'G2V';
+      document.getElementById('val-rotation').textContent = sSpectralType;
 
       document.getElementById('lbl-tilt').textContent = 'Coordinates';
-      document.getElementById('val-tilt').textContent = `${data.ra || 0}° / ${data.dec || 0}°`;
+      document.getElementById('val-tilt').textContent = (data.ra !== undefined && data.dec !== undefined) ? `${data.ra}° / ${data.dec}°` : '0° / 0°';
 
       document.getElementById('lbl-period').textContent = 'Galactic Orbit';
       document.getElementById('val-period').textContent = '~230 Million Years';
@@ -2405,9 +2431,9 @@ class MilkyWayExplorer {
 
       factsList.innerHTML = '';
       const facts = [
-        `Hosts ${data.planetCount} planets cataloged by NASA missions.`,
-        `Positioned ${data.dist_ly} light-years away from our Sun in the Milky Way.`,
-        `Stellar class ${data.star.spectralType} radiating at ${data.star.temperatureK || 5778} Kelvin.`
+        `Hosts ${sPlanetCount} planets cataloged by NASA missions.`,
+        typeof sDistLy === 'number' ? `Positioned ${sDistLy} light-years away from our Sun in the Milky Way.` : `Positioned ${sDistLy} in the Milky Way.`,
+        `Stellar class ${sSpectralType} radiating at ${data.star?.temperatureK || 5778} Kelvin.`
       ];
       facts.forEach(f => {
         const item = document.createElement('div');
@@ -3352,7 +3378,7 @@ class MilkyWayExplorer {
     let solarFlux = '50.3 W/m² (3.7% Earth)';
 
     if (hostPlanet) {
-      const au = hostPlanet.distanceFromSun ? hostPlanet.distanceFromSun.au : (hostPlanet.semiMajorAxisAu || 1.0);
+      const au = hostPlanet.distanceFromSun ? hostPlanet.distanceFromSun.au : (hostPlanet.semiMajorAxisAu || hostPlanet.semiMajorAxisAU || 1.0);
       const millionKm = hostPlanet.distanceFromSun ? hostPlanet.distanceFromSun.millionKm : (au * 149.6).toFixed(1);
       sunDist = `${au} AU (${millionKm}M km)`;
       const lightMinutes = (au * 8.317).toFixed(1);
@@ -3554,7 +3580,10 @@ class MilkyWayExplorer {
     const chartPanel = document.getElementById('chart-board-panel');
     if (!chartPanel || chartPanel.classList.contains('collapsed')) return;
 
-    this.renderChartRadar();
+    const radarTab = document.getElementById('tab-radar');
+    if (radarTab && radarTab.classList.contains('active')) {
+      this.renderChartRadar();
+    }
 
     const target = this.currentChartTarget || solarSystemData.system.planets.find(p => p.id === 'jupiter');
     if (!target) return;

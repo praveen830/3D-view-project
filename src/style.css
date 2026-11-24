@@ -2,24 +2,31 @@
 
 :root {
   --bg-space: #030712;
-  --glass-bg: rgba(15, 23, 42, 0.78);
-  --glass-bg-hover: rgba(30, 41, 59, 0.90);
-  --glass-border: transparent;
-  --glass-border-glow: rgba(96, 165, 250, 0.35);
+  --bg-space-dark: #02040a;
+  --bg-card: rgba(11, 19, 36, 0.72);
+  --glass-bg: rgba(10, 16, 30, 0.80);
+  --glass-bg-hover: rgba(18, 28, 52, 0.90);
+  --glass-border: 1px solid rgba(56, 189, 248, 0.16);
+  --glass-border-glow: rgba(56, 189, 248, 0.35);
   --accent-cyan: #38bdf8;
   --accent-blue: #3b82f6;
   --accent-gold: #f59e0b;
+  --accent-amber: #facc15;
   --accent-purple: #a855f7;
   --accent-green: #4ade80;
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --text-dim: #64748b;
-  --font-heading: 'Space Grotesk', -apple-system, sans-serif;
+  --font-heading: 'Outfit', 'Space Grotesk', -apple-system, sans-serif;
   --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+  --radius-xs: 6px;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
-  --shadow-glow: 0 0 25px rgba(56, 189, 248, 0.25);
+  --radius-full: 9999px;
+  --shadow-panel: 0 16px 40px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.20);
 }
 
 * {
@@ -54,18 +61,19 @@ canvas {
   height: 100%;
 }
 
-/* Seamless Borderless Glassmorphism UI Base */
+/* Premium Space Observatory Glassmorphism UI Base */
 .glass-panel {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: none;
+  border: var(--glass-border);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-md);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-panel:hover {
+  border-color: rgba(56, 189, 248, 0.28);
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 
@@ -834,17 +842,24 @@ canvas {
 /* Fact-Sheet Details Panel */
 #details-panel {
   position: absolute;
-  top: 70px;
-  right: 24px;
-  width: 410px;
-  max-height: calc(100% - 150px);
-  padding: 20px;
+  top: 72px;
+  right: 20px;
+  width: 380px;
+  max-width: calc(100vw - 40px);
+  max-height: calc(100% - 145px);
+  padding: 18px;
   display: none;
   flex-direction: column;
   gap: 12px;
   overflow-y: auto;
   z-index: 35;
-  animation: fadeInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(7, 13, 26, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(56, 189, 248, 0.20);
+  border-radius: 16px;
+  box-shadow: -8px 16px 40px rgba(0, 0, 0, 0.70);
+  animation: fadeInRight 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #details-panel.active {
@@ -1521,22 +1536,39 @@ canvas {
     display: none;
   }
 
-  /* ---- DETAILS PANEL ---- */
+  /* ---- DETAILS PANEL (Mobile Bottom Sheet) ---- */
   #details-panel {
-    position: fixed;
+    position: fixed !important;
     top: auto !important;
     bottom: 0 !important;
     right: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    max-height: 60vh !important;
-    border-radius: 18px 18px 0 0;
-    border-left: none;
-    border-right: none;
-    border-bottom: none;
-    padding: 14px;
-    z-index: 50;
-    animation: slideUpMobile 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    max-width: 100% !important;
+    max-height: 65vh !important;
+    border-radius: 20px 20px 0 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-top: 1px solid rgba(56, 189, 248, 0.3) !important;
+    box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.85) !important;
+    padding: 16px 16px max(16px, env(safe-area-inset-bottom)) !important;
+    z-index: 55 !important;
+    animation: slideUpMobile 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+  }
+
+  #details-panel::before {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 2px;
+    margin: 0 auto 10px;
+    flex-shrink: 0;
   }
   
   @keyframes slideUpMobile {
@@ -1555,12 +1587,12 @@ canvas {
     gap: 6px;
   }
 
-  /* ---- BOTTOM BAR & TOOLBAR ---- */
+  /* ---- BOTTOM BAR & TOOLBAR (Touch-Optimized) ---- */
   .bottom-deck {
     gap: 4px;
   }
   .bottom-bar {
-    padding: 0 6px 6px;
+    padding: 0 6px max(6px, env(safe-area-inset-bottom));
     gap: 4px;
   }
 
@@ -1590,6 +1622,10 @@ canvas {
     width: 100%;
   }
   .time-step-btn {
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 5px 4px;
     font-size: 0.65rem;
     border-radius: 6px;
@@ -1605,11 +1641,14 @@ canvas {
     gap: 4px;
     border-radius: 12px;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
   }
   .toolbar::-webkit-scrollbar { display: none; }
 
   .tool-btn {
-    padding: 6px 10px;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 8px 10px;
     gap: 4px;
     font-size: 0.78rem;
     flex-shrink: 0;
@@ -1624,8 +1663,8 @@ canvas {
     display: none;
   }
   .tool-btn svg {
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
   }
   .speed-select {
     font-size: 0.68rem;
@@ -1672,7 +1711,8 @@ canvas {
     height: 85vh;
     max-height: 85vh;
     bottom: 0;
-    box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.85);
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
   }
   
   #btn-left-nav-floating-open.left-nav-floating-tab {
@@ -2279,6 +2319,7 @@ canvas {
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
   border: none;
+  border-right: 1px solid rgba(56, 189, 248, 0.16);
   box-shadow: 12px 0 50px rgba(0, 0, 0, 0.85);
   display: flex;
   flex-direction: column;
